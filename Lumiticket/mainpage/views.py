@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+def intropage(request):
+    return render(request, 'mainpage/intropage.html')
+
+def loadingpage(request):
+    return render(request, 'mainpage/loadingpage.html')
