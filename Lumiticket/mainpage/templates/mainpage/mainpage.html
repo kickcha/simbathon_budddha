@@ -3,7 +3,7 @@
 {{tickets}}
 
 <div>
-    {% for ticket in tickets|sort(reverse=True, attribute='likes')|slice(0, 2) %}
+    {% for ticket in tickets %}
     <div>
         <h3>{{ticket.nickname}}</h3>
         {{ticket.pub_date}}<br>
@@ -12,3 +12,6 @@
     </div>
     {% endfor %} 
 </div>
+
+<p>나의 매력 포인트는?</p>
+<p>하루에 한 질문씩! 자기 탐구 아카이빙</p>
