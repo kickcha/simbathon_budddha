@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "AppleSDGothicNeoB";
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+@media only screen and (min-width: 100vw) {
+    body {
+        display: flex;
+        /* justify-content: center;
+        align-items: center; */
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        position: absolute;
+        background-image: url('image/bgimage.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        justify-content: center;
+}
+    .container {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+}       
+}
+
+.container > .header,
+.container > .welcome,
+.container > .goole_login,
+.container > .arrow,
+.container > .kakao_login {
+    text-align: center;
+    color: white; /* 헤더의 글자 색상을 지정 */
+}
+
+/* header */
+#head_name{
+    margin-left: -21rem;
+    margin-top: 1rem;
+}
+
+.prof{
+    margin-left: 25.3rem;
+    margin-top: -1.4rem;
+    position: relative;
+    
+
+}
+
+#pro{
+    font-size: xx-large;
+}
+
+/* arrow */
+#back{
+    font-size: xxx-large;
+    margin-left: -23rem;
+    margin-top: 0.5rem;
+}
+
+/* welcome */
+
+#welcome_announce{
+    margin-top:10rem;
+    font-size: xxx-large;
+    font-family: 'Tenada';
+}
+
+/* 로그인 */
+.google_login{
+    justify-content: space-around;
+    display: flex;
+    position: relative;
+    background-color: white;
+    width: 85vw;
+    height: 8vh;
+    align-items: center;
+    justify-content: center;
+    margin-top:20rem;
+
+
+}
+
+#google_logo{
+    width:3vw;
+    height: 5vh;
+}
