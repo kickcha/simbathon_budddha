@@ -5,15 +5,20 @@
     font-style: normal;
 }
 
-
 body {
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat; 
-    background-size: cover;
-    background-image: url('image/배경.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.wallpaper{
+    max-width: 430px;
     width: 100%;
     height: 100vh;
+    background-size: contain;
+    background-image: url('image/배경.png');
 }
 
 span.lumiticket{
@@ -21,7 +26,7 @@ span.lumiticket{
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 80px;
+    font-size: 50px;
     color: #fff;
     font-family:'CWDangamAsac-Bold';
 }
