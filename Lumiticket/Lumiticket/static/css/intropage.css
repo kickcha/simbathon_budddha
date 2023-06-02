@@ -5,20 +5,36 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'HSBombaram3_Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.1/HSBombaram3_Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
+    margin: 0%;
 }
 
 .wallpaper{
     max-width: 430px;
     width: 100%;
     height: 100vh;
-    background-size: contain;
+    background-size: cover;
     background-image: url('image/배경.png');
+    background-repeat: no-repeat;
 }
 
 span.lumiticket{
@@ -26,26 +42,30 @@ span.lumiticket{
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 50px;
+    font-size: 4.0em;
     color: #fff;
-    font-family:'CWDangamAsac-Bold';
+    font-family:'Tenada';
+    letter-spacing:1.5px;
+    opacity: 0.85;
 }
 
 button{
-    width: 120px;
+    width: 140px;
     height: 40px;
     background-color: #FFD700;
     border: none;
-    color: white;
+    color: #002142;
     box-shadow: 0 4px 16px rgba(255,215,0,0.3);
     font-size: 16px;
     font-weight: bold;
     border-radius: 20px;
     position: absolute;
-    top: 70%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: 0.3s;
+    letter-spacing:1.2px;
+    
 }
 
 button:focus{

@@ -1,0 +1,14 @@
+
+<p>티켓 목록</p> <!--여기 수정해야 됨 살려줘 ㅋㅋ-->
+{{tickets}}
+
+<div>
+    {% for ticket in tickets|sort(reverse=True, attribute='likes')|slice(0, 2) %}
+    <div>
+        <h3>{{ticket.nickname}}</h3>
+        {{ticket.pub_date}}<br>
+        {{ticket.body}}
+        <br>
+    </div>
+    {% endfor %} 
+</div>
