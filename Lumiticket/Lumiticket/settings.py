@@ -45,12 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # # 구글 로그인 전용 앱
-    # 'django.contrib.sites',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'allauth.socialaccount.providers.google',
+
 
     'accounts',
     'mainpage',
@@ -58,15 +53,7 @@ INSTALLED_APPS = [
     'qnapage',
 ]
 
-# 구글 로그인 전용
-# SITE_ID = 1
-# # 구글 로그인 전용
-# AUTHENTICATION_BACKENDS = [
-#     # 기존 장고 인증기능 (Needed to login by username in Django admin, regardless of 'allauth')
-#     'django.contrib.auth.backends.ModelBackend',
-#     # 소셜 로그인 기능 ('allauth' specific authentication methods, such as login by e-mail)
-#     'allauth.account.auth_backends.AuthenticationBackend',
-# ]
+
 LOGIN_REDIRECT_URL = '/'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
