@@ -21,7 +21,7 @@
         height: 100vh;
         margin: 0;
         position: absolute;
-        background-image: url('image/bgimage.png');
+        background-image: url('../image/bgimage.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
