@@ -1,15 +1,13 @@
 {% load static %}
-{% load socialaccount %}
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/loginpage.css">
+    <link rel="stylesheet" href="/static/css/login.css">
     <script src="https://kit.fontawesome.com/b0377dea63.js" crossorigin="anonymous"></script>
-    <title>Loginpage</title>
+    <title>Login</title>
 </head>
 <body>
     <div class="container">
@@ -28,11 +26,10 @@
             <div id="welcome_announce">이루미 티켓 발급처에<br>오신 것을 환영합니다</div>
         </div>
 
+
         <div class="google_login">
             <img src='https://ifh.cc/g/fQcBa5.jpg' id="google_logo">
-        <!-- 구글 로그인 버튼으로 변환해봄 -->
-            <a href="{% provider_login_url 'google' %}">구글로 시작하기</a>
-            <!-- <div id="google">구글로 시작하기</div> -->
+            <div id="google">구글로 시작하기</div>
         </div>
 
         <div class="kakao_login">
