@@ -1,4 +1,8 @@
-{% load static %}
+<!-- 로그인 화면 -->
+<!-- static 폴더 불러오기 -->
+{% load static %} 
+
+<form action=""
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,9 +29,20 @@
         <div class="welcome">
             <div id="welcome_announce">이루미 티켓 발급처에<br>오신 것을 환영합니다</div>
         </div>
-
-
-        <div class="google_login">
+        
+        <!-- 백엔드 추가 내용 (프론트 확인 시 삭제 바람)-->
+        <form action="{% url 'accounts:login' %}" method="POST">
+            {% csrf_token %}
+            아이디 <input type="text" name="username"><br>
+            비밀번호 <input type="passowrd" name="password"><br>
+            <input type="submit" value="로그인">
+        </form>
+        <form action="{% url 'accounts:signup' %}">
+            <input type="submit" value="가입하기">
+        </form>
+        <!-- 백엔드 추가내용 끝 -->
+        <!-- 소셜로그인 -> 로그인 (프론트 확인 시 삭제 바람) -->
+        <!-- <div class="google_login">
             <img src='https://ifh.cc/g/fQcBa5.jpg' id="google_logo">
             <div id="google">구글로 시작하기</div>
         </div>
@@ -35,7 +50,7 @@
         <div class="kakao_login">
             <i class="fa-solid fa-comment" id="kakao_logo"></i>
             <div id="kakao">카카오로 시작하기</div>
-        </div>
+        </div> -->
         <!-- </div> -->
     </div>
 </body>
