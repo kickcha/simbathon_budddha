@@ -21,7 +21,7 @@
         height: 100vh;
         margin: 0;
         position: absolute;
-        background-image: url('../image/bgimage.png');
+        background-image: url('image/배경.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -39,7 +39,7 @@
 .container > .welcome,
 .container > .goole_login,
 .container > .arrow,
-.container > .kakao_login {
+.container > .login_form {
     text-align: center;
     color: white; /* 헤더의 글자 색상을 지정 */
 }
@@ -77,22 +77,12 @@
     font-family: 'Tenada';
 }
 
-/* 로그인 */
-.google_login{
-    justify-content: space-around;
-    display: flex;
-    position: relative;
-    background-color: white;
-    width: 85vw;
-    height: 8vh;
-    align-items: center;
+/* form */
+.login_form{
+    background-color: #FAFBFD;
+    border:none;
+    border-radius: 20px;
     justify-content: center;
-    margin-top:20rem;
-
-
-}
-
-#google_logo{
-    width:3vw;
-    height: 5vh;
+    align-items: center;
+    display: flex;
 }
