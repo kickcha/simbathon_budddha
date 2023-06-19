@@ -1,22 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script
+    src="https://kit.fontawesome.com/3130e06a9f.js"
+    crossorigin="anonymous"
+  ></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/mainpage.css">
+</head>
 
-{% block content %}
 
-<p>티켓 목록</p> <!--여기 수정해야 됨 살려줘 ㅋㅋ-->
-{{tickets}}
-
-<div>
-    {% for ticket in tickets %}
-    <div>
-        <h3>{{ticket.nickname}}</h3>
-        {{ticket.pub_date}}<br>
-        {{ticket.summary}}
-        <a href="{% url 'detail' ticket.id %}">...</a>
-        <br>
+<body>
+    <div class="wallpaper">
+        <nav class="nav-container">
+            <ul class="logo">
+                <li><a href="">이루미 티켓</a></li>
+            </ul>
+            <ul class="icon">
+                <li><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></li>
+            </ul>
+        </nav>
     </div>
-    {% endfor %} 
-</div>
-
-<p>나의 매력 포인트는?</p>
-<p>하루에 한 질문씩! 자기 탐구 아카이빙</p>
-
-{% endblock %}
+</body>
