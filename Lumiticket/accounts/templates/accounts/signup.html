@@ -10,7 +10,7 @@
     <body>
         <form method="POST" action="{% url 'accounts:signup' %}">
             {% csrf_token %}
-            <p>username</p>
+            <p>id</p>
             <input type="text" name="username">
             <span class="error-message">{{ error_username }}</span>
             <br>
