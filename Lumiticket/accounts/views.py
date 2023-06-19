@@ -40,7 +40,7 @@ def signup(request):
         if not username or not password:
             error_username = '아이디와 비밀번호를 모두 입력해주세요.'
             return render(request, 'accounts/signup.html', {'error_username': error_username})
-        if Profile.objects.filter(username=username).exists():
+        if User.objects.filter(username=username).exists():
             error_username = '이미 사용중인 아이디입니다.'
             return render(request, 'accounts/signup.html', {'error_username': error_username})
         if not nickname:
