@@ -12,7 +12,7 @@ def login(request):
         user = auth.authentication(request, username = username, password = password)
         if user is not None:
             auth.login(request,user)
-            return redirect('mainpage.mainpage')
+            return redirect('mainpage:mainpage')
         else:
             return render(request, 'accounts/login.html') # '정보 없음, 회원가입 물어보는 페이지' 가기로 바꾸기
         
@@ -37,6 +37,9 @@ def signup(request):
         if not nickname:
             error_nickname = '닉네임을 입력해주세요.'
             return render(request, 'accounts/signup.html', {'error_nickname': error_nickname})
+        elif Profile.objects.filter(nickname=nickname).exists():
+            error_nickname = '이미 사용중인 닉네임입니다.'
+            return render(request, 'accounts/signup.html', {'error_nickname': error_nickname})
         if password != confirm:
             error_password = '비밀번호와 비밀번호 확인이 일치하지 않습니다.'
             return render(request, 'accounts/signup.html', {'error_password': error_password})
@@ -47,6 +50,6 @@ def signup(request):
             profile.save()
 
             auth.login(request,user)
-            return redirect('mainpage')
+            return redirect('mainpage:mainpage')
         
     return render(request, 'accounts/signup.html') # 
