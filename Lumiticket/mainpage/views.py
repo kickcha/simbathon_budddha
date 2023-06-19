@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from .models import Ticket
 from django.utils import timezone
 from qnapage import *
+from accounts import *
+
+def new(request):
+    return render(request, 'mainpage/new.html')
 
 def detail(request, id):
     Ticket = get_object_or_404(Ticket, pk=id)
@@ -17,19 +21,15 @@ def mainpage(request): #로딩페이지 이후 페이지
     tickets = Ticket.objects.all()
     return render(request, 'mainpage/mainpage.html', {'tickets':tickets})
 
-def new(request):
-    return redirect(request, 'mainapage/new.html')
-
 def create(request, id): #티켓 적는 함수
     if request.user.is_authenticated:
         new_ticket = Ticket()
-        new_ticket.nickname = request.nickname
+        new_ticket.writer = request.user.profile.nickname
         new_ticket.pub_date = timezone.now()
         new_ticket.body = request.POST['body']
-
         new_ticket.save()
-
-        return redirect('mainpage/detail.html')
+        
+        return redirect('mainpage/detail.html', new_ticket.id)
 
     else:
         return redirect('accounts/login.html')
