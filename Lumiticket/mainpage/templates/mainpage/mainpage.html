@@ -1,4 +1,6 @@
 
+{% block content %}
+
 <p>티켓 목록</p> <!--여기 수정해야 됨 살려줘 ㅋㅋ-->
 {{tickets}}
 
@@ -7,7 +9,8 @@
     <div>
         <h3>{{ticket.nickname}}</h3>
         {{ticket.pub_date}}<br>
-        {{ticket.body}}
+        {{ticket.summary}}
+        <a href=""{% url 'detail' ticket.id %}>...</a>
         <br>
     </div>
     {% endfor %} 
@@ -15,3 +18,5 @@
 
 <p>나의 매력 포인트는?</p>
 <p>하루에 한 질문씩! 자기 탐구 아카이빙</p>
+
+{% endblock %}
