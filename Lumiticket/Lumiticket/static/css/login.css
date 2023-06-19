@@ -12,27 +12,33 @@
     font-weight: 600;
 }
 
-@media only screen and (min-width: 100vw) {
+
     body {
+        max-width: 430px;
         display: flex;
         /* justify-content: center;
         align-items: center; */
-        width: 100vw;
+        width: 100%;
         height: 100vh;
         margin: 0;
-        position: absolute;
-        background-image: url('image/배경.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        position: relative;
         justify-content: center;
 }
-    .container {
+    /* .container {
         width: 100%;
-        height: 100%;
-        padding: 10px;
-}       
+        height: 100vh;
+        padding: 10px 10px;
+        overflow: hidden;
+        max-width: 430px;
+}        */
+
+.wallpaper{
+    max-width: 430px;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-image: url('image/bgimage.png');
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .container > .header,
@@ -45,9 +51,10 @@
 }
 
 /* header */
-#head_name{
+span.head_name{
     margin-left: -21rem;
     margin-top: 1rem;
+    position: absolute;
 }
 
 .prof{
@@ -71,18 +78,44 @@
 
 /* welcome */
 
-#welcome_announce{
+span#welcome_announce{
     margin-top:10rem;
-    font-size: xxx-large;
+    font-size: 40px;
     font-family: 'Tenada';
+    position: absolute;
+    color:#FAFBFD;
+    width: 100vw;
+    transform: translateX(2.4%);
+    top: -50px;
 }
 
 /* form */
 .login_form{
-    background-color: #FAFBFD;
+    background-color: #e0e0e0;
     border:none;
     border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+    position: absolute;
+    left: 185px;
+    top: 480px;
+    transform: translate(-50%, 50%);
+    width: 300px;
+    font-family: 'Gowun Batang', serif;
+    font-size: 20px;
+    height: 38px;
+    
+}
+
+.signup_form{
+    background-color:#e0e0e0;
+    border:none;
+    border-radius: 20px;
+    position: absolute;
+    left: 185px;
+    top: 532px;
+    transform: translate(-50%, 50%);
+    width: 300px;
+    font-family: 'Gowun Batang', serif;
+    font-size: 20px;
+    height: 38px;
+    text-align: center;
 }

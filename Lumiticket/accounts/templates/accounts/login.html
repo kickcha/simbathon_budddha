@@ -11,28 +11,28 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="container">
         <!-- <div class="background"> -->
-
+        <div class="wallpaper"></div>
+        <!-- 배경이미지 -->
         <div class="header">
-            <div id="head_name">이루미 티켓</div>
-            <div class="prof">
+            <span class="head_name">이루미 티켓</class>
+            <!-- <div class="prof">
             <i class="fa-regular fa-circle-user" id="pro"></i></div>
         </div>
         <div class="arrow">
         <i class="fa-solid fa-arrow-left" id="back"></i>
-        </div>
+        </div> -->
 
         <div class="welcome">
-            <div id="welcome_announce">이루미 티켓 발급처에<br>오신 것을 환영합니다</div>
+            <span id="welcome_announce">이루미 티켓 발급처에<br>오신 것을 환영합니다</span>
         </div>
         
         <form action="{%url 'accounts:login' %}">
             <input type="submit" value="로그인하기" class="login_form">
         </form>
 
-        <form action="{% url 'accounts:signup' %}" class="signup_form">
-            <input type="submit" value="회원가입 하기">
+        <form action="{% url 'accounts:signup' %}">
+            <input type="submit" value="회원가입 하기" class="signup_form">
         </form>
     </div>
 </body>
