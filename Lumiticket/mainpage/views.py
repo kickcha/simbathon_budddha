@@ -2,10 +2,14 @@ from django.shortcuts import render, redirect
 from .models import Ticket
 from django.utils import timezone
 from qnapage import *
+from accounts import *
+
+def new(request):
+    return render(request, 'mainpage/new.html')
 
 def detail(request, id):
     Ticket = get_object_or_404(Ticket, pk=id)
-    return redirect(request, 'mainpage/ticketdetail.html', {ticket:ticket})
+    return redirect(request, 'mainpage/ticketdetail.html', {'ticket':ticket})
 
 def intropage(request):
     return render(request, 'mainpage/intropage.html')
@@ -15,18 +19,22 @@ def loadingpage(request):
 
 def mainpage(request): #로딩페이지 이후 페이지
     tickets = Ticket.objects.all()
-    return render(request, 'mainpage/mainpage.html')
+    return render(request, 'mainpage/mainpage.html', {'tickets':tickets})
 
-def create(request): #티켓 적는 함수
-    new_ticket = Ticket()
-    new_ticket.nickname = request.POST['nickname']
-    new_ticket.pub_date = timezone.now()
-    new_ticket.body = request.POST['body']
+def create(request, id): #티켓 적는 함수
+    if request.user.is_authenticated:
+        new_ticket = Ticket()
+        new_ticket.writer = request.user.profile.nickname
+        new_ticket.pub_date = timezone.now()
+        new_ticket.body = request.POST['body']
+        new_ticket.save()
+        
+        return redirect('mainpage/detail.html', new_ticket.id)
 
-    new_ticket.save()
-    return redirect('detail', new_ticket.id)
+    else:
+        return redirect('accounts/login.html')
 
-def new(request): #티켓 다 적은 뒤 로딩되는 페이지 정의
+def ticketlistnew(request): #티켓 다 적은 뒤 로딩되는 페이지 정의
     return render(request, 'mainpage/ticketlistnew.html')
 
 def qnalistnew(request):

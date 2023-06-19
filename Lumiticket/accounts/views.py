@@ -1,23 +1,27 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from .models import Profile # 모델 사용
 
 # Create your views here.
-def login(request):
+def real_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
 
-        user = auth.authentication(request, username = username, password = password)
+        user = auth.authenticate(request, username = username, password = password)
         if user is not None:
             auth.login(request,user)
-            return redirect('mainpage.mainpage')
+            return redirect('mainpage:mainpage')
         else:
-            return render(request, 'accounts/login.html') # '정보 없음, 회원가입 물어보는 페이지' 가기로 바꾸기
+            return render(request, 'accounts/real_login.html') # '정보 없음, 회원가입 물어보는 페이지' 가기로 바꾸기
         
     elif request.method == 'GET':
-        return render(request, 'accounts/login.html')
+        return render(request, 'accounts/real_login.html')
+    
+def login(request):
+    return render(request, 'accounts/login.html')
 
 def logout(request):
     auth.logout(request)
@@ -37,6 +41,9 @@ def signup(request):
         if not nickname:
             error_nickname = '닉네임을 입력해주세요.'
             return render(request, 'accounts/signup.html', {'error_nickname': error_nickname})
+        elif Profile.objects.filter(nickname=nickname).exists():
+            error_nickname = '이미 사용중인 닉네임입니다.'
+            return render(request, 'accounts/signup.html', {'error_nickname': error_nickname})
         if password != confirm:
             error_password = '비밀번호와 비밀번호 확인이 일치하지 않습니다.'
             return render(request, 'accounts/signup.html', {'error_password': error_password})
@@ -47,6 +54,6 @@ def signup(request):
             profile.save()
 
             auth.login(request,user)
-            return redirect('mainpage')
+            return redirect('mainpage:mainpage')
         
     return render(request, 'accounts/signup.html') # 
