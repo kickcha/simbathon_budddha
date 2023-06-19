@@ -1,23 +1,27 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from .models import Profile # 모델 사용
 
 # Create your views here.
-def login(request):
+def real_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
 
-        user = auth.authentication(request, username = username, password = password)
+        user = auth.authenticate(request, username = username, password = password)
         if user is not None:
             auth.login(request,user)
             return redirect('mainpage:mainpage')
         else:
-            return render(request, 'accounts/login.html') # '정보 없음, 회원가입 물어보는 페이지' 가기로 바꾸기
+            return render(request, 'accounts/real_login.html') # '정보 없음, 회원가입 물어보는 페이지' 가기로 바꾸기
         
     elif request.method == 'GET':
-        return render(request, 'accounts/login.html')
+        return render(request, 'accounts/real_login.html')
+    
+def login(request):
+    return render(request, 'accounts/login.html')
 
 def logout(request):
     auth.logout(request)
