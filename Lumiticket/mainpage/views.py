@@ -24,12 +24,11 @@ def mainpage(request): #로딩페이지 이후 페이지
 def create(request, id): #티켓 적는 함수
     if request.user.is_authenticated:
         new_ticket = Ticket()
-        new_ticket.writer = request.user.nickname
+        new_ticket.writer = request.user.profile.nickname
         new_ticket.pub_date = timezone.now()
         new_ticket.body = request.POST['body']
-
         new_ticket.save()
-
+        
         return redirect('mainpage/detail.html', new_ticket.id)
 
     else:
