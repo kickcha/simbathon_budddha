@@ -15,7 +15,9 @@ def real_login(request):
             auth.login(request,user)
             return redirect('mainpage:mainpage')
         else:
-            return render(request, 'accounts/real_login.html') # '정보 없음, 회원가입 물어보는 페이지' 가기로 바꾸기
+            error_message = "아이디나 비밀번호가 일치하지 않습니다."
+            
+            return render(request, 'accounts/real_login.html', {'error_message': error_message}) # '정보 없음, 회원가입 물어보는 페이지' 가기로 바꾸기
         
     elif request.method == 'GET':
         return render(request, 'accounts/real_login.html')
@@ -36,7 +38,10 @@ def signup(request):
         confirm = request.POST['confirm']
 
         if not username or not password:
-            error_username = '아이디와 비밀번호를 입력해주세요.'
+            error_username = '아이디와 비밀번호를 모두 입력해주세요.'
+            return render(request, 'accounts/signup.html', {'error_username': error_username})
+        if Profile.objects.filter(username=username).exists():
+            error_username = '이미 사용중인 아이디입니다.'
             return render(request, 'accounts/signup.html', {'error_username': error_username})
         if not nickname:
             error_nickname = '닉네임을 입력해주세요.'
