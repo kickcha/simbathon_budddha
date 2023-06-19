@@ -10,7 +10,7 @@
         <h3>{{ticket.nickname}}</h3>
         {{ticket.pub_date}}<br>
         {{ticket.summary}}
-        <a href=""{% url 'detail' ticket.id %}>...</a>
+        <a href="{% url 'detail' ticket.id %}">...</a>
         <br>
     </div>
     {% endfor %} 
