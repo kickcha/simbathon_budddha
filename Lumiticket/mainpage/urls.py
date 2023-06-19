@@ -1,5 +1,6 @@
 from django.urls import path, include
 from .views import *
+from mainpage import views
 
 app_name = "mainpage"
 urlpatterns = [
@@ -9,4 +10,5 @@ urlpatterns = [
     path('create/', create, name="create"),
     path('mainpage/', mainpage, name="mainpage"),
     path('qnapage/', include('qnapage.urls', namespace='qnapage')),
+    path('<int:id>', detail, name="detail"),
 ]

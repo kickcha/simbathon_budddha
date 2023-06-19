@@ -1,7 +1,8 @@
+
 <form action="{% url 'create' %}" method="POST">
     
-{%csrf_token%} 
-<p>For. <input type="text" name="nickname"></p>
-<p><input type="text" name="body" placeholer="소원을 써주세요!"></p>
-<button type="submit">티켓 제출하기</button>
+{% csrf_token %} 
+    <p>For. <input type="text" name="nickname"></p>
+    <p><input type="text" name="body" placeholer="소원을 써주세요!"></p>
+    <button type="submit">티켓 제출하기</button>
 </form>

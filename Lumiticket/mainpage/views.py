@@ -5,7 +5,7 @@ from qnapage import *
 
 def detail(request, id):
     Ticket = get_object_or_404(Ticket, pk=id)
-    return redirect(request, 'mainpage/ticketdetail.html', {ticket:ticket})
+    return redirect(request, 'mainpage/ticketdetail.html', {'ticket':ticket})
 
 def intropage(request):
     return render(request, 'mainpage/intropage.html')
@@ -15,18 +15,26 @@ def loadingpage(request):
 
 def mainpage(request): #로딩페이지 이후 페이지
     tickets = Ticket.objects.all()
-    return render(request, 'mainpage/mainpage.html')
+    return render(request, 'mainpage/mainpage.html', {'tickets':tickets})
 
-def create(request): #티켓 적는 함수
-    new_ticket = Ticket()
-    new_ticket.nickname = request.POST['nickname']
-    new_ticket.pub_date = timezone.now()
-    new_ticket.body = request.POST['body']
+def new(request):
+    return redirect(request, 'mainapage/new.html')
 
-    new_ticket.save()
-    return redirect('detail', new_ticket.id)
+def create(request, id): #티켓 적는 함수
+    if request.user.is_authenticated:
+        new_ticket = Ticket()
+        new_ticket.nickname = request.nickname
+        new_ticket.pub_date = timezone.now()
+        new_ticket.body = request.POST['body']
 
-def new(request): #티켓 다 적은 뒤 로딩되는 페이지 정의
+        new_ticket.save()
+
+        return redirect('mainpage/detail.html')
+
+    else:
+        return redirect('accounts/login.html')
+
+def ticketlistnew(request): #티켓 다 적은 뒤 로딩되는 페이지 정의
     return render(request, 'mainpage/ticketlistnew.html')
 
 def qnalistnew(request):
