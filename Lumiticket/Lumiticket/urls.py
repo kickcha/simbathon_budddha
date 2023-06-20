@@ -25,5 +25,6 @@ urlpatterns = [
     path('', include('mainpage.urls')),
     path('accounts/', include('accounts.urls')),
     path('mypage/', include('mypage.urls')),
+    path('qnapage/', include('qnapage.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
