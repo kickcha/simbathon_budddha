@@ -3,4 +3,4 @@ from .models import Ticket, Comment
 
 # Register your models here.
 admin.site.register(Ticket)
-admin.site.register(COmment)
+admin.site.register(Comment)
