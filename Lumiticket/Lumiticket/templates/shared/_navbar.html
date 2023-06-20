@@ -1,0 +1,40 @@
+<!--상단 네브바-->
+
+<body>
+    <div class="wallpaper">
+        <nav class="nav-container">
+            <a href = "{% url 'mainpage:mainpage' %}">
+            <ul class="logo">
+                <li><a href="">이루미 티켓</a></li>
+            </ul>
+            </a>
+            <a href = "{% url 'mypage:mypage' %}">
+                <ul class="icon">
+                    <li><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></li>
+                </ul>
+            </a>
+        </nav>
+
+<!--하단 네브바-->
+        <nav class="footer-container">
+            <ul class="icons">
+                <li><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></li>
+                <li><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></li>
+                <li><i class="fa-regular fa-compass" style="color: #000000;"></i></li>
+            </ul>
+        </nav>
+
+    </div>
+</body>
+
+<!--상단네브바 각각 버튼에 연결해주세염-->
+<a href="{% url 'mainpage' %}">Home</a>
+<a href="{% url 'mypage:mypage' %}">Mypage</a>
+
+
+<!--하단네브바 각각 버튼에 연결해주세욤-->
+<a href = "{% url 'mainpage:ticketlistnew' %}">소원 보러 가기 </a>
+
+<a href="{% url 'mainpage:new' %}">소원쓰기</a>
+
+<a href="{% url 'qnapage:qnalistnew' %}">탐구질문 보러 가기</a>

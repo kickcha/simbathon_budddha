@@ -10,3 +10,9 @@ class Ticket(models.Model):
 
     def __str__(self):
         return self.body[:20]
+
+class Comment(models.Model):
+    content = models.TextField()
+    pub_date = models.DateTimeField()
+    writer = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
+    ticket = models.ForeignKey(Ticket, null=False, blank=False, on_delete=models.CASCADE)
