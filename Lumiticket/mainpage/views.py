@@ -37,8 +37,25 @@ def create(request): #티켓 적는 함수
     else:
         return redirect('accounts:login')
 
-def ticketlistnew(request): #티켓 다 적은 뒤 로딩되는 페이지 정의
-    return render(request, 'mainpage/ticketlistnew.html')
+def likes(request, ticket_id):
+    ticket = get_object_or_404(Ticket, id=ticket_id)
+    if request.user in ticket.like.all():
+        ticket.like.remove(request.user)
+        ticket.like_count -= 1
+        ticket.save()
+    else:
+        ticket.like.add(request.user)
+        ticket.like_count += 1
+        ticket.save()
+    return redirect('mainpage:deatil', ticket.id)
 
-def qnalistnew(request):
-    return render(request, 'qnapage/qnalistnew.html')
+def ticketlistnew(request):
+    return redirect('mainpage:ticketlistnew')
+
+def ticketlistpop(request):
+    return redirect('mainpage:ticketlistpop')
+
+def delete(request, id):
+    delete_ticket = Ticket.objects.get(id=id)
+    delete_blog.delete()
+    return redirect('mainpage:ticketlistnew')
