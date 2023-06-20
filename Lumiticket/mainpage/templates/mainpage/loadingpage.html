@@ -16,4 +16,8 @@
     </div>
 </body>
 </html>
-
+<script>
+    setTimeout(function() {
+        window.location.href = "{% url 'mainpage:mainpage' %}";
+    }, 3000);  // 2초 대기 후에 loadingpage.html로 이동
+</script>

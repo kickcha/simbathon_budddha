@@ -1,0 +1,31 @@
+<!-- qnalistnew.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>qnalistrecent</title>
+</head>
+<body>
+    <div class="buttons">
+        <a class="active" href="{% url 'qnapage:qnalistrecent' %}">최신순</a>
+        <a href="{% url 'qnapage:qnalistpop' %}">댓글순</a>
+    </div>
+
+    <div class="qna-list">
+        {% for qna in qnas %}
+            <div class="qna-item">
+                <!-- qna의 제목만 불러온다-->
+                <h3><a href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a></h3>
+            </div>
+        {% endfor %}
+    </div>
+    {% if user.is_authenticated and user.is_superuser %}
+        <a href="{% url 'qnapage:new' %}">새 질문글 쓰기</a>
+    {% endif %}
+
+    <style>
+        .buttons a.active {
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>

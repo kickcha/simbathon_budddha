@@ -1,0 +1,9 @@
+
+<form action="{%url 'qnapage:create'%}" method="POST" enctype="multipart/form-data"> <!-- 입력값은 create url로 보내주기 -->
+    <!-- 인터넷 사용자의 의지와 관계없이 공격자(해킹범)이 의도하는 행위를 웹사이트에 요청하게 만드는 공격 -->
+    {%csrf_token%} 
+    <!-- POST 방식 사용 시 값이 매번 변경되는 토큰을 발급해 CSRF 방어 -->
+    <p>제목 : <input type = "text" name = "title"></p> 
+    <p>내용 : <textarea type="text" name = "body" id="" cols="30" rows="10"></textarea></p>
+    <button type="submit">제출</button>
+</form>
