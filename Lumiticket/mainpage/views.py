@@ -3,6 +3,9 @@ from .models import Ticket
 from django.utils import timezone
 from qnapage import *
 from accounts import *
+# loading page관련 메서드
+from django.template import loader
+import time
 
 def detail(request, id):
     ticket = get_object_or_404(Ticket, pk=username)
