@@ -4,6 +4,7 @@ from django.utils import timezone
 from qnapage import *
 from accounts import *
 from django.db.models import Count
+from django.core.paginator import Paginator
 # loading page관련 메서드
 from django.template import loader
 import time
@@ -14,7 +15,7 @@ def detail(request, id):
         comments = Comment.objects.filter(ticket=ticket)
         return render(request, 'mainpage/detail.html',{
             'ticket':ticket,
-            'comeents'comments,
+            'comments':comments,
             })
     elif request.method == "POST":
         new_comment = Comment()
@@ -65,8 +66,8 @@ def likes(request, ticket_id):
         ticket.save()
     return redirect('mainpage:deatil', ticket.id)
 
-def ticketlistnew(request):
-    return redirect('mainpage:ticketlistnew')
+def ticketlistnew(request, id):
+    return redirect(request, 'mainpage:ticketlistnew', {})
 
 def ticketlistpop(request):
     return redirect('mainpage:ticketlistpop')
