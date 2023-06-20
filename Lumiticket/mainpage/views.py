@@ -9,6 +9,10 @@ from django.core.paginator import Paginator
 from django.template import loader
 import time
 
+def mainpage(request): #로딩페이지 이후 페이지
+    #tickets = Ticket.objects.annotate(like_count=Count('like')).order_by('-like_count')[:2]
+    return render(request, 'mainpage/mainpage.html')
+
 def detail(request, id):
     ticket = get_object_or_404(Ticket, pk=id)
     if request.method == 'GET':
@@ -32,10 +36,6 @@ def intropage(request):
 
 def loadingpage(request):
     return render(request, 'mainpage/loadingpage.html')
-
-def mainpage(request): #로딩페이지 이후 페이지
-    tickets = Ticket.objects.annotate(like_count=Count('like')).order_by('-like_count')[:2]
-    return render(request, 'mainpage/mainpage.html', {'tickets':tickets})
 
 def new(request):
     return render(request, 'mainpage/new.html')
@@ -67,7 +67,7 @@ def likes(request, ticket_id):
     return redirect('mainpage:deatil', ticket.id)
 
 def ticketlistnew(request, id):
-    return redirect(request, 'mainpage:ticketlistnew', {})
+    return redirect('mainpage:ticketlistnew')
 
 def ticketlistpop(request):
     return redirect('mainpage:ticketlistpop')
@@ -96,3 +96,4 @@ def update_comment(request, id):
 
             update_comment.save()
             return redirect('mainpage:detail', update_comment.id)
+
