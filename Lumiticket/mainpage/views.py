@@ -18,7 +18,7 @@ def mainpage(request): #로딩페이지 이후 페이지
     return render(request, 'mainpage/mainpage.html', {'tickets':tickets})
 
 def new(request):
-    return redirect(request, 'mainapage/new.html')
+    return redirect(request, 'mainpage/new.html')
 
 def create(request, id): #티켓 적는 함수
     if request.user.is_authenticated:

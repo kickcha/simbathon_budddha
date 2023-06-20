@@ -1,35 +1,55 @@
 <!-- 기본기능만 있는 회원가입 창 -->
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="/static/css/signup.css">
+            <script src="https://kit.fontawesome.com/b0377dea63.js" crossorigin="anonymous"></script>
+            <title>signup</title>
+        </head>
     <body>
+        <div class="wallpaper"></div>
+            
+            <span class="writeid">사용하실 아이디와<br>비밀번호를 설정해주세요</span>
+
         <form method="POST" action="{% url 'accounts:signup' %}">
             {% csrf_token %}
-            <p>id</p>
-            <input type="text" name="username">
-            <span class="error-message">{{ error_username }}</span>
-            <br>
-            
-            <p>nickname</p>
-            <input type="text" name="nickname">
+
+        <div class="idpass">
+            <!-- 아이디 입력 -->
+            <div class="idsection">
+                <span class="id">아이디</span>
+                <input type="text" name="username" class="id2" placeholder="아이디를 입력해주세요." required>
+                <span class="error-message">{{ error_username }}</span>
+            </div>
+        
+            <div class="passwordsection">
+                <span class="password">비밀번호</span> <br>
+                <input type="password" name="password" class="password2" placeholder="비밀번호를 입력해주세요." required>
+            </div>
+
+            <div class="resection">
+                <span class="repassword">비밀번호 재확인</span>
+                <input type="password" name="confirm" class="repassword2" placeholder="비밀번호를 입력해주세요." required>
+                <span class="error-message">{{ error_password }}</span>
+            </div>
+        </div>
+
+            <div class="writename-wrapper">
+                <span class="writename">사용하실 닉네임을 적어주세요</span>
+            </div>
+        
+
+        <div class="namesection">
+            <span class="name">닉네임</span>
+            <input type="text" name="nickname" class="name2" placeholder="닉네임을 적어주세요." required>
             <span class="error-message">{{ error_nickname }}</span>
-            <br>
-
-            <p>password</p>
-            <input type="password" name="password">
-            <br>
-
-            <p>confirm</p>
-            <input type="password" name="confirm">
-            <span class="error-message">{{ error_password }}</span>
-            <br>
-
-            <input type="submit" value="회원가입">
+            <input type="submit" value="가입하고 시작하기" name="start" class="start">
+        </div>
         </form>
+    </div>
     </body>
 </html>
