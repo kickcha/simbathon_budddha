@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Required</title>
+</head>
+<body>
+    <script>
+        alert("Login is required");
+        window.location.href = "{% url 'accounts:login' %}"; // Redirect to the login page
+    </script>
+</body>
+</html>
