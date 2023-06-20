@@ -16,20 +16,11 @@
     body {
         max-width: 430px;
         display: flex;
-        /* justify-content: center;
-        align-items: center; */
         width: 100%;
         height: 100vh;
         margin: 0;
         justify-content: center;
 }
-    /* .container {
-        width: 100%;
-        height: 100vh;
-        padding: 10px 10px;
-        overflow: hidden;
-        max-width: 430px;
-}        */
 
 .wallpaper{
     max-width: 430px;
@@ -39,6 +30,7 @@
     background-image: url('image/bgimage.png');
     background-repeat: no-repeat;
     overflow: hidden;
+    background-position: center;
 }
 
 .container > .header,

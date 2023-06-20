@@ -96,4 +96,3 @@ def update_comment(request, id):
 
             update_comment.save()
             return redirect('mainpage:detail', update_comment.id)
-
