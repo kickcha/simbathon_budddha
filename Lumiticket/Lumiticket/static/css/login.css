@@ -20,6 +20,7 @@
         height: 100vh;
         margin: 0;
         justify-content: center;
+        
 }
 
 .wallpaper{
@@ -31,12 +32,14 @@
     background-repeat: no-repeat;
     overflow: hidden;
     background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .container > .header,
 .container > .welcome,
-.container > .goole_login,
-.container > .arrow,
 .container > .login_form {
     text-align: center;
     color: white; /* 헤더의 글자 색상을 지정 */
@@ -71,24 +74,25 @@ span.head_name{
 /* welcome */
 
 span#welcome_announce{
-    margin-top:10rem;
+    margin-top: 10rem;
     font-size: 40px;
     font-family: 'Tenada';
-    position: absolute;
-    color:#FAFBFD;
+    position: relative;
+    color: #FAFBFD;
     width: 100vw;
     transform: translateX(2.4%);
-    top: -50px;
+    top: 150px;
+    left: 2.3rem;
 }
 
 /* form */
 .login_form{
     background-color: #e0e0e0;
-    border:none;
+    border: none;
     border-radius: 20px;
-    position: absolute;
-    left: 185px;
-    top: 480px;
+    position: relative;
+    left: 11.5rem;
+    top: 22rem;
     transform: translate(-50%, 50%);
     width: 300px;
     font-family: 'Gowun Batang', serif;
@@ -98,12 +102,12 @@ span#welcome_announce{
 }
 
 .signup_form{
-    background-color:#e0e0e0;
-    border:none;
+    top: 22.7rem;
+    background-color: #e0e0e0;
+    border: none;
     border-radius: 20px;
-    position: absolute;
-    left: 185px;
-    top: 532px;
+    position: relative;
+    left: 11.5rem;
     transform: translate(-50%, 50%);
     width: 300px;
     font-family: 'Gowun Batang', serif;
