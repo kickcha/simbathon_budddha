@@ -15,21 +15,7 @@ def mainpage(request): #로딩페이지 이후 페이지
 
 def detail(request, id):
     ticket = get_object_or_404(Ticket, pk=id)
-    if request.method == 'GET':
-        comments = Comment.objects.filter(ticket=ticket)
-        return render(request, 'mainpage/detail.html',{
-            'ticket':ticket,
-            'comments':comments,
-            })
-    elif request.method == "POST":
-        new_comment = Comment()
-        new_comment.ticket = ticket
-        new_comment.writer = request.user
-        new_comment.content = request.POST['content']
-        new_comment.pub_date = timezone.now()
-        new_comment.save()
-
-        return redirect('mainpage:detail', id)
+    return render(request, 'mainpage/detail.html',{'ticket':ticket})
 
 def intropage(request):
     return render(request, 'mainpage/intropage.html')
@@ -80,23 +66,4 @@ def delete(request, id):
         delete_ticket = get_object_or_404(Ticket, id=id)
         delete_ticket.delete()
         return redirect('mainpage:mainpage')
-    return redirect('accounts:login')
-
-def delete_comment(request, id):
-    if request.user.is_authenticated:
-        comment = get_object_or_404(Comment, id=id)
-        ticket_id = comment.ticket.id
-        comment.delete()
-        return redirect('mainpage:detail', id=comment.ticket.id)
-    return redirect('accounts:login')
-
-def update_comment(request, id):
-    if request.user.is_authenticated:
-        update_comment = Comment.objects.get(id=id)
-        if request.user == update_comment.writer:
-            update_comment.pub_date = timezone.now()
-            update_comment.content = request.POST['content']
-
-            update_comment.save()
-            return redirect('mainpage:detail', update_comment.id)
     return redirect('accounts:login')
