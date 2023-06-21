@@ -1,3 +1,27 @@
+
+{% extends 'base.html' %} 
+{% block content %} 
+
+<div>
+    {% for ticket in tickets %} 
+    </div>
+        <h4>For.</h4>
+        {{ticket.writer}}</br>
+        <h4> {{ticket.summary}} </h4>
+        <a href="{%url 'mainpage:detail' ticket.id %}"> ...더보기</a>
+        <br>
+    </div>
+    {% endfor %} 
+</div>
+
+{% endblock %} 
+
+<!--메인페이지에서 뭐든 클릭하려고 하면 다 로그인하라는 팝업을 띄워야 하는데
+이걸 거대한 하나의 버튼으로 만들 건지 아니면 어떻게 구현할 건지 얘기해봐야 할 듯염.-->
+
+<!--좋아요 많은 거 두 개만 출력하는 거-->
+
+=======
 {% block content %}
 
 <!DOCTYPE html>
@@ -60,3 +84,4 @@
 
 
 {% endblock %}
+
