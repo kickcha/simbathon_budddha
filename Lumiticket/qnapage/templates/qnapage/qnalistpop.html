@@ -1,28 +1,34 @@
-<!-- qnalistnew.html -->
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %} 
+{% block content %} 
 <head>
-    <title>qnalistrecent</title>
+  <title>qnalistpop</title>
+  <link rel="stylesheet" href="/static/css/qna.css">
 </head>
-<body>
-    <div class="buttons">
-        <a href="{% url 'qnapage:qnalistrecent' %}">최신순</a>
-        <a class="active" href="{% url 'qnapage:qnalistpop' %}">댓글순</a>
-    </div>
 
-    <div class="qna-list">
-        {% for qna in qnas %}
-            <div class="qna-item">
-                <!-- qna의 제목만 불러온다-->
-                <h3><a href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a></h3>
-            </div>
-        {% endfor %}
-    </div>
-    <!-- 댓글순 글씨만 굵게 -->
-    <style>
-        .buttons a.active {
-            font-weight: bold;
-        }
-    </style>
+<body>
+  <a class="back" href="{% url 'mainpage:mainpage' %}"><i class="fa-solid fa-arrow-left"></i></a>
+  <div class="buttons">
+  <a class="recently" href="{% url 'qnapage:qnalistrecent' %}">최신순</a>
+  <span class="stick">l</span>
+  <a class="active" href="{% url 'qnapage:qnalistpop' %}">댓글순</a>
+</div>
+
+<div class="qna-list">
+  {% for qna in qnas %}
+  <div class="qna-item">
+    <!-- qna의 제목만 불러온다-->
+    <h3>
+      <a class="nana" href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a>
+    </h3>
+  </div>
+  {% endfor %}
+</div>
+<!-- 댓글순 글씨만 굵게 -->
+<style>
+  .buttons a.active {
+    font-weight: bold;
+  }
+</style>
 </body>
-</html>
+{% endblock %}
+
