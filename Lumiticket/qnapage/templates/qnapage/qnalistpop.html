@@ -6,10 +6,14 @@
 </head>
 
 <body>
-  <a class="back" href="{% url 'mainpage:mainpage' %}"><i class="fa-solid fa-arrow-left"></i></a>
+
+  <div class="backk">
+    <a class="back" href="{% url 'mainpage:mainpage' %}"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+  </div>
+
   <div class="buttons">
   <a class="recently" href="{% url 'qnapage:qnalistrecent' %}">최신순</a>
-  <span class="stick">l</span>
+  <span class="stick">|</span>
   <a class="active" href="{% url 'qnapage:qnalistpop' %}">댓글순</a>
 </div>
 
@@ -23,12 +27,7 @@
   </div>
   {% endfor %}
 </div>
-<!-- 댓글순 글씨만 굵게 -->
-<style>
-  .buttons a.active {
-    font-weight: bold;
-  }
-</style>
+
 </body>
 {% endblock %}
 
