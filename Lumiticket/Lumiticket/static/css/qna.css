@@ -10,32 +10,41 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'DONGGUK UNIVERSITY';
+    src: url("../fonts/DONGGUK UNIVERSITY.otf");
+    font-weight: normal;
+    font-style: normal;
+}
 
-.back{
+
+.backk{
     display: flex;
     position: absolute;
     justify-content: flex-start;
     font-size: 30px;
-    color: white;
     list-style-type: none;
     text-decoration: none;
+    margin-left: 25px;
+    margin-top: 85px;
 }
 
 .buttons{
     display: flex;
     align-items: center;
-    position:absolute;
-    top: 75px;
+    position: relative;
+    top: 80px;
     list-style-type: none;
     text-decoration: none;
+    justify-content: center;
 }
 
 .recently{
-    color: white;
-    font-size: 25px;
+    color:#AEAEAE;
+    font-size: 20px;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'Tenada';
+    font-family: 'DONGGUK UNIVERSITY';
     margin: 10px;
 }
 
@@ -46,19 +55,13 @@
 
 .active{
     color: white;
-    font-size: 25px;
+    font-size: 20px;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'Tenada';
+    font-family: 'DONGGUK UNIVERSITY';
     margin: 10px;
 }
 
 .qna-list{
     position: absolute;
-}
-
-.fa-arrow-left{
-    position: absolute;
-    left: -175px;
-    top: -343px;
 }

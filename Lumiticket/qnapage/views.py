@@ -19,8 +19,11 @@ def new(request):
     return render(request, 'qnapage/newqna.html')
 
 def qnalistrecent(request):
-    qnas = Qna.objects.all()
-    return render(request, 'qnapage/qnalistrecent.html', {'qnas':qnas})
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    else:
+        qnas = Qna.objects.all()
+        return render(request, 'qnapage/qnalistrecent.html', {'qnas':qnas})
 
 def qnalistpop(request):
     qnas = Qna.objects.all()
@@ -45,3 +48,15 @@ def qnadetail(request, id):
         new_comment.save()
         return redirect('qnapage:qnadetail', id)
     return render(request, 'qnapage/qnadetail.html', {'qna':qna})
+
+def comment_likes(request, comment_id):
+    qnacomment = get_object_or_404(QnaComment, id=comment_id)
+    if request.user in qnacomment.comment_like.all():
+        qnacomment.comment_like.remove(request.user)
+        qnacomment.comment_like_count -= 1
+        qnacomment.save()
+    else:
+        qnacomment.comment_like.add(request.user)
+        qnacomment.comment_like_count += 1
+        qnacomment.save()
+    return redirect('qnapage:qnadetail', qnacomment.qna.id)
