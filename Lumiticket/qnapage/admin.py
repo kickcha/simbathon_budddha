@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Qna
+from .models import *
 
 # Register your models here.
 admin.site.register(Qna)
+admin.site.register(QnaComment)
