@@ -3,7 +3,7 @@
 <form action="{% url 'mainpage:create' %}" method="POST">
     
 {% csrf_token %} 
-<p>For.</p>
+<p>For.{{user.profile.nickname}}</p>
    <!--<p>For. {{ticket.nickname}}</p>
 이 부분은 기존 Nickname 받아오는 건데 뷰함수에서 알아서 불러와지게 설정해놓은 거임
 그래서 아마 기본 티켓 쓰는 화면에 For가 있어야 하거나... 프론트가 구현해주길 기다리는...--> 

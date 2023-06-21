@@ -67,17 +67,19 @@ def likes(request, ticket_id):
         ticket.save()
     return redirect('mainpage:detail', ticket.id)
 
-def ticketlistnew(request):
+def ticketlistnew(request): 
+    tickets = Ticket.objects.all()
     return render(request, 'mainpage/ticketlistnew.html')
 
 def ticketlistpop(request):
-    return render(reequest, 'mainpage/ticketlistpop.html')
+    tickets = Ticket.objects.all().order_by('like_count')
+    return render(request, 'mainpage/ticketlistpop.html')
 
 def delete(request, id):
     if request.user.is_authenticated:
         delete_ticket = get_object_or_404(Ticket, id=id)
         delete_ticket.delete()
-        return redirect('mainpage:ticketlistnew', id)
+        return redirect('mainpage:mainpage')
     return redirect('accounts:login')
 
 def delete_comment(request, id):

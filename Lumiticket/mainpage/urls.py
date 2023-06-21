@@ -15,4 +15,5 @@ urlpatterns = [
     path('delete_comment/<int:id>', delete_comment, name="delete_comment"),
     path('update_comment/<int:id>', update_comment, name="update_comment"),
     path('ticketlistnew/', ticketlistnew, name="ticketlistnew"),
+    path('ticketlistpop/', ticketlistpop, name="ticketlistpop"),
 ]
