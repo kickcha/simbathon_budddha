@@ -36,15 +36,25 @@
 <!--좋아요 많은 거 두 개만 출력하는 거-->
 
 <div>
-    {% for ticket in tickets %} 
+    {% for ticket in tickets|slice:":2" %} <!-- 수정된 부분 -->
     <div>
         <h4>For.{{user.profile.nickname}}</h4>
-        <h4> {{ticket.summary}} </h4>
+        <h4> {{ticket.body}} </h4>
+        <h4> {{ticket.like_count}} 
+        Date. {{ticket.pub_date}}</h4>
         <a href="{%url 'mainpage:detail' ticket.id %}"> ...더보기</a>
         <br>
     </div>
     {% endfor %} 
 </div>
+
+<div>
+    <h3>나의 매력 포인트는?<br>
+        하루에 한 질문씩! 자기 탐구 아카이빙
+    </h3>
+    <a href="{% url 'qnapage:qnalistrecent' %}">보러 가기</a>
+</div>
+
 
 <!--하단 네브바-->
         <nav class="footer-container">
