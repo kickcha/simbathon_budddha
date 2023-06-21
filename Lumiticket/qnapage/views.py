@@ -48,3 +48,15 @@ def qnadetail(request, id):
         new_comment.save()
         return redirect('qnapage:qnadetail', id)
     return render(request, 'qnapage/qnadetail.html', {'qna':qna})
+
+def comment_likes(request, comment_id):
+    qnacomment = get_object_or_404(QnaComment, id=comment_id)
+    if request.user in qnacomment.comment_like.all():
+        qnacomment.comment_like.remove(request.user)
+        qnacomment.comment_like_count -= 1
+        qnacomment.save()
+    else:
+        qnacomment.comment_like.add(request.user)
+        qnacomment.comment_like_count += 1
+        qnacomment.save()
+    return redirect('qnapage:qnadetail', qnacomment.qna.id)

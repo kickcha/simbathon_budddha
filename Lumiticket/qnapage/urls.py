@@ -10,4 +10,5 @@ urlpatterns = [
     path('new/', new, name="new"),
     path('qnadetail/<int:id>/', qnadetail, name="qnadetail"),
     # path('comment/<int:qna_id>/<int:comment_id>', comment, name="comment"),
+    path('commentlikes/<int:comment_id>/', comment_likes, name="comment_likes")
 ]
