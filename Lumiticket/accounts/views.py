@@ -16,7 +16,7 @@ def real_login(request):
             auth.login(request,user)
             return redirect('mainpage:mainpage')
         else:
-            error_message = "비밀번호 정보가\n일치하지 않습니다!"
+            error_message = "로그인 정보가\n일치하지 않습니다!"
             
             return render(request, 'accounts/real_login.html', {'error_message': error_message}) # '정보 없음, 회원가입 물어보는 페이지' 가기로 바꾸기
         
