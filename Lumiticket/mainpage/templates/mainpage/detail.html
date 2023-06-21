@@ -1,6 +1,6 @@
 
 
-<h2>For.{{ticket.wirter}}</h2>
+<h2>For.{{user.profile.nickname}}</h2>
 Date. {{ticket.pub_date}}
 <hr>
 <p>{{ticket.body}}</p>
@@ -33,7 +33,7 @@ Date. {{ticket.pub_date}}
     <div class="comment_list">
         {% for c in comments %} 
         <hr>
-        <h4>{{c.writer}}</h4>
+        <h4>{{user.profile.nickname}}</h4>
         <p>{{c.content}}</p>
         <p>{{c.pub_date}}</p>
         {% endfor %}

@@ -1,7 +1,7 @@
 
 <div>
     {% for ticket in tickets %} 
-    </div>
+    <div>
         <h4>For. {{ticket.writer}}</h4>
         <h4> {{ticket.summary}} </h4>
         <a href="{%url 'mainpage:detail' ticket.id %}"> ...더보기</a>
