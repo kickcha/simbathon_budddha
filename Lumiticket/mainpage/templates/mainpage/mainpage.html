@@ -1,36 +1,21 @@
-{% block content %}
+{% extends 'base.html' %} 
+{% block content %} 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script
-    src="https://kit.fontawesome.com/3130e06a9f.js"
-    crossorigin="anonymous"
-  ></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/mainpage.css">
-</head>
+<div>
+    {% for ticket in tickets %} 
+    </div>
+        <h4>For.</h4>
+        {{ticket.writer}}</br>
+        <h4> {{ticket.summary}} </h4>
+        <a href="{%url 'mainpage:detail' ticket.id %}"> ...더보기</a>
+        <br>
+    </div>
+    {% endfor %} 
+</div>
 
-<!--상단 네브바-->
 
-<body>
-    <div class="wallpaper">
-        <nav class="nav-container">
-            <a href = "{% url 'mainpage:mainpage' %}">
-            <ul class="logo">
-                <li><a href="">이루미 티켓</a></li>
-            </ul>
-            </a>
-            <a href = "{% url 'mypage:mypage' %}">
-                <ul class="icon">
-                    <li><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></li>
-                </ul>
-            </a>
-        </nav>
 
-        <!--메인페이지에서 뭐든 클릭하려고 하면 다 로그인하라는 팝업을 띄워야 하는데
+<!--메인페이지에서 뭐든 클릭하려고 하면 다 로그인하라는 팝업을 띄워야 하는데
 이걸 거대한 하나의 버튼으로 만들 건지 아니면 어떻게 구현할 건지 얘기해봐야 할 듯염.-->
 
 <!--좋아요 많은 거 두 개만 출력하는 거-->
@@ -67,6 +52,3 @@
     </div>
 </body>
 
-
-
-{% endblock %}
