@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Qna
+from .models import *
 from django.utils import timezone
 
 # Create your views here.
@@ -28,4 +28,18 @@ def qnalistpop(request):
 
 def qnadetail(request, id):
     qna = get_object_or_404(Qna, pk = id)
+    if request.method == 'GET':
+        comments = QnaComment.objects.filter(qna = qna)
+        return render(request, 'qnapage/qnadeail.html',{
+            'qna':qna,
+            'comments':comments,
+            })
+    elif request.method == "POST":
+        new_comment = QnaComment()
+        new_comment.qna = qna
+        new_comment.writer = request.user
+        new_comment.pub_date = timezone.now()
+        new_comment.save()
+        return redirect('main:detail', id)
     return render(request, 'qnapage/qnadetail.html', {'qna':qna})
+
