@@ -293,3 +293,20 @@ input:focus{
     transform: translate(-50%, 100%);
     position: absolute;
 }
+
+
+.backk{
+    display: flex;
+    position: absolute;
+    justify-content: flex-start;
+    font-size: 30px;
+    list-style-type: none;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-top: 60px;
+}
+
+.fa-arrow-left:before {
+    content: "\f060";
+    font-size: 40px;
+}
