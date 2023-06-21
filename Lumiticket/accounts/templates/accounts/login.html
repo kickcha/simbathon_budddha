@@ -1,11 +1,8 @@
 <!-- 로그인 화면 -->
 <!-- static 폴더 불러오기 -->
-<!DOCTYPE html>
-<html lang="ko">
+{% extends 'base.html' %} 
+{% block content %} 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/login.css">
     <script src="https://kit.fontawesome.com/b0377dea63.js" crossorigin="anonymous"></script>
     <title>Login_choice</title>
@@ -14,6 +11,10 @@
         <!--<div class="background"> -->
     
         <div class="wallpaper">
+            
+            <div class="backk">
+                <a class="back" href="{% url 'mainpage:mainpage' %}"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+            </div>
         <!-- 배경이미지 -->
         <!-- <div class="header">
             <span class="head_name">이루미 티켓</class> -->
@@ -33,4 +34,4 @@
     </div>
     
 </body>
-</html>
+{%endblock%}
