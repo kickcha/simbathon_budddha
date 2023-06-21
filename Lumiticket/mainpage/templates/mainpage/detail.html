@@ -1,6 +1,6 @@
 
 
-<h2>For.</h2>
+<h2>For.{{ticket.wirter}}</h2>
 Date. {{ticket.pub_date}}
 <hr>
 <p>{{ticket.body}}</p>
@@ -38,9 +38,9 @@ Date. {{ticket.pub_date}}
         <p>{{c.pub_date}}</p>
         {% endfor %}
         <!--댓글 삭제, 수정 기능... 대댓글도...-->
-        {% if comment.writer == user %}
+        <!--% if comment.writer == user %-->
         <a href ="{% url 'mainpage:update_comment' ticket.id}">수정하기</a>
         <a href = "{% url 'mainpage:delete_comment' ticket.id %}">삭제하기</a>
-        {% endif %}
+       <!--- % endif %-->
     </div>
 </div>
