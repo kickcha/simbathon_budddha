@@ -54,12 +54,20 @@ def likes(request, ticket_id):
     return redirect('mainpage:detail', ticket.id)
 
 def ticketlistnew(request): 
-    tickets = Ticket.objects.all()
-    return render(request, 'mainpage/ticketlistnew.html')
+    ticket_list = Ticket.objects.order_by('-pub_date')
+    paginator = Paginator(ticket_list, 4)
+    page = request.GET.get('page')
+    tickets = paginator.get_page(page)
+
+    return render(request, 'mainpage/ticketlistnew.html', {'tickets':tickets})
 
 def ticketlistpop(request):
-    tickets = Ticket.objects.all().order_by('like_count')
-    return render(request, 'mainpage/ticketlistpop.html')
+    ticket_list = Ticket.objects.order_by('-like_count')
+    paginator = Paginator(ticket_list, 4)
+    page = request.GET.get('page')
+    tickets = paginator.get_page(page)
+
+    return render(request, 'mainpage/ticketlistpop.html', {'tickets':tickets})
 
 def delete(request, id):
     if request.user.is_authenticated:
