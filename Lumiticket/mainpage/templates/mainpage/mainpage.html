@@ -1,8 +1,3 @@
-<!--{% extends 'base.html' %}
-{% load static %}
-
-{% block content %} -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,31 +14,32 @@
 <!--상단 네브바-->
 
 <body>
-  <div class="wallpaper">
-      <nav class="nav-container">
-          <a href = "{% url 'mainpage:mainpage' %}">
-          <ul class="logo">
-              <li><a href="">이루미 티켓</a></li>
-          </ul>
-          </a>
-          <a href = "{% url 'mypage:mypage' %}">
-              <ul class="icon">
-                  <li><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></li>
-              </ul>
-          </a>
-      </nav>
+    <div class="wallpaper">
+        <nav class="nav-container">
+            <a href = "{% url 'mainpage:mainpage' %}">
+            <ul class="logo">
+                <li><a href="">이루미 티켓</a></li>
+            </ul>
+            </a>
+            <a href = "{% url 'mypage:mypage' %}">
+                <ul class="icon">
+                    <li><i class="fa-regular fa-circle-user" style="color: #ffffff;"></i></li>
+                </ul>
+            </a>
+        </nav>
 
 <!--하단 네브바-->
-      <nav class="footer-container">
-          <ul class="icons">
-              <li><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></li>
-              <li><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></li>
-              <li><i class="fa-regular fa-compass" style="color: #000000;"></i></li>
-          </ul>
-      </nav>
-
-  </div>
+        <nav class="footer-container">
+            <ul class="icons">
+                <li><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></li>
+                <li><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></li>
+                <li><i class="fa-regular fa-compass" style="color: #000000;"></i></li>
+            </ul>
+        </nav>
+    </div>
 </body>
+
+
 
 
 <!--메인페이지에서 뭐든 클릭하려고 하면 다 로그인하라는 팝업을 띄워야 하는데
@@ -55,6 +51,4 @@
 Date. {{ticket.pub_date}}
 <hr>
 <p>{{ticket.body}}</p>
-{% endfor %}
-
-{% endblock %}
+{% endfor %}-->
