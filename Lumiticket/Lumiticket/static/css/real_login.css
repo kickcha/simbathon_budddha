@@ -74,9 +74,17 @@ a{
 
 @font-face {
     font-family: 'DONGGUK UNIVERSITY';
+    src: url("../fonts/DONGGUK UNIVERSITY.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DONGGUK UNIVERSITY';
     src: url("../fonts/DONGGUK UNIVERSITY.otf");
     font-weight: normal;
     font-style: normal;
+}
 }
 
 * {

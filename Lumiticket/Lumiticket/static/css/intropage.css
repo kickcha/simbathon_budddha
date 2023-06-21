@@ -21,6 +21,13 @@
 
 @font-face {
     font-family: 'DONGGUK UNIVERSITY';
+    src: url("../fonts/DONGGUK UNIVERSITY.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DONGGUK UNIVERSITY';
     src: url("../fonts/DONGGUK UNIVERSITY.otf");
     font-weight: normal;
     font-style: normal;
@@ -72,8 +79,7 @@ button{
     transform: translate(-50%, -50%);
     transition: 0.3s;
     letter-spacing:1.2px;
-    font-family: 'DONGGUK UNIVERSITY';
-    
+    font-family: 'DONGGUK UNIVERSITY'; 
 }
 
 button:focus{
