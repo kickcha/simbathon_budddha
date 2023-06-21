@@ -1,6 +1,6 @@
 
 
-<h2>For.{{ticket.wirter}}</h2>
+<h2>For.{{user.profile.nickname}}</h2>
 Date. {{ticket.pub_date}}
 <hr>
 <p>{{ticket.body}}</p>
@@ -19,28 +19,3 @@ Date. {{ticket.pub_date}}
 </a>
 <!--좋아요 갯수-->
 {{ticket.like_count}}개
-
-
-<div class="comment_container">
-    <div class="comment_form">
-        <h3>댓글 작성하기</h3>
-        <form method="POST" action="{% url 'mainpage:detail' ticket.id %}">
-            {% csrf_token %}
-            <input type="text" name="content">
-            <input type="submit" name="submit">
-        </form> 
-    </div>
-    <div class="comment_list">
-        {% for c in comments %} 
-        <hr>
-        <h4>{{c.writer}}</h4>
-        <p>{{c.content}}</p>
-        <p>{{c.pub_date}}</p>
-        {% endfor %}
-        <!--댓글 삭제, 수정 기능... 대댓글도...-->
-        <!--% if comment.writer == user %-->
-        <a href ="{% url 'mainpage:update_comment' ticket.id}">수정하기</a>
-        <a href = "{% url 'mainpage:delete_comment' ticket.id %}">삭제하기</a>
-       <!--- % endif %-->
-    </div>
-</div>

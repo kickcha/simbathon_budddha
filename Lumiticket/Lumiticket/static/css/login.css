@@ -5,9 +5,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'ELAND_Choice_M';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
+}
+
 * {
     box-sizing: border-box;
-    font-family: "AppleSDGothicNeoB";
+    font-family: 'ELAND_Choice_M';
     font-size: 1.2rem;
     font-weight: 600;
 }
@@ -81,37 +86,41 @@ span#welcome_announce{
     color: #FAFBFD;
     width: 100vw;
     transform: translateX(2.4%);
-    top: 150px;
+    top: 220px;
     left: 2.3rem;
+    line-height: 1.2;
 }
 
 /* form */
 .login_form{
-    background-color: #e0e0e0;
+    background-color: #FFD700;
     border: none;
     border-radius: 20px;
     position: relative;
     left: 11.5rem;
-    top: 22rem;
+    top: 20rem;
     transform: translate(-50%, 50%);
-    width: 300px;
-    font-family: 'Gowun Batang', serif;
-    font-size: 20px;
+    font-family: 'ELAND_Choice_M';
     height: 38px;
+    font-weight: 100;
+    width: 221px;
+    font-size: 15px;
     
 }
 
 .signup_form{
-    top: 22.7rem;
-    background-color: #e0e0e0;
+    top: 21rem;
+    background-color: #FFD700;
     border: none;
     border-radius: 20px;
     position: relative;
     left: 11.5rem;
     transform: translate(-50%, 50%);
-    width: 300px;
-    font-family: 'Gowun Batang', serif;
-    font-size: 20px;
+    width: 221px;
+    font-family: 'ELAND_Choice_M';
+    font-size: 15px;
     height: 38px;
     text-align: center;
+    font-weight: 100;
 }
+

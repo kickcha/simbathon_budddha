@@ -1,18 +1,102 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>로그인</title>
-</head>
+<html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="/static/css/real_login.css">
+            <script src="https://kit.fontawesome.com/b0377dea63.js" crossorigin="anonymous"></script>
+            <script defer src="/static/javaScript/real_login.js"></script>
+            <title>loginpage</title>
+        </head>
 <body>
-    <h1>로그인</h1>
-    <form method="post">
+
+    <div class="blur">
+    <div class="wallpaper">
+        <span class="login">티켓 발급을 위한 <br> 로그인을 진행해주세요</span> 
+    
+    <form method="post" onsubmit="(e)=>{
+        
+        }">
         {% csrf_token %}
-        <label for="username">아이디:</label>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">비밀번호:</label>
-        <input type="password" id="password" name="password"><br>
-        <span class="error-message">{{ error_message }}</span>
-        <input type="submit" value="로그인">
+
+        <div class="idsection">
+            <label for="username" class="id">아이디</label> <br>
+            <input type="text" id="username" name="username" placeholder="아이디를 입력해주세요."><br>
+        </div>
+
+
+        {% if error_message %}
+        
+        <style>
+              /* 페이드 인 애니메이션 */
+              .fade-in {
+                animation: fadeIn 1s ease-in-out;
+            }
+    
+            /* 페이드 아웃 애니메이션 */
+            .fade-out {
+                animation: fadeOut 1s ease-in-out;
+            }
+            .blur{
+                /* background-image: url('image/.png'); */
+                background-color: black;
+            }
+    
+            /* 페이드 인/아웃 키프레임 애니메이션 */
+            @keyframes fadeIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+    
+            @keyframes fadeOut {
+                0% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+        </style>
+        <span class="error-message fade-in" id="error-message">
+            <i class="fa-solid fa-circle-exclamation" style="color: #010A0F;"></i>
+            <div class="error_text">
+                {{ error_message }}
+            </div>
+        </span>
+        <script>
+            // 3초 후에 메시지를 닫는 함수
+            function closeErrorMessage() {
+                const backGround = document.getElementsByClassName('wallpaper')
+                var errorMessage = document.getElementById("error-message");
+                // backGround.classList.add("blur")
+                errorMessage.classList.remove("fade-in");
+                errorMessage.classList.add("fade-out");
+                setTimeout(function() {
+                    errorMessage.style.display = "none";
+
+                    // wallpaper에 
+                }, 1000); // 페이드 아웃 애니메이션의 시간(1초) 후에 요소를 숨깁니다.
+            }
+    
+            // 3초 타이머 설정
+            setTimeout(closeErrorMessage, 2000);
+        </script>
+    {% endif %}
+
+        <div class="passwordsection">
+            <label for="password" class="pass">비밀번호</label> <br>
+            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요."><br>        
+        </div>
+        
+        <input type="submit" value="로그인하고 시작하기" class="start">
     </form>
+    </div>
+    
 </body>
+
 </html>

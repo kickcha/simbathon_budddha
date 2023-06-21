@@ -105,175 +105,53 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
-.writeid{
+form{
+    position: relative;
+    top: 50%;
+    color:white;
+}
+
+.login{
     justify-content: center;
     display: flex;
     position: absolute;
-    top: 21%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
     color:white;
     font-family: 'Tenada';
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2.3rem;
     width: 30rem;
     line-height: 2.5rem;
-
+    font-weight: bold;
+    
 }
 
-.idpass {
-    position: absolute;
-    top: 47%;
+.idsection{
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
-    border-radius: 10px;
-}
-
-.id2{
-    margin-top: 0.3rem;
-    border-radius: 20px;
-    width: 300px;
-    height: 38px;
-    background: #AEAEAE;
-    margin-bottom: 1rem;
-    text-indent: 15px;
-    color: white;
-    font-weight: 180;
-    margin-bottom: 0.4rem;
-}
-
-.passwordsection{
-    margin-top:0.5rem;
-}
-
-.password{
-    margin-top:0.5rem;
-    left: 10px;
-    position: relative;
-}
-
-.password2{
-    margin-top: 0.3rem;
-    border-radius: 20px;
-    width: 300px;
-    height: 38px;
-    background: #AEAEAE;
-    margin-bottom: 1rem;
-    text-indent: 15px;
-    color: white;
-    font-weight: 180;
-}
-
-.repassword{
-    margin-top:0.5rem;
-    left: 10px;
-    position: relative;
-}
-
-.repassword2{
-    margin-top: 0.3rem;
-    border-radius: 20px;
-    width: 300px;
-    height: 38px;
-    background: #AEAEAE;
-    text-indent: 15px;
-    color: white;
-    font-weight: 180;
-    margin-bottom: 0.4rem;
-
-}
-
-
-.namesection{
-    position: absolute;
-    z-index: 1;
-    top:83%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.writename-wrapper{
     position:absolute;
-    z-index: 1;
-    top:70%;
-    color:white;
-    display: flex;
-    left: 51%;
-    transform: translate(-50%, -50%);
-    font-size:1.8rem;
-    width: 100%;
-    justify-content: center;
+
 }
 
-.password, .id, .repassword, .name{
-    color:white;
-}
-
-.id{
-    font-weight: 400;
-    font-weight: 400;
-    display: flex;
-    position: relative;
-    left: 10px;
-}
-
-span.writename{
-    color:white;
-    font-family: 'Tenada';
-    justify-content: center;
-    display: flex;
-    width: 100%;
-    text-align: center;
-}
-
-.name{
-    margin-top:0.5rem;
-    left: 10px;
-    position: relative;
-}
-
-.name2{
-    margin-top: 0.3rem;
+#username{
     border-radius: 20px;
     width: 300px;
     height: 38px;
     background: #AEAEAE;
-    margin-bottom: 1rem;
+    border:none;
+    margin-top: 0.5rem;
+    color:white;
     text-indent: 15px;
-    color: white;
     font-weight: 180;
     font-family: 'ELAND_Choice_M';
 }
 
-.start{
-    background-color: #FFD700;;
-    left:50%;
-    position: relative;
-    transform: translate(-50%, 50%);
-    border-radius: 20px;
-    width: 221px;
-    height: 38px;
-    font-size: 15px;
-}
 
-/* placeholder */
-
-.id2::placeholder,
-.password2::placeholder,
-.repassword2::placeholder,
-.name2::placeholder,
-.start::placeholder {
-    color:#FAFBFD;
-    font-size: 14px;
-    right:5px;
-    font-weight: 400;
-    text-indent:5%;
-    font-family: 'ELAND_Choice_M';
-}
-
-.start::placeholder {
+#username::placeholder {
     color:#FAFBFD;
     font-size: 14px;
     right:5px;
@@ -286,19 +164,114 @@ input:focus{
     outline:none;
 }
 
-/* error */
-.error-message_id {
-    color: red;
-    font-size: small;
-    left: 1rem;
-    position: relative;
+.passwordsection{
+    top: 300%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position:absolute;
+
+}
+
+#password{
+    border-radius: 20px;
+    width: 300px;
+    height: 38px;
+    background: #AEAEAE;
+    border:none;
+    margin-top: 0.5rem;
+    color:white;
+    text-indent: 15px;
+    font-weight: 180;
     font-family: 'ELAND_Choice_M';
 }
 
-.error-message_pass {
-    color: red;
+#password::placeholder {
+    color:#FAFBFD;
+    font-size: 14px;
+    right:5px;
+    font-weight: 400;
+    text-indent:5%;
+    font-family: 'ELAND_Choice_M';
+}
+
+.start{
+    background-color: #FFD700;;
+    left:50%;
+    position: relative;
+    transform: translate(-50%, 570%);
+    border-radius: 20px;
+    width: 221px;
+    height: 38px;
+    font-size: 15px;
+    border:none;
+}
+
+.id{
+    left: 10px;
+    position:relative
+}
+
+.pass{
+        left: 10px;
+        position:relative;  
+}
+
+/* .error-message{
+    color: black;
     font-size: small;
     left: 1rem;
-    position: relative;
+    position: absolute;
     font-family: 'ELAND_Choice_M';
+    background-color: white;
+    width:263px;
+    height:249px;
+    top:-10rem;
+    width: 263px;
+    height: 249px;
+    border-radius: 20px;
+} */
+
+
+
+
+.error-message {
+    /* display: none; */
+    z-index: 10000;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+    top:-6rem;
+    width: 263px;
+    height: 249px;
+    border-radius: 20px;
+}
+
+.error-message.show {
+    display: block;
+    opacity: 1;
+}
+
+.error_text {
+    position: relative;
+    /* display: flex; */
+    top: 100px;
+    font-size:20px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'ELAND_Choice_M';
+}
+
+.fa-circle-exclamation{
+    font-size:35px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    position: absolute;
 }

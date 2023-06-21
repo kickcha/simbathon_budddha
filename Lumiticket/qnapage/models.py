@@ -12,8 +12,11 @@ class Qna(models.Model):
         return self.title
     
 class QnaComment(models.Model):
-    contenct = models. TextField()
+    content = models.TextField()
     pub_date = models.DateTimeField()
     writer = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
     qna = models. ForeignKey(Qna, null=False, blank=False, on_delete=models.CASCADE)
     parent_comment = models.ForeignKey('self', on_delete=models.CASCADE, null = True, related_name='reply')
+
+    def __str__(self):
+        return self.qna.title+ " : " + self.content

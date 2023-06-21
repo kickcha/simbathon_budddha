@@ -30,16 +30,18 @@ def qnadetail(request, id):
     qna = get_object_or_404(Qna, pk = id)
     if request.method == 'GET':
         comments = QnaComment.objects.filter(qna = qna)
-        return render(request, 'qnapage/qnadeail.html',{
+        return render(request, 'qnapage/qnadetail.html',{
             'qna':qna,
-            'comments':comments,
+            'comments':comments
             })
     elif request.method == "POST":
         new_comment = QnaComment()
+        # foreignkey > blog 객체 직접 넣어주기
         new_comment.qna = qna
+        # foreignkey > request.user 객체 직접 넣어주기
+        new_comment.content = request.POST['content']
         new_comment.writer = request.user
         new_comment.pub_date = timezone.now()
         new_comment.save()
-        return redirect('main:detail', id)
+        return redirect('qnapage:qnadetail', id)
     return render(request, 'qnapage/qnadetail.html', {'qna':qna})
-

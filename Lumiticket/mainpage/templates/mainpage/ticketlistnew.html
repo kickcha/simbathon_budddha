@@ -1,11 +1,27 @@
 
-<div>
-    {% for ticket in tickets %} 
+{% block content %} 
+    <div class="container">
+        {% for ticket in tickets %} 
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-subtitle mb-2 text-muted">For. {{user.profile.nickname}}</h4>
+                <h4 class="card-text">{{ticket.body}} </h4>
+                <a href="{%url 'mainpage:detail' ticket.id %}"> ...더보기</a>
+                <br>
+            </div>
+        </div>
+        {% endfor %} 
+
+        {% if tickets.has_previous %} 
+        <a href="?page=1">맨 앞으로</a>
+        <a href="?page={{tickets.previous_page_number}}">이전으로</a>
+        {% endif %} 
+        <span>{{tickets.number}}</span>
+        <span>/</span>
+        <span>{{tickets.paginator.num_pages}}</span>
+        {%if tickets.has_next %} 
+        <a href="?page={{tickets.next_page_number}}">다음으로</a>
+        <a href="?page={{tickets.paginator.num_pages}}">맨 뒤로</a>
+        {% endif %} 
     </div>
-        <h4>For. {{ticket.writer}}</h4>
-        <h4> {{ticket.summary}} </h4>
-        <a href="{%url 'mainpage:detail' ticket.id %}"> ...더보기</a>
-        <br>
-    </div>
-    {% endfor %} 
-</div>
+{% endblock %}
