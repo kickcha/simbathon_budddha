@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'ELAND_Choice_M';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.back{
+    display: flex;
+    position: absolute;
+    justify-content: flex-start;
+    font-size: 30px;
+    color: white;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    position:absolute;
+    top: 80px;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.recently{
+    color: white;
+    font-size: 25px;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Tenada';
+    margin: 10px;
+}
+
+.stick{
+    color: white;
+    font-size: 30px;
+}
+
+.active{
+    color: white;
+    font-size: 25px;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Tenada';
+    margin: 10px;
+}
+
+.qna-list{
+    position: absolute;
+}
+
+.fa-arrow-left{
+    position: absolute;
+    left: -175px;
+    top: -343px;
+}
