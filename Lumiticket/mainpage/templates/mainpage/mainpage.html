@@ -1,6 +1,10 @@
 {% extends 'base.html' %} 
 {% block content %} 
 
+<head>
+    <link rel="stylesheet" href="/static/css/mainpage.css">
+</head>
+
 <div>
     {% for ticket in tickets %} 
     </div>
@@ -32,23 +36,10 @@
     </div>
     {% endfor %} 
 </div>
-
-<div>
-    <h3>나의 매력 포인트는?<br>
-        하루에 한 질문씩! 자기 탐구 아카이빙
-    </h3>
+<!--자기탐구아카이빙-->
+<div class="img">
     <a href="{% url 'qnapage:qnalistrecent' %}">보러 가기</a>
 </div>
 
-
-<!--하단 네브바-->
-        <nav class="footer-container">
-            <ul class="icons">
-                <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
-                <li><a href="{% url 'mainpage:new' %}"><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></li>
-                <li><a href="{% url 'qnapage:qnalistrecent' %}"><i class="fa-regular fa-compass" style="color: #000000;"></i></a></li>
-            </ul>
-        </nav>
-    </div>
-</body>
+{% endblock %}
 
