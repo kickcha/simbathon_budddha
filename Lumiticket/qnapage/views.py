@@ -19,8 +19,11 @@ def new(request):
     return render(request, 'qnapage/newqna.html')
 
 def qnalistrecent(request):
-    qnas = Qna.objects.all()
-    return render(request, 'qnapage/qnalistrecent.html', {'qnas':qnas})
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    else:
+        qnas = Qna.objects.all()
+        return render(request, 'qnapage/qnalistrecent.html', {'qnas':qnas})
 
 def qnalistpop(request):
     qnas = Qna.objects.all()

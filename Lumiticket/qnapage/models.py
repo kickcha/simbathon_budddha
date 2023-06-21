@@ -17,6 +17,8 @@ class QnaComment(models.Model):
     writer = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
     qna = models. ForeignKey(Qna, null=False, blank=False, on_delete=models.CASCADE)
     parent_comment = models.ForeignKey('self', on_delete=models.CASCADE, null = True, related_name='reply')
+    comment_like = models.ManyToManyField(User, related_name='comment_likes', blank=True)
+    commnet_like_count = models.PositiveIntegerField(default = 0)
 
     def __str__(self):
         return self.qna.title+ " : " + self.content
