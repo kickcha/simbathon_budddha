@@ -22,6 +22,14 @@
             <h4>작성자 : {{c.writer}}</h4>
             <p>내용 : {{c.content}}</p>
             <p>{{c.pub_date}}</p>
+            <a href = "{% url 'qnapage:comment_likes' c.id %}">
+                {% if user in c.comment_like.all %}
+                취소
+                {% else %}
+                좋아요
+                {% endif %}
+            </a>
+            {{ c.comment_like_count }}개
             {% endfor %}
         </div>
     </div>
