@@ -1,7 +1,6 @@
 <!-- 기본기능만 있는 회원가입 창 -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
         <head>
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +10,7 @@
             <title>signup</title>
         </head>
     <body>
+        {%block content%}
         <div class="wallpaper">
             
             <span class="writeid">사용하실 아이디와<br>비밀번호를 설정해주세요</span>
@@ -22,19 +22,19 @@
             <!-- 아이디 입력 -->
             <div class="idsection">
                 <span class="id">아이디</span>
-                <input type="text" name="username" class="id2" placeholder="아이디를 입력해주세요." required>
-                <span class="error-message">{{ error_username }}</span>
+                <input type="text" name="username" class="id2" oninvalid="this.setCustomValidity('이 칸을 작성해주세요!')" placeholder="아이디를 입력해주세요." required>
+                <span class="error-message_id">{{ error_username }}</span>
             </div>
         
             <div class="passwordsection">
                 <span class="password">비밀번호</span> <br>
-                <input type="password" name="password" class="password2" placeholder="비밀번호를 입력해주세요." required>
+                <input type="password" name="password" class="password2" oninvalid="this.setCustomValidity('이 칸을 작성해주세요!')" placeholder="비밀번호를 입력해주세요." required >
             </div>
 
             <div class="resection">
                 <span class="repassword">비밀번호 재확인</span>
-                <input type="password" name="confirm" class="repassword2" placeholder="비밀번호를 입력해주세요." required>
-                <span class="error-message">{{ error_password }}</span>
+                <input type="password" name="confirm" class="repassword2" oninvalid="this.setCustomValidity('이 칸을 작성해주세요!')" placeholder="비밀번호를 입력해주세요." required>
+                <span class="error-message_pass">{{ error_password }}</span>
             </div>
         </div>
 
@@ -45,12 +45,13 @@
 
         <div class="namesection">
             <span class="name">닉네임</span>
-            <input type="text" name="nickname" class="name2" placeholder="닉네임을 적어주세요." required>
-            <span class="error-message">{{ error_nickname }}</span>
+            <input type="text" name="nickname" class="name2" oninvalid="this.setCustomValidity('이 칸을 작성해주세요!')" placeholder="닉네임을 적어주세요." required>
+            <span class="error-message_name">{{ error_nickname }}</span>
             <input type="submit" value="가입하고 시작하기" name="start" class="start">
         </div>
         </form>
     </div>
 </div>
+{%endblock%}
     </body>
 </html>

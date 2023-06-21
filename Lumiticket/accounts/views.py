@@ -11,11 +11,12 @@ def real_login(request):
         password = request.POST['password']
 
         user = auth.authenticate(request, username = username, password = password)
+        print(user)
         if user is not None:
             auth.login(request,user)
             return redirect('mainpage:mainpage')
         else:
-            error_message = "아이디나 비밀번호가 일치하지 않습니다."
+            error_message = "비밀번호 정보가\n일치하지 않습니다!"
             
             return render(request, 'accounts/real_login.html', {'error_message': error_message}) # '정보 없음, 회원가입 물어보는 페이지' 가기로 바꾸기
         
