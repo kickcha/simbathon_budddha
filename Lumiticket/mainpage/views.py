@@ -43,13 +43,14 @@ def new(request):
 def create(request): #티켓 적는 함수
     if request.user.is_authenticated:
         new_ticket = Ticket()
-        profile = Profile.objects.get(user=request.user) #profile 가져오는 거
-        new_ticket.writer = profile.nickname #request.user.profile.nickname
+        #profile = Profile.objects.get(user=request.user) #profile 가져오는 거
+        
+        new_ticket.writer = request.user #profile.nickname #request.user.profile.nickname
         new_ticket.pub_date = timezone.now()
         new_ticket.body = request.POST['body']
         new_ticket.save()
         
-        return redirect('mainpage:detail', username=new_ticket.username)
+        return redirect('mainpage:detail', new_ticket.id)
 
     else:
         return redirect('accounts:login')
@@ -64,24 +65,24 @@ def likes(request, ticket_id):
         ticket.like.add(request.user)
         ticket.like_count += 1
         ticket.save()
-    return redirect('mainpage:deatil', ticket.id)
+    return redirect('mainpage:detail', ticket.id)
 
-def ticketlistnew(request, id):
-    return redirect('mainpage:ticketlistnew')
+def ticketlistnew(request):
+    return render(request, 'mainpage/ticketlistnew.html')
 
 def ticketlistpop(request):
-    return redirect('mainpage:ticketlistpop')
+    return render(reequest, 'mainpage/ticketlistpop.html')
 
 def delete(request, id):
     if request.user.is_authenticated:
-        delete_ticket = get_object_or_404(Post, id=id, writer=request.user)
+        delete_ticket = get_object_or_404(Ticket, id=id)
         delete_ticket.delete()
-        return redirect('mainpage:ticketlistnew')
+        return redirect('mainpage:ticketlistnew', id)
     return redirect('accounts:login')
 
 def delete_comment(request, id):
     if request.user.is_authenticated:
-        comment = get_object_or_404(Comment, id=id, writer=request.user)
+        comment = get_object_or_404(Comment, id=id)
         ticket_id = comment.ticket.id
         comment.delete()
         return redirect('mainpage:detail', id=comment.ticket.id)
@@ -96,3 +97,4 @@ def update_comment(request, id):
 
             update_comment.save()
             return redirect('mainpage:detail', update_comment.id)
+    return redirect('accounts:login')
