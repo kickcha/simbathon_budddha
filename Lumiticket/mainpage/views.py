@@ -3,15 +3,15 @@ from .models import Ticket, Comment
 from django.utils import timezone
 from qnapage import *
 from accounts import *
-from django.db.models import Count
+from django.db.models import Count, F
 from django.core.paginator import Paginator
 # loading page관련 메서드
 from django.template import loader
 import time
 
-def mainpage(request): #로딩페이지 이후 페이지
-    #tickets = Ticket.objects.annotate(like_count=Count('like')).order_by('-like_count')[:2]
-    return render(request, 'mainpage/mainpage.html')
+def mainpage(request): 
+    tickets = Ticket.objects.order_by('-like_count')[:2]
+    return render(request, 'mainpage/mainpage.html', {'tickets': tickets})
 
 def detail(request, id):
     ticket = get_object_or_404(Ticket, pk=id)

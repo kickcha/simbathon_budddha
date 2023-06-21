@@ -10,6 +10,13 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'DONGGUK UNIVERSITY';
+    src: url("../fonts/DONGGUK UNIVERSITY.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     font-family: 'ELAND_Choice_M';
@@ -100,7 +107,7 @@ span#welcome_announce{
     left: 11.5rem;
     top: 20rem;
     transform: translate(-50%, 50%);
-    font-family: 'ELAND_Choice_M';
+    font-family: 'DONGGUK UNIVERSITY';
     height: 38px;
     font-weight: 100;
     width: 221px;
@@ -117,7 +124,7 @@ span#welcome_announce{
     left: 11.5rem;
     transform: translate(-50%, 50%);
     width: 221px;
-    font-family: 'ELAND_Choice_M';
+    font-family: 'DONGGUK UNIVERSITY';
     font-size: 15px;
     height: 38px;
     text-align: center;
