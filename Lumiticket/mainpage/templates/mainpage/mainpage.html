@@ -1,58 +1,66 @@
-{% extends 'base.html' %} 
-{% block content %} 
+{% extends 'base.html' %} {% block content %}
 
 <head>
-    <link rel="stylesheet" href="/static/css/mainpage.css">
+  <link rel="stylesheet" href="/static/css/mainpage.css" />
 </head>
 
-<!--메인페이지에서 뭐든 클릭하려고 하면 다 로그인하라는 팝업을 띄워야 하는데
-이걸 거대한 하나의 버튼으로 만들 건지 아니면 어떻게 구현할 건지 얘기해봐야 할 듯염.-->
-
-<!--좋아요 많은 거 두 개만 출력하는 거-->
-<div class="wallpaper">
-
-<<<<<<< HEAD
-        {% for ticket in tickets|slice:":2" %} <!-- 수정된 부분 -->
-        <div>
-        <h4> For.{{user.profile.nickname}} </h4>
-=======
-<div>
-    {% for ticket in tickets|slice:":2" %} <!-- 수정된 부분 -->
-    <div>
-        <h4> For. {{ticket.writer.profile.nickname}} </h4>
->>>>>>> c95b73e11d466332b0a73c9868daba084ffa9e2a
-        <h4> {{ticket.pub_date}} </h4>
-        <h4> 응원{{ticket.like_count}}개 </h4>
-        <h4> #{{ticket.id}} </h4>
-        <h4> {{ticket.summary}}... </h4>
-
-        <a href="{%url 'mainpage:detail' ticket.id %}"> ...더보기</a>
-        <br>
+<body>
+  <div class="wallpaper">
+    <!--좋아요 많은 거 두 개만 출력하는 거-->
+    <div class="post">
+      {% for ticket in tickets|slice:":2" %}
+      <a class="atag" href="{%url 'mainpage:detail' ticket.id %}">
+        <div class="hot">
+          <div class="content">
+            <div class="contents">
+              <div class="ticket-id">#{{ticket.id}}</div>
+              <div class="like-count">
+                <i class="fa-solid fa-heart" style="color: #f8702c"></i
+                >{{ticket.like_count}}
+              </div>
+            </div>
+            <div class="summary">{{ticket.summary}}...</div>
+            <div class="pub-date">{{ticket.pub_date}}</div>
+          </div>
         </div>
-    {% endfor %} 
-<!--자기탐구아카이빙-->
-    <!-- <div class="img-wrap"> -->
-    <div class="img-wrap">
-        <div class="hot"></div>
-        <div class="achiving">
-        <button type="button" onclick="location.href='{% url 'qnapage:qnalistrecent' %}';">지금 시작하기</button>
-        </div>
+      </a>
+      {% endfor %}
     </div>
-</div>
-<!-- </div> -->
 
-<!--하단 nav바-->
+    <!--자기탐구아카이빙-->
 
-<div>
+    <div class="achiving">
+      <button
+        type="button"
+        onclick="location.href='{% url 'qnapage:qnalistrecent' %}';"
+      >
+        지금 시작하기
+      </button>
+    </div>
+  </div>
+
+  <!--하단 nav바-->
+
+  <div>
     <nav class="footer-container">
-        <ul class="icons">
-            <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
-            <li><a href="{% url 'mainpage:new' %}"><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></a></li>
-            <li><a href="{% url 'qnapage:qnalistrecent' %}"><i class="fa-regular fa-compass" style="color: #000000;"></i></a></li>
-        </ul>
+      <ul class="icons">
+        <li>
+          <a href="{% url 'mainpage:ticketlistnew' %}"
+            ><i class="fa-solid fa-magnifying-glass" style="color: #000000"></i
+          ></a>
+        </li>
+        <li>
+          <a href="{% url 'mainpage:new' %}"
+            ><i class="fa-regular fa-pen-to-square" style="color: #000000"></i
+          ></a>
+        </li>
+        <li>
+          <a href="{% url 'qnapage:qnalistrecent' %}"
+            ><i class="fa-regular fa-compass" style="color: #000000"></i
+          ></a>
+        </li>
+      </ul>
     </nav>
-</div>
-
+  </div>
+</body>
 {% endblock %}
-    
-
