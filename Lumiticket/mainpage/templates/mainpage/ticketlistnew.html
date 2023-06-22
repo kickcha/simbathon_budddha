@@ -1,5 +1,14 @@
-
+{% extends 'base.html' %} 
 {% block content %} 
+        <head>
+            <link rel="stylesheet" href="/static/css/ticketlistnew.css">
+            <script src="https://kit.fontawesome.com/b0377dea63.js" crossorigin="anonymous"></script>
+            <script defer src="/static/javaScript/real_login.js"></script>
+            <title>ticketlistnew</title>
+        </head>
+<body>
+
+<div class="wallpaper">
     <div class="container">
         {% for ticket in tickets %} 
         <div class="card">
@@ -11,6 +20,16 @@
             </div>
         </div>
         {% endfor %} 
+
+        <div class="backk">
+            <a class="back" href="{% url 'mainpage:mainpage' %}"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+        </div>
+        
+        <div class="buttons">
+        <a class="recently" href="{% url 'qnapage:qnalistrecent' %}">최신순</a>
+        <span class="stick">|</span>
+        <a class="active" href="{% url 'qnapage:qnalistpop' %}">댓글순</a>
+        </div>
 
         {% if tickets.has_previous %} 
         <a href="?page=1">맨 앞으로</a>
@@ -24,4 +43,7 @@
         <a href="?page={{tickets.paginator.num_pages}}">맨 뒤로</a>
         {% endif %} 
     </div>
+</div>
+
+</body>
 {% endblock %}
