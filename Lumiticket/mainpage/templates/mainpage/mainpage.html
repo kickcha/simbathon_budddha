@@ -13,10 +13,12 @@
 <div>
     {% for ticket in tickets|slice:":2" %} <!-- 수정된 부분 -->
     <div>
-        <h4>For.{{user.profile.nickname}}</h4>
-        <h4> {{ticket.body}} </h4>
-        <h4> {{ticket.like_count}} 
-        Date. {{ticket.pub_date}}</h4>
+        <h4> For.{{user.profile.nickname}} </h4>
+        <h4> {{ticket.pub_date}} </h4>
+        <h4> 응원{{ticket.like_count}}개 </h4>
+        <h4> #{{ticket.id}} </h4>
+        <h4> {{ticket.summary}}... </h4>
+
         <a href="{%url 'mainpage:detail' ticket.id %}"> ...더보기</a>
         <br>
     </div>
