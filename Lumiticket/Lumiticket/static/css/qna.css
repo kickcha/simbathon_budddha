@@ -17,6 +17,20 @@
     font-style: normal;
 }
 
+.wallpaper{
+    max-width: 430px;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-image: url('image/bgimage.png');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
 
 .backk{
     display: flex;
@@ -63,5 +77,82 @@
 }
 
 .qna-list{
-    position: absolute;
+    margin-top: 25%;
+    overflow-y: scroll;
+    max-height: 450px;
 }
+
+.qna-item{
+    position: relative;
+    background-color: #D9C1A9;
+    width: 340px;
+    height: 60px;
+    border-radius: 20px;
+    color:black;
+    font-family: 'DONGGUK UNIVERSITY';
+    list-style-type: none;
+    text-decoration: none;
+    margin-left: 45px;
+    align-items: center;
+    margin-top: 4%;
+    display: flex;
+
+}
+
+a.nana{
+    list-style-type: none;
+    text-decoration: none; 
+    color:#010A0F;
+    font-size:15px;
+    margin-left:15px;
+    margin-right:15px;
+    align-items: center;
+}
+
+/* bottom navbar css */
+.footer-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 10px;
+    background-color:#D9D9D9;
+    list-style-type: none;
+    height: 90px;
+}
+
+.icons {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding-left: 0;
+    justify-content: space-between;
+    font-size: 30px;
+}
+
+.icons li {
+    padding: 12px;
+    margin: 0;
+    justify-content: space-between;
+}
+
+/* 댓글순 색깔 차이 */
+.recently2{
+    color:white;
+    font-size: 20px;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'DONGGUK UNIVERSITY';
+    margin: 10px;
+}
+
+.active2{
+    color: #AEAEAE;
+    font-size: 20px;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'DONGGUK UNIVERSITY';
+    margin: 10px;
+}
+
