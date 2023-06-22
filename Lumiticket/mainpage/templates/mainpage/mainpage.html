@@ -11,16 +11,10 @@
 <!--좋아요 많은 거 두 개만 출력하는 거-->
 <div class="wallpaper">
 
-<<<<<<< HEAD
-        {% for ticket in tickets|slice:":2" %} <!-- 수정된 부분 -->
-        <div>
-        <h4> For.{{user.profile.nickname}} </h4>
-=======
 <div>
     {% for ticket in tickets|slice:":2" %} <!-- 수정된 부분 -->
     <div>
         <h4> For. {{ticket.writer.profile.nickname}} </h4>
->>>>>>> c95b73e11d466332b0a73c9868daba084ffa9e2a
         <h4> {{ticket.pub_date}} </h4>
         <h4> 응원{{ticket.like_count}}개 </h4>
         <h4> #{{ticket.id}} </h4>
