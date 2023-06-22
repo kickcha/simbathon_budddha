@@ -7,25 +7,37 @@
 
 <body>
 
+  <div class="wallpaper">
+
   <div class="backk">
     <a class="back" href="{% url 'mainpage:mainpage' %}"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
   </div>
 
   <div class="buttons">
-  <a class="recently" href="{% url 'qnapage:qnalistrecent' %}">최신순</a>
-  <span class="stick">|</span>
-  <a class="active" href="{% url 'qnapage:qnalistpop' %}">댓글순</a>
-</div>
+    <a class="recently" href="{% url 'qnapage:qnalistrecent' %}">최신순</a>
+    <span class="stick">|</span>
+    <a class="active" href="{% url 'qnapage:qnalistpop' %}">댓글순</a>
+  </div>
 
 <div class="qna-list">
   {% for qna in qnas %}
   <div class="qna-item">
     <!-- qna의 제목만 불러온다-->
-    <h3>
+    <!-- <h3> -->
       <a class="nana" href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a>
-    </h3>
   </div>
   {% endfor %}
+
+</div>
+
+<div>
+  <nav class="footer-container">
+    <ul class="icons">
+      <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
+      <li><a href="{% url 'mainpage:new' %}"><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></a></li>
+      <li><a href="{% url 'qnapage:qnalistrecent' %}"><i class="fa-regular fa-compass" style="color: #000000;"></i></a></li>
+    </ul>
+  </nav>
 </div>
 
 </body>
