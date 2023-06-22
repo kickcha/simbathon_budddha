@@ -27,6 +27,7 @@
     <div class="container">
         <div class="card_container">
         {% for ticket in tickets %} 
+          
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-subtitle mb-2 text-muted card-nickname">For. {{user.profile.nickname}}</h4>
@@ -36,6 +37,7 @@
                     <h4 class="card-text">{{ticket.summary}}... </h4>
                     <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
                 </div>
+
             </div>
 
         {% endfor %} 
