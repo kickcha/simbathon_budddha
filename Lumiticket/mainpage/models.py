@@ -11,7 +11,7 @@ class Ticket(models.Model):
     # def __str__(self):
     #     return self.body[:20]
     def summary(self):
-        return self.body[:50]
+        return self.body[:40]
 
 class Comment(models.Model):
     content = models.TextField()
