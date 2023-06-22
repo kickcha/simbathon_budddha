@@ -9,43 +9,56 @@
 <body>
 
 <div class="wallpaper">
-    <div class="container">
+
+    <section class="first">
 
         <div class="backk">
             <a class="back" href="{% url 'mainpage:mainpage' %}"><i class="fa-solid fa-arrow-left" style="color: #FAFBFD;"></i></a>
         </div>
         
         <div class="buttons">
-        <a class="recently" href="{% url 'qnapage:qnalistrecent' %}">최신순</a>
-        <span class="stick">|</span>
-        <a class="active" href="{% url 'qnapage:qnalistpop' %}">댓글순</a>
+            <a class="recently" href="{% url 'mainpage:ticketlistnew' %}">최신순</a>
+            <span class="stick">|</span>
+            <a class="active" href="{% url 'mainpage:ticketlistpop' %}">응원순</a>
         </div>
+    </section>
 
-        {% for ticket in tickets %} 
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-subtitle mb-2 text-muted">For. {{user.profile.nickname}}</h4>
-                <h4 class="card-text">{{ticket.body}} </h4>
-                <a href="{%url 'mainpage:detail' ticket.id %}"> ...더보기</a>
-                <br>
+    
+    <div class="container">
+        <div class="card_container">
+            {% for ticket in tickets %} 
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-subtitle mb-2 text-muted card-nickname">For. {{user.profile.nickname}}</h4>
+                    <h4 class="date"> {{ticket.pub_date}} </h4>
+                    <h4 class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></h4>
+                    <h4 class="number"> #{{ticket.id}} </h4>
+                    <h4 class="card-text">{{ticket.summary}}... </h4>
+                    <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
+                </div>
             </div>
-        </div>
+        
         {% endfor %} 
-
-    <div class="order">
-        {% if tickets.has_previous %} 
-        <a href="?page={{tickets.previous_page_number}}"><i class="fa-solid fa-angle-left" style="color: #FAFBFD;"></i></a>
-        {% endif %} 
-        <span>{{tickets.number}}</span>
-        <span class="stand">/</span>
-        <span>{{tickets.paginator.num_pages}}</span>
-        {%if tickets.has_next %} 
-        <a href="?page={{tickets.next_page_number}}"><i class="fa-solid fa-angle-right" style="color: #FAFBFD;"></i></a>
-        {% endif %} 
-    </div>
+        
+        </div>
+        <div class="order">
+            {% if tickets.has_previous %} 
+            <a href="?page={{tickets.previous_page_number}}"><i class="fa-solid fa-angle-left" style="color: #FAFBFD;"></i></a>
+            {% endif %} 
+            <span>{{tickets.number}}</span>
+            <span class="stand">/</span>
+            <span>{{tickets.paginator.num_pages}}</span>
+            {%if tickets.has_next %} 
+            <a href="?page={{tickets.next_page_number}}"><i class="fa-solid fa-angle-right" style="color: #FAFBFD;"></i></a>
+            {% endif %} 
+        </div>
+    
     
     </div>
 
+
+
+<div>
     <nav class="footer-container">
         <ul class="icons">
             <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
@@ -53,7 +66,7 @@
             <li><a href="{% url 'qnapage:qnalistrecent' %}"><i class="fa-regular fa-compass" style="color: #000000;"></i></a></li>
         </ul>
     </nav>
-
+</div>
 </div>
 
 </body>
