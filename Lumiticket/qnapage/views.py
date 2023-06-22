@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import *
+from .models import Qna, QnaComment
 from django.utils import timezone
 
 # Create your views here.
@@ -60,3 +60,23 @@ def comment_likes(request, comment_id):
         qnacomment.comment_like_count += 1
         qnacomment.save()
     return redirect('qnapage:qnadetail', qnacomment.qna.id)
+
+def comment_edit(request, comment_id):
+    comment = get_object_or_404(QnaComment, id=comment_id)
+    return render(request, 'qnapage/commentupdate.html', {'comment':comment})
+
+def comment_update(request, comment_id):
+    if request.user.is_authenticated:
+        update_comment = QnaComment.objects.get(id=id)
+        if request.user == update_comment.writer:
+            update_comment.content = request.POST['content']
+            update_comment.pub_date = timezone.now()
+            update_comment.save()
+            return redirect('main:detail', update_comment.id)
+    return redirect('accounts:login')
+
+def comment_delete(request, comment_id):
+    comment = get_object_or_404(QnaComment, id=comment_id)
+    qna_id = comment.qna.id
+    comment.delete()
+    return redirect('qnapage:qnadetail', qna_id)
