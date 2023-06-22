@@ -38,6 +38,7 @@
     text-decoration: none;
     margin-left: 25px;
     margin-top: 85px;
+    z-index: 10000;
 }
 
 .buttons{
