@@ -13,7 +13,7 @@
 <div>
     {% for ticket in tickets|slice:":2" %} <!-- 수정된 부분 -->
     <div>
-        <h4> For.{{user.profile.nickname}} </h4>
+        <h4> For. {{ticket.writer.profile.nickname}} </h4>
         <h4> {{ticket.pub_date}} </h4>
         <h4> 응원{{ticket.like_count}}개 </h4>
         <h4> #{{ticket.id}} </h4>
