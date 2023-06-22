@@ -4,7 +4,7 @@
         {% for ticket in tickets %} 
         <div class="card">
             <div class="card-body">
-                <h4 class="card-subtitle mb-2 text-muted">For. {{user.profile.nickname}}</h4>
+                <h4 class="card-subtitle mb-2 text-muted">For. {{ticket.writer.profile.nickname}}</h4>
                 <h4 class="card-text">{{ticket.body}} </h4>
                 <a href="{%url 'mainpage:detail' ticket.id %}"> ...더보기</a>
                 <br>

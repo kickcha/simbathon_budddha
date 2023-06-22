@@ -1,6 +1,6 @@
 
 
-<h2>For.{{user.profile.nickname}}</h2>
+<h2>For. {{ticket.writer.profile.nickname}}</h2>
 Date. {{ticket.pub_date}}
 <!--좋아요 구현, 아래 좋아요 갯수는 임의로 개로 씀! 프론트 마음대로 바꿔도 됩니당-->
 <a href = "{% url 'mainpage:likes' ticket.id %}">
