@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DONGGUK UNIVERSITY';
+    src: url("../fonts/DONGGUK UNIVERSITY.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.backk{
+    display: flex;
+    position: absolute;
+    justify-content: flex-start;
+    font-size: 30px;
+    list-style-type: none;
+    text-decoration: none;
+    margin-left: 25px;
+    margin-top: 85px;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 80px;
+    list-style-type: none;
+    text-decoration: none;
+    justify-content: center;
+}
+
+.recently{
+    color:white;
+    font-size: 20px;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'DONGGUK UNIVERSITY';
+    margin: 10px;
+}
+
+.stick{
+    color: white;   
+    font-size: 30px;
+}
+
+.active{
+    color:#AEAEAE;
+    font-size: 20px;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'DONGGUK UNIVERSITY';
+    margin: 10px;
+}
+
+.qna-list{
+    position: absolute;
+}

@@ -27,5 +27,13 @@
     <a href="{% url 'qnapage:qnalistrecent' %}">보러 가기</a>
 </div>
 
+<nav class="footer-container">
+    <ul class="icons">
+        <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
+        <li><a href="{% url 'mainpage:new' %}"><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></a></li>
+        <li><a href="{% url 'qnapage:qnalistrecent' %}"><i class="fa-regular fa-compass" style="color: #000000;"></i></a></li>
+    </ul>
+</nav>
+
 {% endblock %}
 
