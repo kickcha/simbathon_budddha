@@ -1,22 +1,33 @@
 <!-- qnalistnew.html -->
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %} 
+{% block content %} 
 <head>
-    <title>qnalistrecent</title>
+    <title>qnalistpop</title>
+    <link rel="stylesheet" href="/static/css/qna.css">
 </head>
+
 <body>
+
+    <div class="wallpaper">
+
+    <div class="backk">
+        <a class="back" href="{% url 'mainpage:mainpage' %}"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+    </div>
+
     <div class="buttons">
-        <a class="active" href="{% url 'qnapage:qnalistrecent' %}">최신순</a>
-        <a href="{% url 'qnapage:qnalistpop' %}">댓글순</a>
+        <a class="recently2" href="{% url 'qnapage:qnalistrecent' %}">최신순</a>
+        <span class="stick">|</span>
+        <a class="active2" href="{% url 'qnapage:qnalistpop' %}">댓글순</a>
     </div>
 
     <div class="qna-list">
         {% for qna in qnas %}
             <div class="qna-item">
                 <!-- qna의 제목만 불러온다-->
-                <h3><a href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a></h3>
+                <a class="nana" href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a>
             </div>
         {% endfor %}
+
     </div>
     <!-- 관리자 전용 질문글 쓰기 버튼 -->
     {% if user.is_authenticated and user.is_superuser %}
@@ -29,5 +40,18 @@
             font-weight: bold;
         }
     </style>
+
+</div>
+
+<div>
+    <nav class="footer-container">
+        <ul class="icons">
+            <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
+            <li><a href="{% url 'mainpage:new' %}"><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></a></li>
+            <li><a href="{% url 'qnapage:qnalistrecent' %}"><i class="fa-regular fa-compass" style="color: #000000;"></i></a></li>
+        </ul>
+    </nav>
+</div>
+
 </body>
-</html>
+{% endblock %}
