@@ -34,7 +34,6 @@
                 <!-- Update and Delete buttons -->
                 {% if user == c.writer %}
                 <div class="comment_buttons">
-                    <a href="{% url 'qnapage:comment_update' c.id %}">Update</a>
                     <a href="{% url 'qnapage:comment_delete' c.id %}">Delete</a>
                 </div>
                 {% endif %}
