@@ -8,8 +8,10 @@ class Ticket(models.Model):
     like = models.ManyToManyField(User, related_name='likes', blank=True)
     like_count = models.PositiveIntegerField(default=0)
 
-    def __str__(self):
-        return self.body[:20]
+    # def __str__(self):
+    #     return self.body[:20]
+    def summary(self):
+        return self.body[:50]
 
 class Comment(models.Model):
     content = models.TextField()
