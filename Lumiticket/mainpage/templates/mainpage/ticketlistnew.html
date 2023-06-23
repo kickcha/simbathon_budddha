@@ -43,7 +43,7 @@
         
         {% endfor %} 
         
-        </div>
+    
         <div class="order">
             {% if tickets.has_previous %} 
             <a href="?page={{tickets.previous_page_number}}"><i class="fa-solid fa-angle-left" style="color: #FAFBFD;"></i></a>
@@ -55,6 +55,8 @@
             <a href="?page={{tickets.next_page_number}}"><i class="fa-solid fa-angle-right" style="color: #FAFBFD;"></i></a>
             {% endif %} 
         </div>
+
+    </div>
     
     
     </div>

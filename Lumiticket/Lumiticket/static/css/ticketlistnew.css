@@ -101,15 +101,15 @@
 
 /* 밑에 페이지 수  */
 .order{
-    color:#FAFBFD;
+    color: #FAFBFD;
     display: flex;
     justify-content: center;
     font-family: 'DONGGUK UNIVERSITY';
-    left: 46%;
+    left: 4%;
     bottom: 15%;
-    position: fixed;
-
+    position: relative;
 }
+
 
 .fa-angle-left{
     margin-right:7px;

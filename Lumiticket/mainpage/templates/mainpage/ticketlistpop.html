@@ -3,7 +3,6 @@
         <head>
             <link rel="stylesheet" href="/static/css/ticketlistnew.css">
             <script src="https://kit.fontawesome.com/b0377dea63.js" crossorigin="anonymous"></script>
-            <script defer src="/static/javaScript/real_login.js"></script>
             <title>ticketlistpop</title>
         </head>
 <body>
@@ -42,7 +41,6 @@
 
         {% endfor %} 
 
-        </div>
         <div class="order">
             {% if tickets.has_previous %} 
             <a href="?page={{tickets.previous_page_number}}"><i class="fa-solid fa-angle-left" style="color: #FAFBFD;"></i></a>
@@ -53,6 +51,8 @@
             {%if tickets.has_next %} 
             <a href="?page={{tickets.next_page_number}}"><i class="fa-solid fa-angle-right" style="color: #FAFBFD;"></i></a>
             {% endif %} 
+        </div>
+
         </div>
 
 
