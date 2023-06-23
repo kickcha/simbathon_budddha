@@ -101,7 +101,7 @@ span#welcome_announce{
     width: 100vw;
     transform: translateX(2.4%);
     top: 220px;
-    left: 2.3rem;
+    left: 1.4rem;
     line-height: 1.2;
 }
 
@@ -111,7 +111,7 @@ span#welcome_announce{
     border: none;
     border-radius: 20px;
     position: relative;
-    left: 11.5rem;
+    left: 50%;
     top: 20rem;
     transform: translate(-50%, 50%);
     font-family: 'DONGGUK UNIVERSITY';
@@ -128,7 +128,7 @@ span#welcome_announce{
     border: none;
     border-radius: 20px;
     position: relative;
-    left: 11.5rem;
+    left: 50%;
     transform: translate(-50%, 50%);
     width: 221px;
     font-family: 'DONGGUK UNIVERSITY';
