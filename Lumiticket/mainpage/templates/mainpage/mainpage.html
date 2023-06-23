@@ -15,12 +15,12 @@
             <div class="contents">
               <div class="ticket-id">#{{ticket.id}}</div>
               <div class="like-count">
-                <i class="fa-solid fa-heart" style="color: #f8702c"></i
-                >{{ticket.like_count}}
+                <i class="fa-solid fa-heart" style="color: #f8702c"></i>
+                {{ticket.like_count}}
               </div>
             </div>
             <div class="summary">{{ticket.summary}}...</div>
-            <div class="pub-date">{{ticket.pub_date}}</div>
+            <div class="pub-date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</div>
           </div>
         </div>
       </a>
