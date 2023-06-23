@@ -13,8 +13,14 @@ class Ticket(models.Model):
     def summary(self):
         return self.body[:40]
 
+    def get_pub_date_date(self):
+        return self.pub_date.date()
+
 class Comment(models.Model):
     content = models.TextField()
     pub_date = models.DateTimeField()
     writer = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
     ticket = models.ForeignKey(Ticket, null=False, blank=False, on_delete=models.CASCADE)
+
+    def get_pub_date_date(self):
+        return self.pub_date.date()

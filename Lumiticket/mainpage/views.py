@@ -15,6 +15,7 @@ def mainpage(request):
 
 def detail(request, id):
     ticket = get_object_or_404(Ticket, pk=id)
+    ticket.pub_date = ticket.pub_date.date()
     return render(request, 'mainpage/detail.html',{'ticket':ticket})
 
 def intropage(request):

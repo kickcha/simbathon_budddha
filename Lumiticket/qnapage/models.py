@@ -6,14 +6,14 @@ class Qna(models.Model):
     title = models.CharField(max_length = 200)
     writer = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
     body = models.TextField()
-    pub_date = models.DateTimeField()
+    pub_date = models.DateField()
 
     def __str__(self):
         return self.title
     
 class QnaComment(models.Model):
     content = models.TextField()
-    pub_date = models.DateTimeField()
+    pub_date = models.DateField()
     writer = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
     qna = models. ForeignKey(Qna, null=False, blank=False, on_delete=models.CASCADE)
     parent_comment = models.ForeignKey('self', on_delete=models.CASCADE, null = True, blank=True, related_name='reply')
