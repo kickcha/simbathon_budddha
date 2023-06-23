@@ -12,4 +12,5 @@ urlpatterns = [
     # path('comment/<int:qna_id>/<int:comment_id>', comment, name="comment"),
     path('commentlikes/<int:comment_id>/', comment_likes, name="comment_likes"),
     path('commentdelete/<int:comment_id>', comment_delete, name ="comment_delete"),
+    path('replycreate/<int:comment_id>/', reply_create, name="reply_create"),
 ]

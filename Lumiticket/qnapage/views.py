@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Qna, QnaComment
+from .models import Qna, QnaComment, QnaReply
 from django.utils import timezone
 
 # Create your views here.
@@ -66,3 +66,12 @@ def comment_delete(request, comment_id):
     qna_id = comment.qna.id
     comment.delete()
     return redirect('qnapage:qnadetail', qna_id)
+
+def reply_create(request, comment_id):
+    comment = get_object_or_404(QnaComment, id=comment_id)
+    if request.method == 'POST':
+        content = request.POST['content']
+        writer = request.user
+        pub_date = timezone.now()
+        QnaReply.objects.create(content=content, writer=writer, pub_date=pub_date, comment=comment)
+    return redirect('qnapage:qnadetail', comment.qna.id)

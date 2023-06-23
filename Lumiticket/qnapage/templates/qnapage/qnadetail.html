@@ -3,6 +3,11 @@
 <html>
 <head>
     <title>qnadetail</title>
+    <style>
+        .reply-form {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h2>{{ qna.title }}</h2>
@@ -37,8 +42,38 @@
                     <a href="{% url 'qnapage:comment_delete' c.id %}">Delete</a>
                 </div>
                 {% endif %}
+
+                <!-- Replies -->
+                <div class="replies">
+                    {% for reply in c.qnareply_set.all %}
+                        <hr>
+                        <h4>작성자: {{ reply.writer }}</h4>
+                        <p>내용: {{ reply.content }}</p>
+                        <p>{{ reply.pub_date }}</p>
+                    {% endfor %}
+
+                    <button class="reply-toggle">대댓글</button>
+
+                    <div class="reply-form">
+                        <form method="POST" action="{% url 'qnapage:reply_create' c.id %}">
+                            {% csrf_token %}
+                            <input type="text" name="content">
+                            <input type="submit" name="submit" value="댓글 작성">
+                        </form>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('.reply-toggle').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var replyForm = this.nextElementSibling;
+                replyForm.style.display = (replyForm.style.display === 'none') ? 'block' : 'none';
+            });
+        });
+    </script>
+
 </body>
 </html>
