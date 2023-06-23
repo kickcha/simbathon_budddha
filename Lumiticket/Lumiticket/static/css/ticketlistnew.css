@@ -105,9 +105,9 @@
     display: flex;
     justify-content: center;
     font-family: 'DONGGUK UNIVERSITY';
-    left: 4%;
-    bottom: 15%;
-    position: relative;
+    top: 80%;
+    position: fixed;
+    left:43%;
 }
 
 
@@ -147,7 +147,8 @@
     flex-wrap: wrap;
     max-height: calc(100vh - 300px); /* 원하는 높이로 조정 */
     overflow-y: auto;
-    padding-bottom: 110px;
+    padding-bottom: 123px;
+    /* height: 420px; */
 
 }
 
