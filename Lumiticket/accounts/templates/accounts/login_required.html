@@ -4,12 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
     <title>Login Required</title>
 </head>
 <body>
+    
     <script>
-        alert("Login is required");
-        window.location.href = "{% url 'accounts:login' %}"; // Redirect to the login page
-    </script>
+
+        // Swal.fire({
+        // icon: 'fail',  // 여기다가 아이콘 종류를 쓰면 됩니다.                     
+        // title: 'Alert가 실행되었습니다.',    
+        // text: '이곳은 내용이 나타나는 곳입니다.', 
+        // });
+        
+        // alert("해당 기능은 로그인이 필요합니다!");
+        // window.location.href = "{% url 'accounts:login' %}"; // Redirect to the login page
+
+        Swal.fire({
+            icon: 'warning',
+            title: '해당 기능은  <br> 로그인이 필요합니다!',
+            confirmButtonText: '확인',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "{% url 'accounts:login' %}"; // Redirect to the login page
+            }
+        });
+//     </script>
+
+<style>
+
+
+@font-face {
+    font-family: 'DONGGUK UNIVERSITY';
+    src: url("../fonts/DONGGUK UNIVERSITY.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+    div:where(.swal2-container).swal2-center>.swal2-popup {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+    width: 260px;
+    height: 55%;
+}
+    .swal2-title {
+        font-family: 'DONGGUK UNIVERSITY';
+        font-size: 1.2rem;
+        top: -30%;
+    }
+
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm{
+        background-color:#FFD700;
+        border:none;
+        margin-top: -20%;
+    }
+
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
+        box-shadow: 0 0 0 3px #FFD700;
+    }
+
+    div:where(.swal2-icon).swal2-warning {
+    border-color: black;
+    color: white;
+    width: 45px;
+    background: black;
+    height: 45px;
+    font-size: small;
+    margin-bottom: 30px;
+    }
+
+
+</style>
+
 </body>
 </html>
