@@ -101,7 +101,7 @@ span#welcome_announce{
     width: 100vw;
     transform: translateX(2.4%);
     top: 220px;
-    left: 1.4rem;
+    left: 7%;
     line-height: 1.2;
 }
 
@@ -119,6 +119,7 @@ span#welcome_announce{
     font-weight: 100;
     width: 221px;
     font-size: 15px;
+    color: black;
     
 }
 
@@ -136,6 +137,7 @@ span#welcome_announce{
     height: 38px;
     text-align: center;
     font-weight: 100;
+    color: black;
 }
 
 .backk{
