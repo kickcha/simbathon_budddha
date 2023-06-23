@@ -75,6 +75,8 @@
 .ticket-id {
   color: #f8702c;
   font-size: 20px;
+  position: relative;
+  top: -2px;
 }
 
 .like-count {
@@ -97,6 +99,8 @@
   color: black;
   display: flex;
   height: 120px;
+  position: relative;
+  justify-content: center;
 }
 
 .pub-date {
