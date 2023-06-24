@@ -1,3 +1,5 @@
+{% extends 'base.html' %} 
+{% block content %} 
 <!-- qnadetail.html -->
 <!DOCTYPE html>
 <html>
@@ -24,7 +26,7 @@
         <div class="comment_list">
             {% for c in comments %}
                 <hr>
-                <h4>작성자 : {{c.writer}}</h4>
+                <h4>작성자 : 익명{{ c.writer.id }}</h4>
                 <p>내용 : {{c.content}}</p>
                 <p>{{c.pub_date}}</p>
                 <!-- 좋아요 n개 -->
@@ -47,7 +49,7 @@
                 <div class="replies">
                     {% for reply in c.qnareply_set.all %}
                         <hr>
-                        <h4>작성자: {{ reply.writer }}</h4>
+                        <h4>작성자: 익명{{ reply.writer.id }}</h4>
                         <p>내용: {{ reply.content }}</p>
                         <p>{{ reply.pub_date }}</p>
                     {% endfor %}
@@ -77,3 +79,4 @@
 
 </body>
 </html>
+{% endblock %}
