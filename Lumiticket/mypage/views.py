@@ -50,3 +50,19 @@ def qnadetail(request, id):
         })
 
     return render(request, 'qnapage/qnadetail.html', {'qna': qna})
+
+def myticketlist(request, id):
+    tickets = Ticket.objects.filter(writer=request.user)
+    return render(request, 'mypage/myticketlist.html', {'tickets': tickets})
+
+def myqnalist(request, id):
+    if request.user.is_authenticated:
+        comments = QnaComment.objects.filter(writer=request.user)
+        qnas = Qna.objects.filter(qnacomment__in=comments).order_by('-pub_date')[:2]
+        context = {
+            'comments': comments,
+            'qnas': qnas, 
+        }
+        return render(request, 'mypage/myqnalist.html', context)
+    else:
+        return HttpResponse("Unauthorized", status=401)
