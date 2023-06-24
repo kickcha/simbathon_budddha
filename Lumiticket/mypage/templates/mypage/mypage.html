@@ -32,7 +32,6 @@
 
 
     <h2>나 탐구 모음</h2>
-    {% if qnas %}
         {% for qna in qnas %}
             <li>{{ qna.title }}</li>
             <!-- Display other post details as needed -->
@@ -47,8 +46,5 @@
                 <p>아직 답한 질문이 없어요.</p>
             {% endfor %}
         {% endfor %}
-    {% else %}
-        <p>아직 답한 질문이 없어요.</p>
-    {% endif %}
 </body>
 </html>
