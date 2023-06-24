@@ -30,6 +30,8 @@
             {% endfor %}
         </div>
     </div>
+
+    
     <!-- 관리자 전용 질문글 쓰기 버튼 -->
     {% if user.is_authenticated and user.is_superuser %}
         <a class="newquestion" href="{% url 'qnapage:new' %}">새 질문글 쓰기</a>

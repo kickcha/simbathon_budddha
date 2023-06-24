@@ -78,14 +78,10 @@
 
 
 .qna-list-container {
-    margin-top: 25%;
-    overflow-y: scroll;
-    max-height: 615px;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-height: calc(100vh - 270px);
+    margin-top: 22%;
+    overflow-y: auto;
+    height: 600px;
+
 }
 
 
@@ -107,7 +103,7 @@
     text-decoration: none;
 
     align-items: center;
-    margin-top: 4%;
+    margin-bottom: 10px;
     display: flex;
 
 }
