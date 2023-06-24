@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Qna, QnaComment, QnaReply
 from django.utils import timezone
+from django.db.models import Max
 
 # Create your views here.
 def create(request):
@@ -26,8 +27,11 @@ def qnalistrecent(request):
         return render(request, 'qnapage/qnalistrecent.html', {'qnas':qnas})
 
 def qnalistpop(request):
-    qnas = Qna.objects.all()
-    return render(request, 'qnapage/qnalistpop.html', {'qnas':qnas})
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    else:
+        qnas = Qna.objects.annotate(latest_comment_date=Max('qnacomment__pub_date')).order_by('-latest_comment_date')
+        return render(request, 'qnapage/qnalistpop.html', {'qnas': qnas})
 
 def qnadetail(request, id):
     qna = get_object_or_404(Qna, pk = id)
