@@ -32,22 +32,29 @@
         
 
 
+<!-- mypage/templates/mypage/mypage.html -->
+
     <h2>나 탐구 모음</h2>
-        {% if qnas %}
-            {% for qna in qnas|slice:":2" %}
-                <div>
-                    <h3><a href="{% url 'qnapage:qnadetail' qna.id %}"> 게시글: {{ qna.title }}</h3></a>
-                    {% for comment in qna.qnacomment_set.all %}
+    {% if qnas %}
+        {% for qna in qnas|slice:":2" %}
+            <div>
+                <h3><a href="{% url 'qnapage:qnadetail' qna.id %}">게시글: {{ qna.title }}</a></h3>
+                {% for comment in qna.qnacomment_set.all %}
+                    {% if comment.writer == request.user %}
                         <ul>
                             <li>내가 작성한 댓글: {{ comment.content }}</li>
                         </ul>
-                    {% endfor %}
-                </div>
-            {% endfor %}
-        {% else %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% else %}
         <p>아직 답한 질문이 없어요.</p>
-        {% endif %}
+    {% endif %}
     <a href="{% url 'mypage:myqnalist' request.user.id %}">내가 댓글 쓴 글 더보기</a>
+
+    
+    
 
 </body>
 </html>
