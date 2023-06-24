@@ -15,7 +15,7 @@
 
     <div class="qna-list-container">
         <div class="qna-list">
-            {% for qna in qnas %}
+            {% for qna in qnas %} <!--여기서 목록에서도 중복 안 뜨게 잡아야 함-->
                 <div class="qna-item">
                     <!-- qna의 제목만 불러온다-->
                     <a class="nana" href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a>

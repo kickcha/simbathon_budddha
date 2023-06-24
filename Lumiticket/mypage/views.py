@@ -11,7 +11,7 @@ def mypage(request):
     else:
         user = request.user
         comments = QnaComment.objects.filter(writer=user)
-        qnas = Qna.objects.filter(qnacomment__in=comments)
+        qnas = Qna.objects.filter(qnacomment__writer=request.user).distinct()
 
         tickets = Ticket.objects.filter(writer=user).order_by('-like_count')[:2]
 
