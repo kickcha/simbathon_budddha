@@ -5,31 +5,62 @@
     <title>My Page</title>
 </head>
 <body>
-    <h1>닉네임</h1>
+    <h1>{{user.profile.nickname}}</h1>
     <button type="button" onclick="location.href='{% url 'accounts:logout' %}';">로그아웃</button>
     <!-- Add any other user information you want to display -->
     
     <h2>내 티켓</h2>
-    {% if posts %}
-        <ul>
-            {% for post in posts %}
-                <li>{{ post.title }}</li>
-                <!-- Display other post details as needed -->
+    <div class="container">
+        <div class="card_container">
+            {% for ticket in tickets %} 
+            {% if ticket.writer == request.user %}
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-subtitle mb-2 text-muted card-nickname">For. {{ticket.writer.profile.nickname}}</h4>
+                    <h4 class="date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</h4>
+                    <h4 class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></h4>
+                    <h4 class="number"> #{{ticket.id}} </h4>
+                    <h4 class="card-text">{{ticket.summary}}... </h4>
+                    <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
+                </div>
+            </div>
+            {% endif %}
             {% endfor %}
-        </ul>
-    {% else %}
-        <p>아직 만든 티켓이 없어요.</p>
-    {% endif %}
+        </div>
+    </div>
+        
+
+
     <h2>나 탐구 모음</h2>
-    {% if posts %}
-    <ul>
-        {% for post in posts %}
-            <li>{{ post.title }}</li>
-            <!-- Display other post details as needed -->
-        {% endfor %}
-    </ul>
-    {% else %}
-        <p>아직 답한 질문이 없어요.</p>
-    {% endif %}
+        {% if qnas %}
+            {% for qna in qnas %}
+                <div>
+                    <h3>게시글: {{ qna.title }}</h3>
+                    {% for comment in qna.qnacomment_set.all %}
+                        <ul>
+                            <li>내가 작성한 댓글: {{ comment.content }}</li>
+                        </ul>
+                    {% empty %}
+                        <p>아직 답한 질문이 없어요.</p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>아직 작성한 게시글이 없어요.</p>
+        {% endif %}
+    
+        
+    <!--{% if comments %}
+            {% for comment in comments %}
+                {% if comment.writer == request.user %}
+                    <ul>
+                        <li>{{comment.qna.title}}</li>
+                        <li>내가 작성한 댓글: {{ comment.content }}</li>
+                    </ul>
+                {% endif %}
+            {% endfor %}   
+        {% else %}             
+            <p>아직 답한 질문이 없어요.</p>
+        {% endif %}-->
 </body>
 </html>
