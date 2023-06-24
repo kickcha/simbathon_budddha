@@ -9,10 +9,14 @@ def mypage(request):
         return render(request, 'accounts/login_required.html')
     else:
         user = request.user
+        comments = QnaComment.objects.filter(writer=user)
+        qnas = Qna.objects.filter(qnacomment__in=comments)
         context = {
             'user': user,
-            'tickets':Ticket.objects.filter(writer=user),
-        }   
+            'tickets': Ticket.objects.filter(writer=user),
+            'comments': comments,
+            'qnas': qnas,
+        }
         return render(request, 'mypage/mypage.html', context)
 
 def ticket_detail(request, pk):
