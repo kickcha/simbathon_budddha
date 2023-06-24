@@ -11,9 +11,12 @@ def mypage(request):
         user = request.user
         comments = QnaComment.objects.filter(writer=user)
         qnas = Qna.objects.filter(qnacomment__in=comments)
+
+        tickets = Ticket.objects.filter(writer=user).order_by('-like_count')[:2]
+
         context = {
             'user': user,
-            'tickets': Ticket.objects.filter(writer=user),
+            'tickets': tickets,
             'comments': comments,
             'qnas': qnas,
         }
@@ -66,3 +69,4 @@ def myqnalist(request, id):
         return render(request, 'mypage/myqnalist.html', context)
     else:
         return HttpResponse("Unauthorized", status=401)
+
