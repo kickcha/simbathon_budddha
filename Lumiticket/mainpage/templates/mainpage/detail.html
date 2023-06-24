@@ -1,18 +1,66 @@
-<h2>For. {{ticket.writer.profile.nickname}}</h2>
-Date. {{ticket.pub_date}}
-<!--좋아요 구현, 아래 좋아요 갯수는 임의로 개로 씀! 프론트 마음대로 바꿔도 됩니당-->
-<a href="{% url 'mainpage:likes' ticket.id %}">
-  <p class="cheer">
-    {% if user in ticket.like.all %} 응원 취소 {% else %} 응원 {% endif %}
-  </p>
-</a>
-<!--좋아요 갯수-->
-{{ticket.like_count}}개
+{% extends 'base.html' %} 
+{% block content %}
 
-<hr />
+<head>
+  <title>ticketdetail</title>
+  <link rel="stylesheet" href="/static/css/detail.css">
+</head>
 
-<p>{{ticket.body}}</p>
+<div class="wallpaper">
+
+  <div class="backk">
+    <a class="back" href="{% url 'mainpage:mainpage' %}"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+</div>
+
+<div class="text-wrapper">
+
+  <img src="../static/css/image/lantern.png" alt="티켓 이미지">
+
+
+  <h2 class="username">For. {{ticket.writer.profile.nickname}}</h2>
+  <h class="date">{{ticket.pub_date}}</h>
+
+  <!--좋아요 구현, 아래 좋아요 갯수는 임의로 개로 씀! 프론트 마음대로 바꿔도 됩니당-->
+  <a href="{% url 'mainpage:likes' ticket.id %}" id="likeToggle">
+
+    <span class="heart">
+      <i class="fa-solid fa-heart filled" style="color: #f8702c;"><span class="like_count2">{{ticket.like_count}}</span></i>
+    </span>
+
+    <p class="cheer">
+      <span class="like_count">응원</span>
+      {% if user in ticket.like.all %}
+        <i class="fa-solid fa-heart filled" style="color: #f8702c;"></i>
+      {% else %}
+        <i class="fa-regular fa-heart" style="color: #f8702c;"></i>
+      {% endif %}
+    </p>
+  </a>
+
+<p class="content">{{ticket.body}}</p>
 
 {% if ticket.writer == user %}
-<a href="{% url 'mainpage:delete' ticket.id %}">삭제</a>
+<a href="{% url 'mainpage:delete' ticket.id %}"><i class="fa-solid fa-trash-can" style="color: #010A0F;"></i></a>
 {% endif %}
+
+
+</div>
+</div>
+
+<script>
+  const likeToggle = document.getElementById("likeToggle");
+
+  likeToggle.addEventListener("click", function() {
+    likeToggle.classList.toggle("liked");
+  });
+</script>
+
+<nav class="footer-container">
+  <ul class="icons">
+      <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
+      <li><a href="{% url 'mainpage:new' %}"><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></a></li>
+      <li><a href="{% url 'qnapage:qnalistrecent' %}"><i class="fa-regular fa-compass" style="color: #000000;"></i></a></li>
+  </ul>
+</nav>
+
+{% endblock %}
