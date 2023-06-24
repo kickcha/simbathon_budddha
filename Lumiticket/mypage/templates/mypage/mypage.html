@@ -36,7 +36,7 @@
         {% if qnas %}
             {% for qna in qnas|slice:":2" %}
                 <div>
-                    <h3><a href="{% url 'qnapage:qnadetail'}"> 게시글: {{ qna.title }}</h3></a>
+                    <h3><a href="{% url 'qnapage:qnadetail' qna.id %}"> 게시글: {{ qna.title }}</h3></a>
                     {% for comment in qna.qnacomment_set.all %}
                         <ul>
                             <li>내가 작성한 댓글: {{ comment.content }}</li>
