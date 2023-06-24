@@ -3,6 +3,7 @@ from .models import Qna, QnaComment, QnaReply
 from django.utils import timezone
 from django.db.models import Max
 
+
 # Create your views here.
 def create(request):
     if request.user.is_authenticated:
