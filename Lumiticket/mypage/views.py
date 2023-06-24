@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from mainpage.models import Ticket
 from qnapage.models import *
+from django.core.paginator import Paginator
 
 
 def mypage(request):
@@ -56,6 +57,9 @@ def qnadetail(request, id):
 
 def myticketlist(request, id):
     tickets = Ticket.objects.filter(writer=request.user)
+    ticket_list = Ticket.objects.order_by('-like_count')
+    paginator = Paginator(ticket_list, 4)
+    page = request.GET.get('page')
     return render(request, 'mypage/myticketlist.html', {'tickets': tickets})
 
 def myqnalist(request, id):
