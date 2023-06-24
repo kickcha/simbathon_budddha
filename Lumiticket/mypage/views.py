@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from mainpage.models import Ticket
 from qnapage.models import *
 from django.core.paginator import Paginator
+from django.http import HttpResponse
 
 
 def mypage(request):
@@ -12,9 +13,7 @@ def mypage(request):
         user = request.user
         comments = QnaComment.objects.filter(writer=user)
         qnas = Qna.objects.filter(qnacomment__writer=request.user).distinct()
-
         tickets = Ticket.objects.filter(writer=user).order_by('-like_count')[:2]
-
         context = {
             'user': user,
             'tickets': tickets,
@@ -56,21 +55,24 @@ def qnadetail(request, id):
     return render(request, 'qnapage/qnadetail.html', {'qna': qna})
 
 def myticketlist(request, id):
-    tickets = Ticket.objects.filter(writer=request.user)
-    ticket_list = Ticket.objects.order_by('-like_count')
-    paginator = Paginator(ticket_list, 4)
-    page = request.GET.get('page')
-    return render(request, 'mypage/myticketlist.html', {'tickets': tickets})
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    else:
+        tickets = Ticket.objects.filter(writer=request.user)
+        ticket_list = Ticket.objects.order_by('-like_count')
+        paginator = Paginator(ticket_list, 4)
+        page = request.GET.get('page')
+        return render(request, 'mypage/myticketlist.html', {'tickets': tickets})
 
 def myqnalist(request, id):
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    else:
         comments = QnaComment.objects.filter(writer=request.user)
-        qnas = Qna.objects.filter(qnacomment__in=comments).order_by('-pub_date')[:2]
+        qnas = Qna.objects.filter(qnacomment__in=comments).distinct().order_by('-pub_date')
         context = {
             'comments': comments,
             'qnas': qnas, 
         }
         return render(request, 'mypage/myqnalist.html', context)
-    else:
-        return HttpResponse("Unauthorized", status=401)
 

@@ -25,7 +25,10 @@ def loadingpage(request):
     return render(request, 'mainpage/loadingpage.html')
 
 def new(request):
-    return render(request, 'mainpage/new.html')
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    else:
+        return render(request, 'mainpage/new.html')
 
 def create(request): #티켓 적는 함수
     if request.user.is_authenticated:
@@ -43,23 +46,25 @@ def create(request): #티켓 적는 함수
         return redirect('accounts:login')
 
 def likes(request, ticket_id):
-    ticket = get_object_or_404(Ticket, id=ticket_id)
-    if request.user in ticket.like.all():
-        ticket.like.remove(request.user)
-        ticket.like_count -= 1
-        ticket.save()
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
     else:
-        ticket.like.add(request.user)
-        ticket.like_count += 1
-        ticket.save()
-    return redirect('mainpage:detail', ticket.id)
+        ticket = get_object_or_404(Ticket, id=ticket_id)
+        if request.user in ticket.like.all():
+            ticket.like.remove(request.user)
+            ticket.like_count -= 1
+            ticket.save()
+        else:
+            ticket.like.add(request.user)
+            ticket.like_count += 1
+            ticket.save()
+        return redirect('mainpage:detail', ticket.id)
 
 def ticketlistnew(request): 
     ticket_list = Ticket.objects.order_by('-pub_date')
     paginator = Paginator(ticket_list, 4)
     page = request.GET.get('page')
     tickets = paginator.get_page(page)
-
     return render(request, 'mainpage/ticketlistnew.html', {'tickets':tickets})
 
 def ticketlistpop(request):
@@ -67,7 +72,6 @@ def ticketlistpop(request):
     paginator = Paginator(ticket_list, 4)
     page = request.GET.get('page')
     tickets = paginator.get_page(page)
-
     return render(request, 'mainpage/ticketlistpop.html', {'tickets':tickets})
 
 def delete(request, id):
