@@ -1,5 +1,199 @@
-.cheer p {
+/* reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, menu, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+font-family : Helvetica;
+}
+                                          /* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+display: block;
+}
+                     /* HTML5 hidden-attribute fix for newer browsers */
+                     *[hidden] {
+display: none;
+}
+body {
+line-height: 1;
+}
+menu, ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table{
+border-collapse:collapse;
+border-spacing:0;
+}
+
+                     * {
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+/* start */
+@font-face {
+    font-family: 'Tenada';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DONGGUK UNIVERSITY';
+    src: url("../fonts/DONGGUK UNIVERSITY.otf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.wallpaper{
+    max-width: 430px;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-image: url('image/bgimage.png');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+    .backk{
+      display: flex;
+      position: absolute;
+      justify-content: flex-start;
+      font-size: 30px;
+      list-style-type: none;
+      text-decoration: none;
+      margin-left: 25px;
+      margin-top: 85px;
+      z-index: 10000;
+  }
+
+  .text-wrapper{
+      background-image: url("image/ticket.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: relative;
+      height: 100vh;
+      width: 80%;
+      top: 20%;
+      left: 10%;
+      overflow-y: scroll;
+  }
+
+  .username{
+    font-size: 25px;
+    position: relative;
+    display: flex;
+    margin-left: 10%;
+    margin-top: 10%;
+    font-family: 'DONGGUK UNIVERSITY';
+}
+
+.date{
+  color: #FAFBFD;
+  font-size: 1.2rem;
+  margin-left: 2.3rem;
+  margin-top: 33%;
+  position: absolute;
+  font-weight: 100;
+}
+
+.cheer{
   list-style-type: none;
   text-decoration: none;
-  color: aqua;
+  position: absolute;
+  margin-left: 76%;
+  margin-top: 130%;
+  background: white;
+  width: 60px;
+  height: 25px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  border: 1.5px solid #f8702c;
 }
+
+.like_count{
+  margin-right: 3px;
+  font-size:14px;
+  font-family: 'DONGGUK UNIVERSITY';
+}
+
+.like_count2{
+  margin-left: 3px;
+  font-size:14px;
+  font-family: 'DONGGUK UNIVERSITY';
+}
+
+.empty:before {
+  content: "\f08a";
+}
+
+.filled:before {
+  content: "\f004";
+  color: #f8702c;
+}
+
+.heart{
+  margin-left: 80%;
+  margin-top: 33%;
+  position: absolute;
+}
+
+.content{
+  width: 280px;
+  margin-top: 60%;
+  margin-left: 15px;
+  height: 210px;
+  font-size: 20px;
+  overflow-y: scroll;
+
+}
+
+.fa-trash-can{
+  margin-left: 8%;
+  margin-top: 2%;
+  font-size: 23px;
+
+}
+
+.text-wrapper img {
+  width: 63px;
+  height: 63px;
+  position: absolute;
+  top: 5.3%;
+  left: 87%;
+  transform: translate(-50%, -50%);
+  }
