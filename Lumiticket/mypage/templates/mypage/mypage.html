@@ -12,20 +12,21 @@
     <h2>내 티켓</h2>
     <div class="container">
         <div class="card_container">
-            {% for ticket in tickets %} 
-            {% if ticket.writer == request.user %}
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-subtitle mb-2 text-muted card-nickname">For. {{ticket.writer.profile.nickname}}</h4>
-                    <h4 class="date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</h4>
-                    <h4 class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></h4>
-                    <h4 class="number"> #{{ticket.id}} </h4>
-                    <h4 class="card-text">{{ticket.summary}}... </h4>
-                    <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
+            {% for ticket in tickets|slice:":2" %}
+                {% if ticket.writer == request.user %}
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-subtitle mb-2 text-muted card-nickname">For. {{ticket.writer.profile.nickname}}</h4>
+                        <h4 class="date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</h4>
+                        <h4 class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></h4>
+                        <h4 class="number"> #{{ticket.id}} </h4>
+                        <h4 class="card-text">{{ticket.summary}}... </h4>
+                        <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
+                    </div>
                 </div>
-            </div>
-            {% endif %}
+                {% endif %}
             {% endfor %}
+            <a href="{% url 'mypage:myticketlist' request.user.id %}">내가 쓴 티켓 더보기</a>
         </div>
     </div>
         
@@ -33,34 +34,20 @@
 
     <h2>나 탐구 모음</h2>
         {% if qnas %}
-            {% for qna in qnas %}
+            {% for qna in qnas|slice:":2" %}
                 <div>
-                    <h3>게시글: {{ qna.title }}</h3>
+                    <h3><a href="{% url 'qnapage:qnadetail'}"> 게시글: {{ qna.title }}</h3></a>
                     {% for comment in qna.qnacomment_set.all %}
                         <ul>
                             <li>내가 작성한 댓글: {{ comment.content }}</li>
                         </ul>
-                    {% empty %}
-                        <p>아직 답한 질문이 없어요.</p>
                     {% endfor %}
                 </div>
             {% endfor %}
         {% else %}
-            <p>아직 작성한 게시글이 없어요.</p>
+        <p>아직 답한 질문이 없어요.</p>
         {% endif %}
-    
-        
-    <!--{% if comments %}
-            {% for comment in comments %}
-                {% if comment.writer == request.user %}
-                    <ul>
-                        <li>{{comment.qna.title}}</li>
-                        <li>내가 작성한 댓글: {{ comment.content }}</li>
-                    </ul>
-                {% endif %}
-            {% endfor %}   
-        {% else %}             
-            <p>아직 답한 질문이 없어요.</p>
-        {% endif %}-->
+    <a href="{% url 'mypage:myqnalist' request.user.id %}">내가 댓글 쓴 글 더보기</a>
+
 </body>
 </html>
