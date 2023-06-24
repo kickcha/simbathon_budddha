@@ -12,7 +12,6 @@ def mypage(request):
         context = {
             'user': user,
             'tickets':Ticket.objects.filter(writer=user),
-            'qnas': Qna.objects.filter(comment__writer=user),
         }   
         return render(request, 'mypage/mypage.html', context)
 
