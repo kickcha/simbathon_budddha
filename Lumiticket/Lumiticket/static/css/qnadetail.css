@@ -87,6 +87,19 @@ a{
     transform: translate(-50%, -50%);
     }
 
+
+    .backk{
+        display: flex;
+        position: absolute;
+        justify-content: flex-start;
+        font-size: 30px;
+        list-style-type: none;
+        text-decoration: none;
+        margin-left: 25px;
+        margin-top: 85px;
+        z-index: 10000;
+    }
+
     .admintitle{
         border: none;
         height: 20%;
@@ -121,27 +134,30 @@ a{
 }
 
 .comment_container{
-    border: 1px solid red;
     height: 50%;
+    overflow-y: scroll;
 
 }
 
 .comment_form{
-    border: 1px solid red;
-    margin-top: -80px;
+    margin-top: -90px;
     display: flex;
-    margin-left: 6%;
+    margin-left: 10%;
     position: absolute;
     width: 300px;
     justify-content: center;
     align-items: center;
+    background-color:white;
+    width: 300px;
+    height: 38px;
+    border-radius: 20px;
 }
 
 .username{
     margin-left: 10px;
     flex-direction: row;
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
 
 }
 
@@ -149,17 +165,47 @@ a{
     margin-right: 5px;
     }
 
-.date{
-    color: white;
-    font-size: 10px;
-    margin-left: 10px;
-    margin-top: 3px;
+.comment{
+    display: flex;
+    position: relative;
+    left: 85%;
+    top: 320%;
+}
+
+.fa-message{
+    font-size: 15px;
+}
+
+.fa-message:before {
+    margin-right: 5px;
     }
 
     .content{
-        width: 90%;
+        width: 83%;
         margin-left: 10px;
-        /* border: 1px solid red; */
-        height: 80px;
+        border: 1px solid red;
+        /* height: 80px; */
         margin-top: 10px;
+    }
+
+    .line{
+        background-color:black;
+    }
+
+    .likebutton{
+        border: 1px solid blue;
+        width: 13%;
+        margin-left: 87%;
+        margin-top: -10%;
+    }
+
+    .post-text{
+        border:none;
+    }
+
+    .submit-button{
+        border: none;
+        background-color: transparent;
+        margin-left: 90px;
+        font-size: 18px;
     }

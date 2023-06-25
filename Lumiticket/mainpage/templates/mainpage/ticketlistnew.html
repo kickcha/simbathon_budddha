@@ -32,6 +32,12 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-subtitle mb-2 text-muted card-nickname">For. {{ticket.writer.profile.nickname}}</h4>
+                    <!-- 이부분이 응원수에 따른 연등색 변화 자리
+                    {% if ticket.like_count >= 10 %}
+                        10개 후 이미지
+                    {% else %}
+                        10개 전 이미지
+                    {% endif %} -->
                     <h4 class="date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</h4>
                     <h4 class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></h4>
                     <h4 class="number"> #{{ticket.id}} </h4>
