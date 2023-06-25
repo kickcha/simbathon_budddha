@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/mypage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3130e06a9f.js" crossorigin="anonymous"></script>
+    <title>My page</title>
+  </head>
+  <body>
+<div class="wallpaper">
 
-<head>
-    <title>My Page</title>
-</head>
-<body>
-    <h1>{{user.profile.nickname}}</h1>
-    <button type="button" onclick="location.href='{% url 'accounts:logout' %}';">로그아웃</button>
-    <!-- Add any other user information you want to display -->
-    
-    <h2>내 티켓</h2>
+      <!--상단 nav바-->
+      <nav class="nav-container">
+        <ul class="logo">
+          <li><a href="{% url 'mainpage:mainpage' %}">이루미 티켓</a></li>
+        </ul>
+        <ul class="icon">
+          <li><a href = "{% url 'accounts:logout' %}"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffff"></i></a>
+          </li>
+        </ul>
+      </nav>
+
+      <!--프로필 닉네임-->
+      <div class="profile">
+        <div class="profile-img">
+          <i class="fa-solid fa-circle-user" style="color: #fafbfd"></i>
+        </div>
+        <div class="nickname">{{user.profile.nickname}}</div> 
+      </div>
+
+      <!--내 티켓 더보기-->
+        <div class="first-more">
+          <div class="my-ticket">내 티켓</div>
+          <a class="f-more" href="{% url 'mypage:myticketlist' request.user.id %}">더보기</a>
+        </div>
+
+        
+      <!--내 티켓 디자인-->
     <div class="container">
         <div class="card_container">
             {% for ticket in tickets|slice:":2" %}
@@ -26,35 +57,45 @@
                 </div>
                 {% endif %}
             {% endfor %}
-            <a href="{% url 'mypage:myticketlist' request.user.id %}">내가 쓴 티켓 더보기</a>
         </div>
     </div>
         
 
 
-<!-- mypage/templates/mypage/mypage.html -->
+<!-- 나 탐구 더보기 -->
+<div class="second-more">
+  <div class="soul-searching">나 탐구 모음</div>
+  <a class="s-more" href="{% url 'mypage:myqnalist' request.user.id %}">더보기</a>
+</div>
 
-    <h2>나 탐구 모음</h2>
+<!--나 탐구 디자인-->
+<div class="self-exploration">
     {% if qnas %}
         {% for qna in qnas|slice:":2" %}
-            <div>
-                <h3><a href="{% url 'qnapage:qnadetail' qna.id %}">게시글: {{ qna.title }}</a></h3>
+        <div class="qna-title">
+                <p class="title"><a href="{% url 'qnapage:qnadetail' qna.id %}">게시글: {{ qna.title }}</a></p>
                 {% for comment in qna.qnacomment_set.all %}
                     {% if comment.writer == request.user %}
-                        <ul>
-                            <li>내가 작성한 댓글: {{ comment.content }}</li>
-                        </ul>
+                        <p class="my-comment">내가 작성한 댓글: {{ comment.content }}</p>
                     {% endif %}
                 {% endfor %}
             </div>
         {% endfor %}
+
+</div>
     {% else %}
         <p>아직 답한 질문이 없어요.</p>
     {% endif %}
-    <a href="{% url 'mypage:myqnalist' request.user.id %}">내가 댓글 쓴 글 더보기</a>
 
+    <!--하단 nav바-->
+  <nav class="footer-container">
+      <ul class="icons">
+          <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
+          <li><a href="{% url 'mainpage:new' %}"><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></a></li>
+          <li><a href="{% url 'qnapage:qnalistrecent' %}"><i class="fa-regular fa-compass" style="color: #000000;"></i></a></li>
+      </ul>
+  </nav>
     
-    
-
+</div>
 </body>
 </html>
