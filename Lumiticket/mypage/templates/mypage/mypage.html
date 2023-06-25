@@ -36,7 +36,7 @@
       <!--내 티켓 더보기-->
         <div class="first-more">
           <div class="my-ticket">내 티켓</div>
-            {% if tickets|length > 2 %}
+            {% if tickets|length >= 2 %}
             <a class="f-more" href="{% url 'mypage:myticketlist' request.user.id %}">더보기</a>
             {% endif %}
         </div>
