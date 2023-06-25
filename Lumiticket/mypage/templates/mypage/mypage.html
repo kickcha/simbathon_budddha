@@ -36,7 +36,9 @@
       <!--내 티켓 더보기-->
         <div class="first-more">
           <div class="my-ticket">내 티켓</div>
-          <a class="f-more" href="{% url 'mypage:myticketlist' request.user.id %}">더보기</a>
+            {% if tickets|length > 1 %}
+            <a class="f-more" href="{% url 'mypage:myticketlist' request.user.id %}">더보기</a>
+            {% endif %}
         </div>
 
         
@@ -65,7 +67,9 @@
 <!-- 나 탐구 더보기 -->
 <div class="second-more">
   <div class="soul-searching">나 탐구 모음</div>
+  {% if qnas|length > 2 %}
   <a class="s-more" href="{% url 'mypage:myqnalist' request.user.id %}">더보기</a>
+  {% endif %}
 </div>
 
 <!--나 탐구 디자인-->
