@@ -7,6 +7,7 @@ class Ticket(models.Model):
     body = models.TextField()
     like = models.ManyToManyField(User, related_name='likes', blank=True)
     like_count = models.PositiveIntegerField(default=0)
+    report_count = models.PositiveIntegerField(default=0)
 
     # def __str__(self):
     #     return self.body[:20]
@@ -24,3 +25,11 @@ class Comment(models.Model):
 
     def get_pub_date_date(self):
         return self.pub_date.date()
+
+class Report(models.Model):
+    ticket = models.ForeignKey(Ticket, on_delete=models.CASCADE)
+    reporter = models.ForeignKey(User, on_delete=models.CASCADE)
+    reported_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ['ticket', 'reporter']

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Ticket, Comment
+from .models import Ticket, Comment, Report
 from django.utils import timezone
 from qnapage import *
 from accounts import *
@@ -14,9 +14,44 @@ def mainpage(request):
     tickets = Ticket.objects.order_by('-like_count')[:2]
     return render(request, 'mainpage/mainpage.html', {'tickets': tickets})
 
+def report(request, ticket_id):
+    if request.user.is_authenticated:
+        ticket = get_object_or_404(Ticket, id=ticket_id)
+
+        if request.method == 'POST':
+            reporter = request.user
+        else:
+            return redirect('mainpage:detail', id=ticket_id)
+
+        # 이미 신고한 경우 처리
+        if Report.objects.filter(ticket=ticket, reporter=request.user).exists():
+            return redirect('mainpage:detail', id=ticket_id)
+
+        # 새로운 신고 생성
+        report = Report.objects.create(ticket=ticket, reporter=reporter)
+
+        # 추가로 신고 처리 로직 구현
+        if ticket.report_count >= 3:
+            # 게시글을 보류 상태로 변경
+            ticket.status = '보류'
+        else:
+            ticket.report_count += 1
+        ticket.save()
+            # 또는 게시글을 삭제할 수도 있습니다.
+            # ticket.delete()
+
+        return redirect('mainpage:detail', id=ticket_id)
+
+    return redirect('mainpage:detail', id=ticket_id)
+
 def detail(request, id):
     ticket = get_object_or_404(Ticket, pk=id)
     ticket.pub_date = ticket.pub_date.date()
+
+    if Report.objects.filter(ticket=ticket).count() >= 3:
+        ticket.status = '보류'
+        ticket.save()
+
     return render(request, 'mainpage/detail.html',{'ticket':ticket})
 
 def intropage(request):
