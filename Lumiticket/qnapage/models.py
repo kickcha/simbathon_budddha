@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Count
+
 # Create your models here.
 
 class Qna(models.Model):
@@ -10,6 +12,8 @@ class Qna(models.Model):
 
     def __str__(self):
         return self.title
+    def comment_and_reply_count(self):
+        return self.qnacomment_set.count() + self.qnacomment_set.aggregate(reply_count=Count('qnareply'))['reply_count']
     
 class QnaComment(models.Model):
     content = models.TextField()
@@ -27,6 +31,8 @@ class QnaReply(models.Model):
     pub_date = models.DateTimeField()
     writer = models.ForeignKey(User, null=False, blank=False, on_delete=models.CASCADE)
     comment = models.ForeignKey(QnaComment, null=False, blank=False, on_delete=models.CASCADE)
+    reply_like = models.ManyToManyField(User, related_name='reply_like', blank=True)
+    reply_like_count = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.comment.qna.title + " - Comment: " + self.comment.content + " - Reply: " + self.content
