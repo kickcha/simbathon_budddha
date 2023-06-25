@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Qna, QnaComment, QnaReply
 from django.utils import timezone
 from django.db.models import Max
+from django.db.models import Count
 
 
 # Create your views here.
@@ -24,20 +25,26 @@ def new(request):
         return render(request, 'qnapage/newqna.html')
 
 def qnalistrecent(request):
-    qnas = Qna.objects.order_by('-pub_date')
+    qnas = Qna.objects.annotate(comment_count=Count('qnacomment'), reply_count=Count('qnacomment__qnareply')).order_by('-pub_date')
     return render(request, 'qnapage/qnalistrecent.html', {'qnas':qnas})
 
 def qnalistpop(request):
-    qnas = Qna.objects.annotate(latest_comment_date=Max('qnacomment__pub_date')).order_by('-latest_comment_date')
+    qnas = Qna.objects.annotate(
+        comment_count=Count('qnacomment'), 
+        reply_count=Count('qnacomment__qnareply'),
+        latest_comment_date=Max('qnacomment__pub_date')
+        ).order_by('-latest_comment_date')
     return render(request, 'qnapage/qnalistpop.html', {'qnas': qnas})
 
 def qnadetail(request, id):
     qna = get_object_or_404(Qna, pk = id)
     if request.method == 'GET':
         comments = QnaComment.objects.filter(qna = qna)
+        total_count = comments.count() + QnaReply.objects.filter(comment__in=comments).count()
         return render(request, 'qnapage/qnadetail.html',{
             'qna':qna,
-            'comments':comments
+            'comments':comments,
+            'total_count':total_count,
             })
     elif request.method == "POST":
         if not request.user.is_authenticated:
@@ -72,7 +79,8 @@ def comment_likes(request, comment_id):
 def comment_delete(request, comment_id):
     comment = get_object_or_404(QnaComment, id=comment_id)
     qna_id = comment.qna.id
-    comment.delete()
+    if request.method == 'POST' and request.user == comment.writer:
+        comment.delete()
     return redirect('qnapage:qnadetail', qna_id)
 
 def reply_create(request, comment_id):
@@ -86,3 +94,25 @@ def reply_create(request, comment_id):
             pub_date = timezone.now()
             QnaReply.objects.create(content=content, writer=writer, pub_date=pub_date, comment=comment)
         return redirect('qnapage:qnadetail', comment.qna.id)
+
+def reply_delete(request, reply_id):
+    reply = get_object_or_404(QnaReply, id=reply_id)
+    qna_id = reply.comment.qna.id
+    if request.method == 'POST' and request.user == reply.writer:
+        reply.delete()
+    return redirect('qnapage:qnadetail', qna_id)
+
+def reply_likes(request, reply_id):
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    else:
+        reply = get_object_or_404(QnaReply, id=reply_id)
+        if request.user in reply.reply_like.all():
+            reply.reply_like.remove(request.user)
+            reply.reply_like_count -= 1
+            reply.save()
+        else:
+            reply.reply_like.add(request.user)
+            reply.reply_like_count += 1
+            reply.save()
+        return redirect('qnapage:qnadetail', reply.comment.qna.id)
