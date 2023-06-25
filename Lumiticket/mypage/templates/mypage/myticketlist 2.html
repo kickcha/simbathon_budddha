@@ -1,0 +1,70 @@
+{% extends 'base.html' %} 
+{% block content %} 
+        <head>
+            <link rel="stylesheet" href="/static/css/ticketlistnew.css">
+            <script src="https://kit.fontawesome.com/b0377dea63.js" crossorigin="anonymous"></script>
+            <script defer src="/static/javaScript/real_login.js"></script>
+            <title>ticketlistnew</title>
+        </head>
+<body>
+
+<div class="wallpaper">
+
+
+    <section class="first">
+
+        <div class="backk">
+            <a class="back" href="{% url 'mainpage:mainpage' %}"><i class="fa-solid fa-arrow-left" style="color: #FAFBFD;"></i></a>
+        </div>
+
+    </section>
+
+    
+    <div class="container">
+        <div class="card_container">
+            {% for ticket in tickets %}  <!--여기서 내가 쓴 티켓만 보이게 렌더링 해야 됨-->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-subtitle mb-2 text-muted card-nickname">For. {{ticket.writer.profile.nickname}}</h4>
+                    <h4 class="date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</h4>
+                    <h4 class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></h4>
+                    <h4 class="number"> #{{ticket.id}} </h4>
+                    <h4 class="card-text">{{ticket.summary}}... </h4>
+                    <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+        
+    
+        <div class="order">
+            {% if tickets.has_previous %} 
+            <a href="?page={{tickets.previous_page_number}}"><i class="fa-solid fa-angle-left" style="color: #FAFBFD;"></i></a>
+            {% endif %} 
+            <span>{{tickets.number}}</span>
+            <span class="stand">/</span>
+            <span>{{tickets.paginator.num_pages}}</span>
+            {%if tickets.has_next %} 
+            <a href="?page={{tickets.next_page_number}}"><i class="fa-solid fa-angle-right" style="color: #FAFBFD;"></i></a>
+            {% endif %} 
+        </div>
+
+
+    
+    
+    </div>
+
+
+    <nav class="footer-container">
+        <ul class="icons">
+            <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
+            <li><a href="{% url 'mainpage:new' %}"><i class="fa-regular fa-pen-to-square" style="color: #000000;"></i></a></li>
+            <li><a href="{% url 'qnapage:qnalistrecent' %}"><i class="fa-regular fa-compass" style="color: #000000;"></i></a></li>
+        </ul>
+    </nav>
+
+</div>
+
+</body>
+{% endblock %}
