@@ -38,7 +38,12 @@
                     <h4 class="date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</h4>
                     <h4 class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></h4>
                     <h4 class="number"> #{{ticket.id}} </h4>
-                    <h4 class="card-text">{{ticket.summary}}... </h4>
+                    <!-- 신고 3회 이상 시-->
+                    {% if ticket.report_count >= 3 %}
+                        <h5 class="report-message">3회 이상 신고되어 관리자가 확인 중인 게시글입니다.</h5>
+                    {% else %}
+                        <h4 class="card-text">{{ticket.summary}}... </h4>
+                    {% endif %}
                     <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
                 </div>
 
