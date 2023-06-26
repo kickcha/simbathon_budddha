@@ -34,10 +34,8 @@
                     <!--첫번째줄-->
                     <div class="card-fline">
                         <div class="user-info">
-                        <span class="for">For.</span>
-                        <span class="nickname">{{ticket.writer.profile.nickname}}</span>
-                    </div>
-                        <!-- 이부분이 응원수에 따른 연등색 변화 자리 -->
+                            <div class="for">For.</div>
+                            <!-- 이부분이 응원수에 따른 연등색 변화 자리 -->
                             <div class="lanterncolor">
                             {% if ticket.like_count >= 10 %}
                             <img src="../static/css/image/light.png" class="light" alt="티켓 이미지">
@@ -46,6 +44,9 @@
                             {% endif %}
                             </div>
                         </div>
+                    </div>
+                        <div class="nickname">{{ticket.writer.profile.nickname}}</div>
+                    
                     
                     <!--날짜 좋아요-->
                     <div class="card-sline">
@@ -64,7 +65,7 @@
                     <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
                 </div>
             </div>
-        {% endfor %}
+            {% endfor %}
         </div>
 
         

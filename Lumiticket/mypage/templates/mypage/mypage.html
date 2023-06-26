@@ -30,7 +30,7 @@
         <div class="profile-img">
           <i class="fa-solid fa-circle-user" style="color: #fafbfd"></i>
         </div>
-        <div class="nickname">{{user.profile.nickname}}</div> 
+        <div class="profile-nickname">{{user.profile.nickname}}</div> 
       </div>
 
       <!--내 티켓 더보기-->
@@ -43,24 +43,50 @@
 
         
       <!--내 티켓 디자인-->
-    <div class="container">
+ 
         <div class="card_container">
             {% for ticket in tickets|slice:":2" %}
                 {% if ticket.writer == request.user %}
                 <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-subtitle mb-2 text-muted card-nickname">For. {{ticket.writer.profile.nickname}}</h4>
-                        <h4 class="date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</h4>
-                        <h4 class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></h4>
-                        <h4 class="number"> #{{ticket.id}} </h4>
-                        <h4 class="card-text">{{ticket.summary}}... </h4>
-                        <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
-                    </div>
-                </div>
+                  <div class="card-body">
+                      <!--첫번째줄-->
+                      <div class="card-fline">
+                          <div class="user-info">
+                              <div class="for">For.</div>
+                              <!-- 이부분이 응원수에 따른 연등색 변화 자리 -->
+                              <div class="lanterncolor">
+                              {% if ticket.like_count >= 10 %}
+                              <img src="../static/css/image/light.png" class="light" alt="티켓 이미지">
+                              {% else %}
+                              <img src="../static/css/image/original.png" class= "light" alt="티켓 이미지">
+                              {% endif %}
+                              </div>
+                          </div>
+                      </div>
+                          <div class="nickname">{{ticket.writer.profile.nickname}}</div>
+                      
+                      
+                      <!--날짜 좋아요-->
+                      <div class="card-sline">
+                      <span class="date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</span>
+                      <span class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></span>
+                      </div>
+                      <h4 class="number"> #{{ticket.id}} </h4>
+  
+                      <!-- 신고 3회 이상 시-->
+                      {% if ticket.report_count >= 3 %}
+                          <h5 class="report-message">3회 이상 신고되어 관리자가 확인 중인 게시글입니다.</h5>
+                      {% else %}
+                          <h4 class="card-text">{{ticket.summary}}... </h4>
+                      {% endif %}
+                      <!--더보기-->
+                      <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
+                  </div>
+              </div>
                 {% endif %}
             {% endfor %}
         </div>
-    </div>
+    
         
 
 

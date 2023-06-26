@@ -6,6 +6,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'GowunDodum-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -69,7 +76,8 @@ body {
 }
 
 .icon i {
-  font-size: 30px; 
+  font-size: 25px; 
+  margin-top: 6px;
   width: 36px; 
   height: 36px; 
 }
@@ -93,7 +101,7 @@ body {
   font-size: 70px;
 }
 
-.nickname {
+.profile-nickname {
   position: relative;
   display: flex;
   margin-top: 10px;
@@ -129,7 +137,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 50px;
+  margin-right: 35px;
   top: -6px;
   font-size: 14px;
   font-family: 'GowunDodum-Regular';
@@ -143,8 +151,12 @@ body {
 
 
 /* 티켓 이미지 추가 가보자고 */
-.container {
-  height: 255px;
+
+.card_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .card{
@@ -153,85 +165,148 @@ body {
   background-size: contain;
   height: 15rem;
   position: relative;
-  /* margin-left: 15px; */
   width: 35%;
   flex-basis: calc(44% - 15px);
   margin-left: 18px;
   margin-bottom: 1.2rem;
-  
-}
-
-.card_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  position: relative;
-}
-
-.card-body{
-  position: relative;
-  color:black;
-  font-family: 'DONGGUK UNIVERSITY';
-  list-style-type: none;
-  text-decoration: none;
-  align-items: center;
-  margin-top: 4%;
-}
-
-
-section.first {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 20%;
 }
 
 /* card-body */
 
-.card-nickname {
+.card-body{
+  position: relative;
   color: black;
-  margin-left: 7%;
+  font-family: 'GowunDodum-Regular';
+  list-style-type: none;
+  text-decoration: none;
+  height: 235px;
+  width: 145px;
+}
+
+/* card 첫번째 줄 */
+
+.card-fline{
+  margin-left: 5px;
+  margin-top: 15px;
+  position: relative;
+  display: flex;
+  height: 25px;
+}
+
+/* 추후에 닉네임 글자수 적용하기 */
+.user-info{
+  position: relative;
+  display: flex;
+  height: 25px;
+  width: 145px;
+}
+
+.for{
+  position: relative;
+  display: flex;
+  margin-left: 10px;
+  color: black;
   font-weight: bold;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lanterncolor {
+  margin-left: 95px;
+  position: fixed;
+  display: flex;
+  height: 40px;
+  }
+
+.light{
+  display: flex;
+  width: 40px;
+  left: 100%;
+  height: 40px;
+  margin-top: -2px;
+}
+
+.nickname {
+  position: relative;
+  display: flex;
+  margin-left: 16px;
+  margin-top: 8px;
+  width: 106px;
+  font-size: 13px;
+  color: black;
+  align-items: center;
+  text-overflow: ellipsis;
+}
+
+
+
+/* card 날짜 좋아요 */
+
+.card-sline{
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 115px;
+  height: 19px;
+  margin-left: 18px;
+  justify-content: space-between;
 }
 
 .date{
+  position: relative;
+  display: flex;
   color: #FAFBFD;
   font-size: 0.5rem;
-  margin-left: 1.2rem;
-  margin-top: 2rem;
+}
+
+.like{
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: -1px;
 }
 
 .fa-heart{
   font-size: 10px;
-  margin-left: 110px;
-  margin-right: 3%;
+  /* margin-left: 110px;
+  margin-right: 3%; */
 }
 
-.like{
-  display: flex;
-  align-items: center;
-  margin-top: -20px;
-
-}
 
 .like_count{
   font-size: 11px;
   font-weight: 100;
+  margin-left: 2px;
 }
 
 .number{
   color: #F8702C;
+  margin-top: 13px;
+  margin-left: 18px;
   font-weight: 100;
-  margin-left: 13px;
-  margin-bottom: -15px;
+}
+
+/* 신고 메시지는 슈퍼유저로 다시 확인할 것! */
+
+.report-message{
+  margin-top: -18px;
+  margin-left: 15px;
+  margin-right: 20px;
+  font-size: 14px;
+  font-weight: 100;
+  height: 80px;
 }
 
 .card-text{
-  margin-left: 13px;
-  margin-right: 38px;
-  font-size: 14px;
+  margin-top: -18px;
+  margin-left: 18px;
+  margin-right: 20px;
+  font-size: 13px;
   font-weight: 100;
   height: 80px;
 }
@@ -243,7 +318,7 @@ section.first {
   font-size: 12px;
   margin-left: 100px;
   display: flex;
-  margin-top: -7px;
+  margin-top: -13px;
   font-weight: bold !important;
 }
 
