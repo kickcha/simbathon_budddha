@@ -79,8 +79,7 @@ def comment_likes(request, comment_id):
 def comment_delete(request, comment_id):
     comment = get_object_or_404(QnaComment, id=comment_id)
     qna_id = comment.qna.id
-    if request.method == 'POST' and request.user == comment.writer:
-        comment.delete()
+    comment.delete()
     return redirect('qnapage:qnadetail', qna_id)
 
 def reply_create(request, comment_id):
@@ -98,8 +97,7 @@ def reply_create(request, comment_id):
 def reply_delete(request, reply_id):
     reply = get_object_or_404(QnaReply, id=reply_id)
     qna_id = reply.comment.qna.id
-    if request.method == 'POST' and request.user == reply.writer:
-        reply.delete()
+    reply.delete()
     return redirect('qnapage:qnadetail', qna_id)
 
 def reply_likes(request, reply_id):
