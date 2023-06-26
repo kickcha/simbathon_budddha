@@ -3,26 +3,15 @@
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'ELAND_Choice_M';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'DONGGUK UNIVERSITY';
-    src: url("../fonts/DONGGUK UNIVERSITY.ttf");
+  }
+  
+  @font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'DONGGUK UNIVERSITY';
-    src: url("../fonts/DONGGUK UNIVERSITY.otf");
-    font-weight: normal;
-    font-style: normal;
-}
+  }
+  
 
 * {
     box-sizing: border-box;
@@ -114,7 +103,7 @@ span#welcome_announce{
     left: 50%;
     top: 20rem;
     transform: translate(-50%, 50%);
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     height: 38px;
     font-weight: 100;
     width: 221px;
@@ -132,7 +121,7 @@ span#welcome_announce{
     left: 50%;
     transform: translate(-50%, 50%);
     width: 221px;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     font-size: 15px;
     height: 38px;
     text-align: center;

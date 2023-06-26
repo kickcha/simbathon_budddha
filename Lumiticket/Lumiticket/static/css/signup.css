@@ -63,21 +63,14 @@ a{
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-}
-
+    }
+  
 @font-face {
-    font-family: 'ELAND_Choice_M';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'DONGGUK UNIVERSITY';
-    src: url("../fonts/DONGGUK UNIVERSITY.otf");
-    font-weight: normal;
-    font-style: normal;
-}
+    }
 
 * {
     box-sizing: border-box;
@@ -216,7 +209,7 @@ transform: translate(-50%, -50%);
 
 .password, .id, .repassword, .name{
     color:white;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
 }
 
 .id{
@@ -225,7 +218,7 @@ transform: translate(-50%, -50%);
     display: flex;
     position: relative;
     left: 10px;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
 }
 
 span.writename{
@@ -241,7 +234,7 @@ span.writename{
     margin-top:0.5rem;
     left: 10px;
     position: relative;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
 }
 
 .name2{
@@ -254,7 +247,7 @@ span.writename{
     text-indent: 15px;
     color: white;
     font-weight: 180;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
 }
 
 .start{
@@ -266,7 +259,7 @@ span.writename{
     width: 221px;
     height: 38px;
     font-size: 15px;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     border: none;
 }
 
@@ -282,7 +275,7 @@ span.writename{
     right:5px;
     font-weight: 400;
     text-indent:5%;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
 }
 
 .start::placeholder {
@@ -291,7 +284,7 @@ span.writename{
     right:5px;
     font-weight: 400;
     text-indent:5%;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
 }
 
 input:focus{
@@ -304,7 +297,7 @@ input:focus{
     font-size: small;
     left: 1rem;
     position: relative;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
 }
 
 .error-message_pass {
@@ -312,7 +305,7 @@ input:focus{
     font-size: small;
     left: 1rem;
     position: relative;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
 }
 
 .backk{
