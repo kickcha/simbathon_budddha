@@ -50,7 +50,9 @@
   {% if user.is_authenticated %}
   <form action="{% url 'mainpage:report' ticket.id %}" method="post">
     {% csrf_token %}
-    <button type="submit" class="report-button">신고</button>
+    <button type="submit" class="report-button">
+      <i class="fa-solid fa-ban" style="color:#C60B00;"></i>
+    </button>
   </form>
   {% endif %}
 

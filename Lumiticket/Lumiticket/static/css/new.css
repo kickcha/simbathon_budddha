@@ -151,7 +151,7 @@ a{
     .textline{
         height: 14rem;
         width: 80%;
-        margin-top: 58%;
+        margin-top: 75%;
         margin-left: 10%;
     }
 
@@ -163,12 +163,20 @@ a{
     }
 
     .username{
-        font-size: 25px;
+        /* font-size: 25px;
         position: relative;
         display: flex;
         margin-left: 10%;
         margin-top: 10%;
+        font-family: 'DONGGUK UNIVERSITY'; */
+        font-size: 25px;
+        position: absolute;
+        display: flex;
+        margin-left: 10%;
+        margin-top: 10%;
         font-family: 'DONGGUK UNIVERSITY';
+        width: 210px;
+        line-height: 30px;
     }
 
     .text-wrapper img {
