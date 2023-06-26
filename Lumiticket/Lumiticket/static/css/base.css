@@ -48,7 +48,7 @@ body {
 }
 
 .nav-container {
-    position: relative;
+    position: absolute;
     height: 55px;
     top: 7px;
     left: 0;
