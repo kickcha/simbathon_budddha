@@ -81,10 +81,22 @@
 
                 <!-- comment Delete button -->
                 {% if user == c.writer %}
-                    <div class="comment_buttons">
-                        <button class="delete-comment" data-comment-id="{{ c.id }}">Delete</button>
+                    <div class="comment-buttons">
+                        <a href="{% url 'qnapage:comment_delete' c.id %}">
+                            <button class="delete-comment">Delete</button>
+                        </a>
                     </div>
                 {% endif %}
+                    
+                <!-- reply input button -->
+                <button class="reply-toggle">대댓글</button>
+                <div class="reply-form">
+                    <form method="POST" action="{% url 'qnapage:reply_create' c.id %}">
+                        {% csrf_token %}
+                        <input type="text" name="content">
+                        <input type="submit" name="submit" value="대댓글 작성">
+                    </form>
+                </div>
 
                 <!-- Replies -->
                 <div class="replies">
@@ -106,20 +118,13 @@
                         <!-- reply delete button-->
                         {% if user == reply.writer %}
                             <div class="reply-buttons">
-                                <button class="delete-reply" data-reply-id="{{ reply.id }}">Delete</button>
+                                <a href="{% url 'qnapage:reply_delete' reply.id %}">
+                                    <button class="delete-reply">Delete</button>
+                                </a>
                             </div>
                         {% endif %}
                     {% endfor %}
-                    
-                    <!-- reply input button -->
-                    <button class="reply-toggle">대댓글</button>
-                    <div class="reply-form">
-                        <form method="POST" action="{% url 'qnapage:reply_create' c.id %}">
-                            {% csrf_token %}
-                            <input type="text" name="content">
-                            <input type="submit" name="submit" value="대댓글 작성">
-                        </form>
-                    </div>
+
                     <hr class="line">
                 </div>
             {% endfor %}
@@ -147,26 +152,6 @@
             button.addEventListener('click', function() {
                 var replyForm = this.nextElementSibling;
                 replyForm.style.display = (replyForm.style.display === 'none') ? 'block' : 'none';
-            });
-        });
-
-        // Comment delete confirmation popup
-        document.querySelectorAll('.delete-comment').forEach(function(button) {
-            button.addEventListener('click', function() {
-                var commentId = this.getAttribute('data-comment-id');
-                if (confirm('해당 댓글을 정말 삭제하시겠습니까?')) {
-                    window.location.href = "/qnapage/commentdelete/" + commentId + "/";
-                }
-            });
-        });
-
-        // Reply delete confirmation popup
-        document.querySelectorAll('.delete-reply').forEach(function(button) {
-            button.addEventListener('click', function() {
-                var replyId = this.getAttribute('data-reply-id');
-                if (confirm('해당 대댓글을 정말 삭제하시겠습니까?')) {
-                    window.location.href = "/qnapage/replydelete/" + replyId + "/";
-                }
             });
         });
     </script>

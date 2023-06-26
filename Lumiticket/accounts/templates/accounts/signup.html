@@ -23,7 +23,13 @@
             <!-- 아이디 입력 -->
             <div class="idsection">
                 <span class="id">아이디</span>
-                <input type="text" name="username" class="id2" oninvalid="this.setCustomValidity('이 칸을 작성해주세요!')" placeholder="아이디를 입력해주세요." required>
+                <input type="text" name="username" class="id2" 
+                minlength="4"
+                maxlength="20"
+                pattern="^[a-z0-9]+$"
+                oninvalid="this.setCustomValidity('아이디: 4~20자의 영문 소문자, 숫자만 사용 가능합니다. (띄어쓰기 불가)')"
+                placeholder="아이디를 입력해주세요." 
+                required>
                 <span class="error-message_id">{{ error_username }}</span>
             </div>
         
