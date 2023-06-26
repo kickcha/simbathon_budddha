@@ -50,7 +50,7 @@ body {
 .nav-container {
     position: relative;
     height: 55px;
-    top: 0;
+    top: 7px;
     left: 0;
     right: 0;
     display: flex;
@@ -71,7 +71,6 @@ body {
     text-decoration: none;
     margin: 30px;
     width: 93px;
-    border: 3px solid;
     padding: 0;
 }
 
@@ -99,6 +98,11 @@ body {
     height: 36px; 
 }
 
+.icon a{
+    list-style-type: none;
+    text-decoration: none;
+}
+
 
 .footer-container {
     position: absolute;
@@ -106,10 +110,10 @@ body {
     left: 0;
     right: 0;
     margin: 0;
-    padding: 10px;
+    padding: 0px 10px;
     background-color:#D9D9D9;
     list-style-type: none;
-    height: 90px;
+    height: 85px;
 }
 
 .icons {
