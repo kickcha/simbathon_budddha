@@ -291,6 +291,7 @@ section.first {
   list-style-type: none;
   text-decoration: none;
   font-family: 'GowunDodum-Regular';
+
 }
 
 .qna-title{
@@ -350,6 +351,7 @@ section.first {
   top: 50px;
   opacity: 0.8;
   font-family: 'GowunDodum-Regular';
+
 }
 /* 하단 navbar css */
 .footer-container {
