@@ -10,7 +10,7 @@
 
 <div class="wallpaper">
 
-
+    <!--화살표 최신순 응원순 상단바-->
     <section class="first">
 
         <div class="backk">
@@ -25,31 +25,50 @@
         </div>
     </section>
 
-    
-    <div class="container">
+    <!--티켓 디자인-->
+
         <div class="card_container">
             {% for ticket in tickets %} 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-subtitle mb-2 text-muted card-nickname">For. {{ticket.writer.profile.nickname}}</h4>
-                    <!-- 이부분이 응원수에 따른 연등색 변화 자리
-                    {% if ticket.like_count >= 10 %}
-                        10개 후 이미지
-                    {% else %}
-                        10개 전 이미지
-                    {% endif %} -->
-                    <h4 class="date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</h4>
-                    <h4 class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></h4>
+                    <!--첫번째줄-->
+                    <div class="card-fline">
+                        <div class="user-info">
+                        <span class="for">For.</span>
+                        <span class="nickname">{{ticket.writer.profile.nickname}}</span>
+                    </div>
+                        <!-- 이부분이 응원수에 따른 연등색 변화 자리 -->
+                            <div class="lanterncolor">
+                            {% if ticket.like_count >= 10 %}
+                            <img src="../static/css/image/light.png" class="light" alt="티켓 이미지">
+                            {% else %}
+                            <img src="../static/css/image/original.png" class= "light" alt="티켓 이미지">
+                            {% endif %}
+                            </div>
+                        </div>
+                    
+                    <!--날짜 좋아요-->
+                    <div class="card-sline">
+                    <span class="date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</span>
+                    <span class="like"><i class="fa-solid fa-heart" style="color: #f8702c;"></i><a class="like_count">{{ticket.like_count}}</a></span>
+                    </div>
                     <h4 class="number"> #{{ticket.id}} </h4>
-                    <h4 class="card-text">{{ticket.summary}}... </h4>
+
+                    <!-- 신고 3회 이상 시-->
+                    {% if ticket.report_count >= 3 %}
+                        <h5 class="report-message">3회 이상 신고되어 관리자가 확인 중인 게시글입니다.</h5>
+                    {% else %}
+                        <h4 class="card-text">{{ticket.summary}}... </h4>
+                    {% endif %}
+                    <!--더보기-->
                     <a href="{%url 'mainpage:detail' ticket.id %}" class="more">더보기</a>
                 </div>
             </div>
         {% endfor %}
         </div>
-    </div>
+
         
-    
+        <!--페이지네이션-->
         <div class="order">
             {% if tickets.has_previous %} 
             <a href="?page={{tickets.previous_page_number}}"><i class="fa-solid fa-angle-left" style="color: #FAFBFD;"></i></a>
@@ -57,17 +76,14 @@
             <span>{{tickets.number}}</span>
             <span class="stand">/</span>
             <span>{{tickets.paginator.num_pages}}</span>
-            {%if tickets.has_next %} 
+            {%if tickets.has_next %}
             <a href="?page={{tickets.next_page_number}}"><i class="fa-solid fa-angle-right" style="color: #FAFBFD;"></i></a>
             {% endif %} 
         </div>
 
-
-    
-    
     </div>
 
-
+    <!--하단 nav바-->
     <nav class="footer-container">
         <ul class="icons">
             <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>

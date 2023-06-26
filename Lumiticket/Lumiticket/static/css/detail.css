@@ -112,19 +112,28 @@ a{
   }
 
   .username{
-    font-size: 25px;
+    /* font-size: 25px;
     position: relative;
     display: flex;
     margin-left: 10%;
     margin-top: 10%;
+    font-family: 'DONGGUK UNIVERSITY'; */
+    font-size: 25px;
+    position: absolute;
+    display: flex;
+    margin-left: 10%;
+    margin-top: 10%;
     font-family: 'DONGGUK UNIVERSITY';
+    width: 210px;
+    line-height: 30px;
 }
 
 .date{
   color: #FAFBFD;
   font-size: 1.2rem;
   margin-left: 2.3rem;
-  margin-top: 33%;
+  /* margin-top: 33%; */
+  margin-top: 160px;
   position: absolute;
   font-weight: 100;
 }
@@ -134,7 +143,8 @@ a{
   text-decoration: none;
   position: absolute;
   margin-left: 76%;
-  margin-top: 130%;
+  /* margin-top: 130%; */
+  margin-top: 450px;
   background: white;
   width: 60px;
   height: 25px;
@@ -168,13 +178,14 @@ a{
 
 .heart{
   margin-left: 80%;
-  margin-top: 33%;
+  margin-top: 160px;
   position: absolute;
 }
 
 .content{
   width: 280px;
-  margin-top: 60%;
+  /* margin-top: 60%; */
+  margin-top: 230px;
   margin-left: 15px;
   height: 210px;
   font-size: 20px;
@@ -196,4 +207,15 @@ a{
   top: 5.3%;
   left: 87%;
   transform: translate(-50%, -50%);
+  }
+
+  .report-button{
+    border:none;
+    background-color: transparent;
+    margin-left: 13px;
+
+  }
+
+  .fa-ban{
+    font-size: 28px;
   }
