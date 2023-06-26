@@ -22,6 +22,7 @@ class QnaComment(models.Model):
     qna = models.ForeignKey(Qna, null=False, blank=False, on_delete=models.CASCADE)
     comment_like = models.ManyToManyField(User, related_name='comment_likes', blank=True)
     comment_like_count = models.PositiveIntegerField(default = 0)
+    comment_report_count = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.qna.title+ " : " + self.content
@@ -33,6 +34,7 @@ class QnaReply(models.Model):
     comment = models.ForeignKey(QnaComment, null=False, blank=False, on_delete=models.CASCADE)
     reply_like = models.ManyToManyField(User, related_name='reply_like', blank=True)
     reply_like_count = models.PositiveIntegerField(default=0)
+    reply_report_count = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.comment.qna.title + " - Comment: " + self.comment.content + " - Reply: " + self.content
