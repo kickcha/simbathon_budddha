@@ -14,6 +14,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .wallpaper{
     max-width: 430px;
     width: 100%;
@@ -57,7 +64,7 @@
     font-size: 20px;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     margin: 10px;
     
 }
@@ -67,7 +74,7 @@
     font-size: 20px;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     margin: 10px;
     
 }
@@ -82,7 +89,7 @@
     font-size: 20px;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     margin: 10px;
 }
 
@@ -91,7 +98,7 @@
     font-size: 20px;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     margin: 10px;
 }
 
@@ -99,12 +106,192 @@
     position: absolute;
 }
 
+
+
+/* 티켓 이미지 추가 가보자고 */
+.container {
+    height: calc(100vh - 110px); /* 화면 높이에서 footer의 높이를 뺀 값으로 설정함 */
+}
+
+.card_container {
+    display: flex;
+    flex-direction: row;
+    margin-top: calc(30% + 20px);
+    justify-content: center;
+    flex-wrap: wrap;
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+    padding-bottom: 50px;
+    align-content: flex-start;
+}
+
+.card{
+    background-image: url('image/ticket.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 15rem;
+    position: relative;
+    width: 35%;
+    flex-basis: calc(44% - 15px);
+    margin-left: 18px;
+    margin-bottom: 1.2rem;
+    
+}
+
+/* card-body */
+
+.card-body{
+    position: relative;
+    color: black;
+    font-family: 'GowunDodum-Regular';
+    list-style-type: none;
+    text-decoration: none;
+    height: 235px;
+    width: 145px;
+}
+
+/* card 첫번째 줄 */
+
+.card-fline{
+    margin-left: 15px;
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    height: 25px;
+}
+
+/* 추후에 닉네임 글자수 적용하기 */
+.user-info{
+    position: relative;
+    display: flex;
+    height: 25px;
+}
+
+.for{
+    position: relative;
+    display: flex;
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nickname {
+    position: relative;
+    margin-left: 5px;
+    display: flex;
+    width: 56px;
+    font-size: 13px;
+    color: black;
+    align-items: center;
+    text-overflow: ellipsis;
+}
+
+.lanterncolor {
+    margin-left: 85px;
+    position: fixed;
+    display: flex;
+    height: 40px;
+    }
+
+.light{
+    display: flex;
+    width: 40px;
+    left: 100%;
+    height: 40px;
+    margin-top: -5px;
+}
+
+
+/* card 날짜 좋아요 */
+
+.card-sline{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: 115px;
+    height: 40px;
+    margin-left: 18px;
+    justify-content: space-between;
+    /* border: 3px solid red; */
+}
+
+.date{
+    position: relative;
+    display: flex;
+    color: #FAFBFD;
+    font-size: 0.5rem;
+}
+
+.like{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: -1px;
+}
+
+.fa-heart{
+    font-size: 10px;
+    /* margin-left: 110px;
+    margin-right: 3%; */
+}
+
+
+.like_count{
+    font-size: 11px;
+    font-weight: 100;
+    margin-left: 2px;
+}
+
+.number{
+    color: #F8702C;
+    margin-top: 13px;
+    margin-left: 18px;
+    font-weight: 100;
+}
+
+/* 신고 메시지는 슈퍼유저로 다시 확인할 것! */
+
+.report-message{
+    margin-top: -18px;
+    margin-left: 15px;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: 100;
+    height: 80px;
+}
+
+.card-text{
+    margin-top: -18px;
+    margin-left: 15px;
+    margin-right: 20px;
+    font-size: 14px;
+    font-weight: 100;
+    height: 80px;
+}
+
+.more{
+    list-style-type: none;
+    text-decoration: none;
+    color: #F8702C;
+    font-size: 12px;
+    margin-left: 100px;
+    display: flex;
+    margin-top: -13px;
+    font-weight: bold !important;
+}
+
 /* 밑에 페이지 수  */
 .order{
     color: #FAFBFD;
     display: flex;
     justify-content: center;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     top: 82%;
     position: fixed;
     left:43%;
@@ -123,145 +310,3 @@
 .fa-angle-right{
     margin-left: 7px;
 }
-
-/* 티켓 이미지 추가 가보자고 */
-
-.card{
-    background-image: url('image/ticket.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 15rem;
-    position: relative;
-    /* margin-left: 15px; */
-    width: 35%;
-    flex-basis: calc(44% - 15px);
-    margin-left: 18px;
-    margin-bottom: 1.2rem;
-    
-}
-
-.card_container {
-    display: flex;
-    flex-direction: row;
-    margin-top: calc(30% + 20px);
-    justify-content: center;
-    flex-wrap: wrap;
-    max-height: calc(100vh - 300px);
-    overflow-y: auto;
-    padding-bottom: 50px;
-    align-content: flex-start;
-
-    /* height: 420px; */
-
-}
-
-.container {
-    height: calc(100vh - 110px); /* 화면 높이에서 footer의 높이를 뺀 값으로 설정함 */
-}
-
-.card-body{
-    position: relative;
-    color:black;
-    font-family: 'DONGGUK UNIVERSITY';
-    list-style-type: none;
-    text-decoration: none;
-    align-items: center;
-    margin-top: 4%;
-
-
-}
-
-
-section.first {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 20%;
-}
-
-/* card-body */
-
-.card-nickname {
-    color: black;
-    margin-left: 7%;
-    font-weight: bold;
-    width: 77%;
-    height: 53px;
-    font-size: 17px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.date{
-    color: #FAFBFD;
-    font-size: 0.5rem;
-    margin-left: 1.2rem;
-    margin-top: -20px;
-}
-
-.fa-heart{
-    font-size: 10px;
-    margin-left: 110px;
-    margin-right: 3%;
-}
-
-.like{
-    display: flex;
-    align-items: center;
-    margin-top: -24px;
-    position: absolute;
-    margin-left: -7px;
-
-}
-
-.like_count{
-    font-size: 11px;
-    font-weight: 100;
-}
-
-.number{
-    color: #F8702C;
-    font-weight: 100;
-    margin-left: 13px;
-    margin-bottom: -15px;
-}
-
-.card-text{
-    margin-left: 13px;
-    margin-right: 20px;
-    font-size: 14px;
-    font-weight: 100;
-    height: 80px;
-}
-
-.more{
-    list-style-type: none;
-    text-decoration: none;
-    color: #F8702C;
-    font-size: 12px;
-    margin-left: 100px;
-    display: flex;
-    margin-top: -13px;
-    font-weight: bold !important;
-}
-
-.lanterncolor {
-    width: 63px;
-    height: 63px;
-    position: absolute;
-    top: 5.3%;
-    left: 87%;
-    transform: translate(-50%, -50%);
-    }
-
-.light {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 24%;
-    left: 47%;
-    transform: translate(-50%, -50%);
-    }
