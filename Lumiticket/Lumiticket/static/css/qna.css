@@ -27,16 +27,18 @@
     transform: translate(-50%, -50%);
     }
 
+
 .backk{
-    display: flex;
-    position: absolute;
-    justify-content: flex-start;
-    font-size: 30px;
-    list-style-type: none;
-    text-decoration: none;
-    margin-left: 25px;
-    margin-top: 85px;
-}
+        display: flex;
+        position: absolute;
+        justify-content: flex-start;
+        font-size: 30px;
+        list-style-type: none;
+        text-decoration: none;
+        margin-left: 25px;
+        margin-top: 85px;
+        z-index: 10000;
+    }
 
 .buttons{
     display: flex;
