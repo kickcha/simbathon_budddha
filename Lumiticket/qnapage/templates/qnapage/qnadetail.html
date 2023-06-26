@@ -78,7 +78,7 @@
                         <!-- comment Delete button -->
                         {% if user == c.writer %}
                             <div class="comment_buttons">
-                                <button class="delete-comment" data-comment-id="{{ c.id }}">Delete</button>
+                                <button class="delete-comment" href="{% url 'qnapage:comment_delete' c.id %}" onclick="return confirm('정말 댓글을 삭제하시겠습니까?');">Delete</button>
                             </div>
                         {% endif %}
 
@@ -122,7 +122,7 @@
                                 <!-- reply delete button-->
                                 {% if user == reply.writer %}
                                     <div class="reply-buttons">
-                                        <button class="delete-reply" data-reply-id="{{ reply.id }}">Delete</button>
+                                        <button class="delete-reply"  href="{% url 'qnapage:reply_delete' reply.id %}" onclick="return confirm('정말 대댓글을 삭제하시겠습니까?');">Delete</button>
                                     </div>
                                 {% endif %}
                             {% endfor %}
@@ -152,26 +152,6 @@
             button.addEventListener('click', function() {
                 var replyForm = this.nextElementSibling;
                 replyForm.style.display = (replyForm.style.display === 'none') ? 'block' : 'none';
-            });
-        });
-
-        // Comment delete confirmation popup
-        document.querySelectorAll('.delete-comment').forEach(function(button) {
-            button.addEventListener('click', function() {
-                var commentId = this.getAttribute('data-comment-id');
-                if (confirm('해당 댓글을 정말 삭제하시겠습니까?')) {
-                    window.location.href = "/qnapage/commentdelete/" + commentId + "/";
-                }
-            });
-        });
-
-        // Reply delete confirmation popup
-        document.querySelectorAll('.delete-reply').forEach(function(button) {
-            button.addEventListener('click', function() {
-                var replyId = this.getAttribute('data-reply-id');
-                if (confirm('해당 대댓글을 정말 삭제하시겠습니까?')) {
-                    window.location.href = "/qnapage/replydelete/" + replyId + "/";
-                }
             });
         });
     </script>
