@@ -76,11 +76,21 @@ body {
 }
 
 .icon i {
-  font-size: 25px; 
-  margin-top: 6px;
-  width: 36px; 
-  height: 36px; 
+  list-style-type: none;
+  text-decoration: none;
+  font-size: 25px;
+  display: flex;
+  width: 36px;
+  position: relative;
+  height: 36px;
+  top: 4px;
 }
+
+.icon a{
+  list-style-type: none;
+  text-decoration: none;
+}
+
 
 /*프로필 닉네임*/
 .profile {
@@ -116,14 +126,16 @@ body {
 
 .first-more {
   display: flex;
-  width: 100%;
+  justify-content: space-between;
   height: 30px;
   position: relative;
-  justify-content: space-between;
 }
 
 .my-ticket {
   color: white;
+  display: flex;
+  position: relative;
+  top: 4px;
   margin-left: 50px;
   font-size: 14px;
   font-family: 'GowunDodum-Regular';
@@ -138,7 +150,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-right: 35px;
-  top: -6px;
+  top: -1px;
   font-size: 14px;
   font-family: 'GowunDodum-Regular';
 }
@@ -346,8 +358,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 50px;
-  top: -6px;
+  margin-right: 35px;
+  top: -1px;
   font-size: 14px;
   font-family: 'GowunDodum-Regular';
 }
@@ -372,7 +384,7 @@ body {
 .qna-title{
   position: relative;
   background-color: rgb(217, 193, 169);
-  width: 340px;
+  width: 320px;
   height: 72px;
   color: black;
   font-family: 'GowunDodum-Regular';
@@ -382,7 +394,6 @@ body {
   flex-direction: column;
   list-style-type: none;
   border-radius: 20px;
-  text-decoration: none;
 }
 
 .title{
@@ -414,7 +425,7 @@ body {
   position: relative;
   font-size: 17px;
   font-weight: bolder;
-  margin: 8px 0px 0px 20px;
+  margin: 2px 0px 0px 20px;
 }
 
 
@@ -435,10 +446,10 @@ body {
   left: 0;
   right: 0;
   margin: 0;
-  padding: 10px;
+  padding: 0px 10px;
   background-color:#D9D9D9;
   list-style-type: none;
-  height: 90px;
+  height: 85px;
 }
 
 .icons {
@@ -455,3 +466,4 @@ body {
   margin: 0;
   justify-content: space-between;
 }
+
