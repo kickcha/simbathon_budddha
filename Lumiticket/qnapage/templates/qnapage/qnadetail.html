@@ -94,6 +94,90 @@
                         <input type="submit" name="submit" value="대댓글 작성">
                     </form>
                 </div>
+                <div class="comment_list">
+                    <!-- comment -->
+                    {% for c in comments %}
+                        <!-- <hr> -->
+
+                        <div class="username">
+                            <i class="fa-solid fa-circle-user"><span id="user">익명</span></i>
+                        </div>
+
+                        <!-- comment like button -->
+                        <section class="likebutton">
+                            <a href="{% url 'qnapage:comment_likes' c.id %}">
+                                {% if user in c.comment_like.all %}
+                                    <i class="fa-solid fa-heart filled" style="color: #f8702c;"></i>
+                                {% else %}
+                                    <i class="fa-regular fa-heart" style="color: #f8702c;"></i>
+                                {% endif %}
+                            </a>
+                            {{ c.comment_like_count }}
+                        </section>
+
+                        <div class="user-content">
+                            {%if c.report_count >= 3 %} 
+                                <p class="report-message">3회 이상 신고되어 관리자가 확인 중인 댓글입니다.</p>
+                            {% else %} 
+                                <p class="content">{{c.content}}</p>
+                            {% endif %}
+                        </div>
+
+                        <!-- comment Delete button -->
+                        {% if user == c.writer %}
+                            <div class="comment_buttons">
+                                <button class="delete-comment" href="{% url 'qnapage:comment_delete' c.id %}" onclick="return confirm('정말 댓글을 삭제하시겠습니까?');">Delete</button>
+                            </div>
+                        {% endif %}
+
+                        <!-- reply input button -->
+                        <button class="reply-toggle">대댓글</button>
+                        <div class="reply-form">
+                            <form method="POST" action="{% url 'qnapage:reply_create' c.id %}">
+                                {% csrf_token %}
+                                <input type="text" name="content">
+                                <input type="submit" name="submit" value="대댓글 작성">
+                            </form>
+                        </div>
+                        
+                        <!-- 신고버튼 -->
+                        {% if user.is_authenticated %}
+                            <form action="{% url 'qnapage:comment_report' c.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="report-button">
+                            <i class="fa-solid fa-ban" style="color:#C60B00;"></i>
+                            </button>
+                            </form>
+                        {% endif %}
+                        
+                        <!-- Replies -->
+                        <div class="replies">
+                            {% for reply in c.qnareply_set.all %}
+                                <hr class="line">
+                                <h4>익명</h4>
+                                <p>내용: {{ reply.content }}</p>
+                                
+                                <!-- reply like button -->
+                                <a href="{% url 'qnapage:reply_likes' reply.id %}">
+                                    {% if user in reply.reply_like.all %}
+                                        취소
+                                    {% else %}
+                                        좋아요
+                                    {% endif %}
+                                </a>
+                                {{ reply.reply_like_count }}개
+
+                                <!-- reply delete button-->
+                                {% if user == reply.writer %}
+                                    <div class="reply-buttons">
+                                        <button class="delete-reply"  href="{% url 'qnapage:reply_delete' reply.id %}" onclick="return confirm('정말 대댓글을 삭제하시겠습니까?');">Delete</button>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            <hr class="line">
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
