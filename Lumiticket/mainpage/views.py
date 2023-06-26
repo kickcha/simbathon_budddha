@@ -98,7 +98,7 @@ def filter_profanity(text):
     , '찌랄', '찌질이', '창남', '창녀', '창녀버지', '창년', '처먹고', '처먹을', '쳐먹고', '쳐쑤셔박어', '촌씨브라리', '촌씨브랑이', '촌씨브랭이', '크리토리스'
     , '큰보지', '클리토리스', '페니스', '항문수셔', '항문쑤셔', '허버리년', '허벌년', '허벌보지', '허벌자식', '허벌자지', '호냥년', '호로'
     , '호로새끼', '호로자슥', '호로자식', '호로짜식', '호루자슥', '호모', '호졉', '호좁', '후라덜넘', '후장', '후장꽂아', '후장뚫어', 'bitch', 'fuck'
-    , 'fuckyou', 'nflavor', 'penis', 'pennis', 'pussy', 'sex']
+    , 'fuckyou', 'sival', 'sival', 'siva', 'penis', 'pennis', 'pussy', 'sex']
 
     for profanity in profanities:
         pattern = r'\b' + profanity + r'\b'
