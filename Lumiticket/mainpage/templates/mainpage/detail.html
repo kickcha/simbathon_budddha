@@ -73,31 +73,20 @@
         <i class="fa-regular fa-heart" style="color: #f8702c;"></i>
       {% endif %}
     </p>
-    <!--좋아요 구현, 아래 좋아요 갯수는 임의로 개로 씀! 프론트 마음대로 바꿔도 됩니당-->
-  
   </a>
 
-  {% if ticket.report_count >= 3 %}
-    <p class="report-message">3회 이상 신고되어 관리자가 확인 중인 게시글입니다.</p>
-  {% else %}
-    <p class="content">{{ticket.body}}</p>
-  {% endif %}
-
-{% if ticket.writer == user %}
-  <a href="{% url 'mainpage:delete' ticket.id %}"><i class="fa-solid fa-trash-can" style="color: #010A0F;"></i></a>
-{% endif %}
-
+  <!--신고-->
   {% if user.is_authenticated %}
     {% if user != ticket.writer %}
     <form action="{% url 'mainpage:report' ticket.id %}" method="post">
       {% csrf_token %}
       <button type="submit" class="report-button">
-        <i class="fa-solid fa-ban" style="color:#C60B00;"></i>
+        <i class="fa-solid fa-land-mine-on" style="color: #c60b00;"></i>
       </button>
     </form>
     {% endif %}
   {% endif %}
-
+    </div>
   </div>
 </div>
 
@@ -111,6 +100,7 @@
   });
 </script>
 
+<!--하단 네브바-->
 <nav class="footer-container">
   <ul class="icons">
       <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
