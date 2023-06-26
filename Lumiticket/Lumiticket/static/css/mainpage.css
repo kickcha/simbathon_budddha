@@ -1,6 +1,13 @@
 @font-face {
-  font-family: "DONGGUK UNIVERSITY";
-  src: url("../fonts/DONGGUK UNIVERSITY.otf");
+  font-family: 'Tenada';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GowunDodum-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -139,7 +146,7 @@ button {
   transform: translateX(-50%); /* 가로 중앙 정렬 */
   transition: 0.3s;
   letter-spacing: 1.2px;
-  font-family: "DONGGUK UNIVERSITY";
+  font-family: 'GowunDodum-Regular';
 }
 
 button:focus {

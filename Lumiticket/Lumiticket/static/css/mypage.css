@@ -101,7 +101,7 @@ body {
   align-items: center;
   color: white;
   font-size: 23px;
-  font-family: 'DONGGUK UNIVERSITY';
+  font-family: 'GowunDodum-Regular';
 }
 
 /*내 티켓 더보기*/
@@ -118,7 +118,7 @@ body {
   color: white;
   margin-left: 50px;
   font-size: 14px;
-  font-family: 'DONGGUK UNIVERSITY';
+  font-family: 'GowunDodum-Regular';
 }
 
 .f-more {
@@ -132,7 +132,7 @@ body {
   margin-right: 50px;
   top: -6px;
   font-size: 14px;
-  font-family: 'DONGGUK UNIVERSITY';
+  font-family: 'GowunDodum-Regular';
 }
 
 .f-more a{
@@ -259,7 +259,7 @@ section.first {
 .soul-searching {
   color: white;
   margin-left: 50px;
-  font-family: 'DONGGUK UNIVERSITY';
+  font-family: 'GowunDodum-Regular';
   font-size: 14px;
 }
 
@@ -274,7 +274,7 @@ section.first {
   margin-right: 50px;
   top: -6px;
   font-size: 14px;
-  font-family: 'DONGGUK UNIVERSITY';
+  font-family: 'GowunDodum-Regular';
 }
 
 .s-more a{
@@ -290,7 +290,8 @@ section.first {
   align-items: center;
   list-style-type: none;
   text-decoration: none;
-  font-family: 'DONGGUK UNIVERSITY';
+  font-family: 'GowunDodum-Regular';
+
 }
 
 .qna-title{
@@ -299,7 +300,7 @@ section.first {
   width: 340px;
   height: 72px;
   color: black;
-  font-family: "DONGGUK UNIVERSITY";
+  font-family: 'GowunDodum-Regular';
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
@@ -349,7 +350,8 @@ section.first {
   color: white;
   top: 50px;
   opacity: 0.8;
-  font-family: 'DONGGUK UNIVERSITY';
+  font-family: 'GowunDodum-Regular';
+
 }
 /* 하단 navbar css */
 .footer-container {

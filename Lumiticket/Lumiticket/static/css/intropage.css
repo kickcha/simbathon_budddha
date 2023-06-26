@@ -1,18 +1,4 @@
 @font-face {
-    font-family: 'CWDangamAsac-Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'HSBombaram3_Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.1/HSBombaram3_Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Tenada';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
     font-weight: normal;
@@ -20,21 +6,14 @@
 }
 
 @font-face {
-    font-family: 'DONGGUK UNIVERSITY';
-    src: url("../fonts/DONGGUK UNIVERSITY.ttf");
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'DONGGUK UNIVERSITY';
-    src: url("../fonts/DONGGUK UNIVERSITY.otf");
-    font-weight: normal;
-    font-style: normal;
-}
 
 body {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +22,7 @@ body {
     margin: 0%;
 }
 
-.wallpaper{
+.wallpaper {
     position: relative;
     max-width: 430px;
     width: 100%;
@@ -84,7 +63,7 @@ button{
     transform: translate(-50%, -50%);
     transition: 0.3s;
     letter-spacing:1.2px;
-    font-family: 'DONGGUK UNIVERSITY'; 
+    font-family: 'GowunDodum-Regular';
 }
 
 button:focus{

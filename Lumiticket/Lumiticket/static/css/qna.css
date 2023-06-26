@@ -1,21 +1,16 @@
 @font-face {
-    font-family: 'ELAND_Choice_M';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/ELAND_Choice_M.woff') format('woff');
-}
-
-@font-face {
     font-family: 'Tenada';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-}
-
+    }
+  
 @font-face {
-    font-family: 'DONGGUK UNIVERSITY';
-    src: url("../fonts/DONGGUK UNIVERSITY.otf");
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+    }
 
 .wallpaper{
     max-width: 430px;
@@ -58,7 +53,7 @@
     font-size: 20px;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     margin: 10px;
 }
 
@@ -72,7 +67,7 @@
     font-size: 20px;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     margin: 10px;
 }
 
@@ -98,7 +93,7 @@
     height: 60px;
     border-radius: 20px;
     color:black;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     list-style-type: none;
     text-decoration: none;
 
@@ -153,7 +148,7 @@ a.nana{
     font-size: 20px;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     margin: 10px;
 }
 
@@ -162,7 +157,7 @@ a.nana{
     font-size: 20px;
     list-style-type: none;
     text-decoration: none;
-    font-family: 'DONGGUK UNIVERSITY';
+    font-family: 'GowunDodum-Regular';
     margin: 10px;
 }
 
