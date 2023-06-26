@@ -108,6 +108,7 @@
   height: 120px;
   position: relative;
   justify-content: center;
+  font-family: 'GowunDodum-Regular';
 }
 
 .pub-date {
@@ -138,7 +139,7 @@ button {
   color: #002142;
   box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
   font-size: 18px;
-  font-weight: bold;
+  font-weight: bolder;
   border-radius: 30px;
   position: absolute;
   bottom: 30px; /* 이미지의 하단과 버튼 사이의 간격을 조정 */
