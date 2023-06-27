@@ -9,7 +9,7 @@
 
   <!--화살표 상단-->
   <div class="backk">
-    <a class="back" href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i></a>
+    <a class="back" href="#" onclick="goBack()"><i class="fa-solid fa-arrow-left" style="color: #FAFBFD;"></i></a>
   </div>
 
 
@@ -100,7 +100,6 @@
 </div>
 </div>
 
-
 <script>
   function captureAndSave() {
     var element = document.querySelector('.card_container');
@@ -125,6 +124,11 @@
   likeToggle.addEventListener("click", function() {
     likeToggle.classList.toggle("liked");
   });
+
+  function goBack() {
+    window.history.back();
+  }
+  
 </script>
 
 <!--하단 네브바-->
