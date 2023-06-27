@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
+    <title>Login Required</title>
+</head>
+<body>
+    
+    <script>
+
+Swal.fire({
+            icon: 'warning',   
+            showCancelButton: true,
+            title: '정말 대댓글을 <br> 삭제하시겠습니까?',
+            confirmButtonText: '확인',
+            cancelButtonText: '취소'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "{% url 'qnapage:reply_delete' reply.id %}"; // 확인시 삭제
+            } else {
+                history.back();
+            }
+        });
+//     </script>
+
+<style>
+
+
+    div:where(.swal2-container).swal2-center>.swal2-popup {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    justify-self: center;
+    width: 260px;
+    height: 55%;
+}
+    .swal2-title {
+        font-family: 'GowunDodum-Regular';
+        font-size: 1.2rem;
+        top: -30%;
+    }
+
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm{
+        background-color:#FFD700;
+        border:none;
+        margin-top: -20%;
+    }
+
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel{
+        border:none;
+        margin-top: -20%;
+    }
+
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus {
+        box-shadow: 0 0 0 3px #FFD700;
+    }
+
+    div:where(.swal2-icon).swal2-warning {
+    border-color: black;
+    color: white;
+    width: 45px;
+    background: black;
+    height: 45px;
+    font-size: small;
+    margin-bottom: 30px;
+    }
+
+
+</style>
+
+</body>
+</html>

@@ -55,7 +55,7 @@
                         <div class="comment-buttons-reply-toggle">
                             {% if user == c.writer %}
                                 <div class="comment-buttons">
-                                    <a href="{% url 'qnapage:comment_delete' c.id %}">
+                                    <a href="{% url 'qnapage:comment_delete_confirm' c.id %}">
                                         <button class="delete-comment"><i class="fa-solid fa-trash" style="color: #010A0F;"></i></button>
                                     </a>
                                 </div>
@@ -108,7 +108,7 @@
                                 <!-- reply delete button-->
                                 {% if user == reply.writer %}
                                     <div class="comment-buttons">
-                                        <a href="{% url 'qnapage:comment_delete' c.id %}">
+                                        <a href="{% url 'qnapage:reply_delete_confirm' reply.id %}">
                                             <button class="delete-reply"><i class="fa-solid fa-trash" style="color: #010A0F;"></i></button>
                                         </a>
                                     </div>
@@ -139,7 +139,7 @@
                     <!-- reply delete button-->
                     {% if user == reply.writer %}
                         <div class="reply-buttons">
-                            <a href="{% url 'qnapage:reply_delete' reply.id %}">
+                            <a href="{% url 'qnapage:reply_delete_confirm' reply.id %}">
                                 <button class="delete-reply">Delete</button>
                             </a>
                         </div>
