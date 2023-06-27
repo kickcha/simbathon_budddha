@@ -54,7 +54,8 @@ border-spacing:0;
 
 a{
     text-decoration: none;
-    color:inherit;
+    color: inherit;
+    margin-right: 3px;
 }
 
 /* start */
@@ -124,7 +125,8 @@ a{
 .title{
     font-size: 20px;
     margin-top: 10px;
-    margin-left: 12px;
+    margin-left: 16px;
+    width: 90%;
 }
 
 .body{
@@ -186,8 +188,8 @@ a{
 .comment{
     display: flex;
     position: relative;
-    left: 85%;
-    top: 320%;
+    left: 90%;
+    top: 190%;
 }
 
 .fa-message{
@@ -204,6 +206,8 @@ a{
         border: 1px solid red;
         /* height: 80px; */
         margin-top: 10px;
+        align-items: center;
+        display: flex;
     }
 
     .line{
@@ -212,9 +216,9 @@ a{
 
     .likebutton{
         width: 13%;
-        margin-left: 87%;
         display: flex;
-    flex-direction: row;
+        flex-direction: row;
+        margin-left: 5px;
 
     }
 
@@ -242,8 +246,10 @@ a{
 }
 
 .delete-comment{
-    border:none;
+    border: 1px solid black;
     background-color: transparent;
+    left: 324%;
+    position: relative;
 }
 
 .reply-toggle{
@@ -258,10 +264,9 @@ a{
 .comment-buttons-reply-toggle {
     display: flex;
     align-items: center;
-    /* border: 1px solid black; 네모 박스 주위에 1px 두께의 회색 선 추가 */
-    /* padding: 5px; 네모 박스와 선 사이의 간격을 조정 */
-    width:50px;
+    width: 50px;
     /* margin-left: 238px; */
+    /* justify-content: center;
 }
 
 .comment-buttons {
@@ -272,8 +277,5 @@ a{
 .reply-toggle-container {
     display: flex;
     align-items: center;
-}
-
-.reply-toggle {
-    /* margin-right: 10px; */
+    /* margin-left: 90px; */
 }
