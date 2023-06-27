@@ -384,3 +384,7 @@ a{
   margin-left: 25%;
 
 }
+
+@media (max-width: 390px) and (max-height: 844px) {
+  /* 아무 작업도 수행하지 않습니다. */
+}
