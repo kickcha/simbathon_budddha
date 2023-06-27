@@ -108,11 +108,13 @@
                         {% for qna in qnas|slice:":2" %}
                           <div class="qna-title">
                             <p class="title"><a class="underline" href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a></p>
-                              {% for comment in qna.qnacomment_set.all %}
-                                {% if comment.writer == request.user %}
-                                  <p class="my-comment"><a class="underline" href="{% url 'qnapage:qnadetail' qna.id %}">{{ comment.content }}</a></p>
-                                {% endif %}
-                              {% endfor %}
+                            {% with latest_comment=qna.qnacomment_set.last %}
+                              {% if latest_comment.writer == request.user %}
+                                <p class="my-comment"><a class="underline" href="{% url 'qnapage:qnadetail' qna.id %}">{{ latest_comment.content }}</a></p>
+                              {% endif %}
+                            {% endwith %}
+
+
                           </div>
                         {% endfor %}
                     </div>
