@@ -124,7 +124,7 @@ a{
 
 .title{
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 16px;
     width: 90%;
 }
@@ -248,7 +248,7 @@ a{
 .delete-comment{
     border: 1px solid black;
     background-color: transparent;
-    left: 324%;
+    left: 3px;
     position: relative;
 }
 
@@ -265,6 +265,7 @@ a{
     display: flex;
     align-items: center;
     width: 50px;
+    margin-left: 240px;
     /* margin-left: 238px; */
     /* justify-content: center;
 }
