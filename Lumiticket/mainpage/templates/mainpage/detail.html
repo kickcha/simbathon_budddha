@@ -70,6 +70,7 @@
     <form action="{% url 'mainpage:report' ticket.id %}" method="post">
     {% csrf_token %}
     <button type="submit" class="report-button">
+
       <i class="fa-solid fa-land-mine-on" style="color: #c60b00;"></i>
     </button>
     </form>
