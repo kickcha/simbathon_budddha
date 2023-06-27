@@ -42,7 +42,6 @@
         <div class="bottom_container">
 
                 {% for c in comments %}
-                <hr class="hr-line">
                     <div class="whole">
                         <!--익명-->
                         <div class="username">
@@ -66,8 +65,8 @@
                                 <div class="reply-form">
                                     <form method="POST" action="{% url 'qnapage:reply_create' c.id %}">
                                         {% csrf_token %}
-                                        <input type="text" name="content">
-                                        <input type="submit" name="submit" value="대댓글 작성">
+                                        <input class="text" type="text" name="content" required>
+                                        <input class="opacity" type="submit" name="submit" value="작성">
                                     </form>
                                 </div>
                             </div>
@@ -85,8 +84,6 @@
                                 </section>
                             </div> <!--likey-->
                         </div><!--box-->
-                        <hr class="hr-line">
-
                     </div><!--whole-->
                     <!--댓글 내용-->
                     <div class="content">
@@ -102,14 +99,14 @@
                         {% for reply in c.qnareply_set.all %}
                             <div class="second-box">
                                 <div class="whole">
-                                    <div class="username">
+                                    <div class="second-username">
                                         <i class="fa-solid fa-circle-user"><span id="user">익명</span></i>
                                     </div>
                                     <div class="box">
                                         <!-- 대댓글 삭제 -->
                                         {% if user == reply.writer %}
                                         <div class="reply-delete-buttons">
-                                            <a href="{% url 'qnapage:reply_delete' c.id %}">
+                                            <a href="{% url 'qnapage:reply_delete_confirm' reply.id %}">
                                                 <button class="delete-reply"><i class="fa-solid fa-trash" style="color: #010A0F;"></i></button>
                                             </a>
                                         </div>
@@ -135,10 +132,10 @@
                             <div class="second-content">
                                 {{ reply.content }}
                             </div>
-                            <hr class="line">
                         {% endfor %}
                     </div>
                 {% endfor %}
+
         </div>
     </div>
 
