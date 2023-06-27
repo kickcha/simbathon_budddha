@@ -146,10 +146,13 @@ def reply_create(request, comment_id):
         comment = get_object_or_404(QnaComment, id=comment_id)
         if request.method == 'POST':
             content = request.POST['content']
+            filtered_content = filter_profanity(content)  # 욕설 필터링 적용
+
             writer = request.user
             pub_date = timezone.now()
-            QnaReply.objects.create(content=content, writer=writer, pub_date=pub_date, comment=comment)
+            QnaReply.objects.create(content=filtered_content, writer=writer, pub_date=pub_date, comment=comment)
         return redirect('qnapage:qnadetail', comment.qna.id)
+
 
 def reply_delete(request, reply_id):
     if request.user.is_authenticated:
