@@ -75,23 +75,33 @@
       {% endif %}
     </p>
   </a>
-  
-  <!--이미지 저장하기-->
+
+    <!--이미지 저장하기-->
   {% if request.user == user %}
   <button onclick="captureAndSave()">이미지 저장하기</button>
   {% endif %}
-
-  <!--신고-->
-  {% if user.is_authenticated %}
-    {% if user != ticket.writer %}
-    <form action="{% url 'mainpage:report' ticket.id %}" method="post">
-      {% csrf_token %}
-      <button type="submit" class="report-button">
-        <i class="fa-solid fa-land-mine-on" style="color: #c60b00;"></i>
-      </button>
-    </form>
+  
+  
+  
+  <!--신고 및 삭제-->
+   {% if user.is_authenticated %}
+   {% if user != ticket.writer %}
+   <form action="{% url 'mainpage:report' ticket.id %}" method="post">
+     {% csrf_token %}
+     <button type="submit" class="report-button">
+       <i class="fa-solid fa-land-mine-on" style="color: #c60b00;"></i>
+     </button>
+   </form>
+     {% else %}
+     <form action="{% url 'mainpage:delete' ticket.id %}" method="post">
+       {% csrf_token %}
+       <button type="submit" class="delete-button">
+         <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+       </button>
+     </form>
     {% endif %}
-  {% endif %}
+
+
     </div>
   </div>
 </div>
@@ -133,4 +143,3 @@
 </nav>
 
 {% endblock %}
-
