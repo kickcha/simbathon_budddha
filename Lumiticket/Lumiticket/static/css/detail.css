@@ -381,3 +381,7 @@ a{
   font-family: 'GowunDodum-Regular';
 
 }
+
+@media (max-width: 390px) and (max-height: 844px) {
+  /* 아무 작업도 수행하지 않습니다. */
+}

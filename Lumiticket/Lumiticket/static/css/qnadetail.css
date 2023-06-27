@@ -67,8 +67,8 @@ a{
 }
 
 @font-face {
-    font-family: 'DONGGUK UNIVERSITY';
-    src: url("../fonts/DONGGUK UNIVERSITY.otf");
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -92,87 +92,94 @@ a{
     }
 
 
-    .backk{
-        /* display: flex;
-        position: absolute;
-        justify-content: flex-start;
-        font-size: 30px;
-        list-style-type: none;
-        text-decoration: none;
-        margin-left: 25px;
-        margin-top: 85px;
-        z-index: 10000; */
-        display: flex;
-        position: absolute;
-        justify-content: flex-start;
-        font-size: 30px;
-        list-style-type: none;
-        text-decoration: none;
-        z-index: 10000;
-        top: 7%;
-        left: 7%;
-
+.backk{
+    display: flex;
+    position: absolute;
+    justify-content: flex-start;
+    font-size: 30px;
+    list-style-type: none;
+    text-decoration: none;
+    z-index: 10000;
+    top: 7%;
+    left: 7%;
     }
 
-    .admintitle{
-        border: none;
-        height: 20%;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
+/* 첫번째 줄 */
+
+.text-wrapper{
+    position: relative;
+    height: 75%;
+    width: 84%;
+    background-color: #D9C1A9;
+    border-radius: 20px;
+    }
+
+.admintitle{
+    border: none;
+    height: 20%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
     }
 
 .title{
+    font-family: 'GowunDodum-Regular';
     font-size: 20px;
-    margin-top: 20px;
-    margin-left: 16px;
+    margin-top: 30%;
+    margin-left: 10%;
     width: 90%;
 }
 
-.body{
+.qna-body{
+    font-family: 'GowunDodum-Regular';
     width: 90%;
-    margin-top: 5%;
-    margin-left: 5%;
+    margin-top: 10%;
+    margin-left: 2%;
     height: 110px;
     font-size: 17px;
 }
 
-.text-wrapper{
-    position: relative;
-    height: 620px;
-    width: 340px;
-    /* top: 14%;
-    left: 6%; */
-    background-color: #D9C1A9;
-    border-radius: 20px;
-}
-
-.comment_container{
-    height: 68%;
-    overflow-y: scroll;
-    margin-top: 67px;
-
-}
-
-.comment_form{
-    /* margin-top: 143px; */
-    margin-top: 720px;
+.comment-box{
+    font-family: 'GowunDodum-Regular';
     display: flex;
-    /* margin-left: 12%; */
-    position: absolute;
-    width: 300px;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    height: 38px;
-    border-radius: 20px;
+    position: relative;
+    left: 80%;
+    bottom: 18%;
 }
+
+.hr-line{
+    z-index: 1000000;
+    position: absolute;
+    width: 100%;
+    margin-top: 250px;
+    border-top-width: 1px;
+    border-bottom-style: outset;
+    border-color: #bbb;
+}
+
+/* 두번째 줄 */
+
+.bottom_container{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    top: 10%;
+    height: 70%;
+    overflow-y: scroll;
+}
+
+.whole{
+    display: flex;
+    margin: 5%;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+}
+
 
 .username{
-    margin-left: 10px;
     flex-direction: row;
     display: flex;
-    margin-top: 10px;
 
 }
 
@@ -180,17 +187,12 @@ a{
     margin-right: 5px;
     }
 
-    .user-content{
-        display: flex;
-        flex-direction: column;
+.user-content{
+    display: flex;
+    flex-direction: column;
     }
 
-.comment{
-    display: flex;
-    position: relative;
-    left: 90%;
-    top: 190%;
-}
+
 
 .fa-message{
     font-size: 15px;
@@ -200,50 +202,75 @@ a{
     margin-right: 5px;
     }
 
-    .content{
-        width: 65%;
-        margin-left: 10px;
-        border: 1px solid red;
-        /* height: 80px; */
-        margin-top: 10px;
-        align-items: center;
-        display: flex;
+.content{
+    margin-left: 5%;
+    align-items: center;
+    position: relative;
+    display: flex;
     }
 
-    .line{
+.box{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+}
+
+.line{
         background-color:black;
+        border-top-width: 1px;
     }
 
-    .likebutton{
+.likey{
+    border: 1px solid black;
+}
+
+
+.likebutton{
         width: 13%;
         display: flex;
         flex-direction: row;
         margin-left: 5px;
-
-    }
-
-    .post-text{
-        border:none;
-    }
-
-    .submit-button{
-        border: none;
-        background-color: transparent;
-        margin-left: 90px;
-        font-size: 18px;
-    }
-
-    .hr-line{
-        z-index: 1000000;
-        position: absolute;
-        width: 100%;
-        margin-top: 250px;
-    }
-
-    .admintitle hr.hr-line {
-        border-top-color: black;
-        border-top-width: 4px;
 }
+
+.likebutton a{
+    text-decoration: none;
+    color: inherit;
+    margin-right: 3px;
+    margin-left: 1px;
+}
+
+.like-count{
+    margin-right: 1px;
+}
+
+
+.second-content{
+    margin-left: 5%;
+    align-items: center;
+    position: relative;
+    display: flex;
+    }
+
+.second-box{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.replies{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.reply-delete-buttons a{
+    text-decoration: none;
+    color: inherit;
+    margin: 0%;
+}
+
+
 
 .delete-comment{
     border: 1px solid black;
@@ -256,7 +283,6 @@ a{
     border:none;
     background-color: transparent;
     border: 1px solid black;
-    margin-left: -1px;
     height: 20px;
 
 }
@@ -280,3 +306,39 @@ a{
     align-items: center;
     /* margin-left: 90px; */
 }
+
+.delete-reply{
+    background-color: transparent;
+    border: 1px solid black;
+    height: 20px;
+}
+
+/* 댓글 박스 */
+
+
+.comment_form{
+    margin-top: 165%;
+    display: flex;
+    position: absolute;
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 5%;
+    border-radius: 20px;
+}
+
+.post-text{
+    border:none;
+
+}
+
+.submit-button{
+    font-family: 'GowunDodum-Regular';
+    border: none;
+    background-color: transparent;
+    margin-left: 112%;
+    margin-bottom: 12%;
+    font-size: 18px;
+}
+
