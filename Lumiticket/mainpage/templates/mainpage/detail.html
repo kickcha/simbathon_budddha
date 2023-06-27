@@ -13,12 +13,15 @@
     <a class="back" href="#" onclick="goBack()"><i class="fa-solid fa-arrow-left" style="color: #FAFBFD;"></i></a>
   </div>
 
+  <div class="text-wrapper"> 
+    <!-- 추가함 -->
+
 
     <!--티켓 디자인-->
 
-    <div class="card_container">
+    <!-- <div class="card_container"> -->
 
-      <div class="card">
+      <!-- <div class="card"> -->
           <div class="card-body">
               <!--첫번째줄-->
               <div class="card-fline">
@@ -65,28 +68,27 @@
 
 
   
-  <!--신고 및 삭제-->
-  {% if user.is_authenticated %}
-    {% if user != ticket.writer %}
-    <form action="{% url 'mainpage:report_confirm' ticket.id %}" method="post">
-    {% csrf_token %}
-    <button type="submit" class="report-button">
+      <!--신고 및 삭제-->
+        {% if user.is_authenticated %}
+          {% if user != ticket.writer %}
+          <form action="{% url 'mainpage:report_confirm' ticket.id %}" method="post">
+            {% csrf_token %}
+          <button type="submit" class="report-button">
+            <i class="fa-solid fa-land-mine-on" style="color: #c60b00;"></i>
+        </button>
+        </form>
+          {% else %}
+        <form action="{% url 'mainpage:ticket_delete_confirm' ticket.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="delete-button">
+          <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
+        </button>
+        </form>
+        {% endif %}
+      {% endif %}
 
-      <i class="fa-solid fa-land-mine-on" style="color: #c60b00;"></i>
-    </button>
-    </form>
-    {% else %}
-    <form action="{% url 'mainpage:ticket_delete_confirm' ticket.id %}" method="post">
-    {% csrf_token %}
-    <button type="submit" class="delete-button">
-      <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
-    </button>
-    </form>
-    {% endif %}
-  {% endif %}
-
-    </div>
-  </div>
+    <!-- </div> -->
+  <!-- </div> -->
   
 
 <!--이미지 저장하기-->
