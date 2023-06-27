@@ -93,9 +93,6 @@ def qnadetail(request, id):
             'comments':comments,
             'total_count':total_count,
             })
-        if Report.objects.filter(ticket=ticket).count() >= 3:
-            ticket.status = '보류'
-        ticket.save()
 
     elif request.method == "POST":
         if not request.user.is_authenticated:
