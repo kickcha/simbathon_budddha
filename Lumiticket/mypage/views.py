@@ -61,10 +61,10 @@ def myticketlist(request, id):
         return render(request, 'accounts/login_required.html')
     else:
         tickets = Ticket.objects.filter(writer=request.user)
-        ticket_list = Ticket.objects.order_by('-like_count')
-        paginator = Paginator(ticket_list, 4)
+        paginator = Paginator(tickets, 4)
         page = request.GET.get('page')
-        return render(request, 'mypage/myticketlist.html', {'tickets': tickets})
+        ticket_list = paginator.get_page(page)
+        return render(request, 'mypage/myticketlist.html', {'tickets': ticket_list})
 
 def myqnalist(request, id):
     if not request.user.is_authenticated:
