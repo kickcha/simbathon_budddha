@@ -245,7 +245,7 @@ a{
 
 
 .second-content{
-    margin-left: 5%;
+    margin-left: 12%;
     align-items: center;
     position: relative;
     display: flex;
@@ -256,6 +256,10 @@ a{
     position: relative;
     flex-direction: column;
     justify-content: center;
+}
+
+.second-username{
+    margin-left: 8%;
 }
 
 .replies{
@@ -284,7 +288,24 @@ a{
     background-color: transparent;
     border: 1px solid black;
     height: 20px;
+}
 
+.reply-form{
+    border:none;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.text{
+    width: 10px;
+}
+
+.opacity{
+    width: 7%;
+    position: fixed;
+    display: flex;
+    top: 87%;
+    left: 77%;
 }
 
 .comment-buttons-reply-toggle {
@@ -317,20 +338,24 @@ a{
 
 
 .comment_form{
-    margin-top: 165%;
-    display: flex;
+    margin-top: 720px;
     position: absolute;
-    width: 75%;
+    width: 300px;
     justify-content: center;
     align-items: center;
     background-color: white;
-    height: 5%;
+    height: 38px;
     border-radius: 20px;
 }
 
 .post-text{
-    border:none;
-
+    border: none;
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    width: 245px;
+    height: 35px;
+    margin-left: 6%;
 }
 
 .submit-button{
