@@ -6,4 +6,5 @@ urlpatterns = [
     path('', mypage, name="mypage"),
     path('myticketlist/<int:id>', myticketlist, name="myticketlist"),
     path('myqnalist/<int:id>', myqnalist, name="myqnalist"),
+    path('logoutconfirm/', logout_confirm, name="logout_confirm"),
 ]
