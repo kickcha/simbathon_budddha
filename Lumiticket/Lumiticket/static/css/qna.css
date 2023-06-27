@@ -90,19 +90,18 @@
 
 .qna-item{
     position: relative;
+    justify-content: space-between;
     background-color: #D9C1A9;
     width: 340px;
     height: 60px;
     border-radius: 20px;
-    color:black;
+    color: black;
     font-family: 'GowunDodum-Regular';
     list-style-type: none;
     text-decoration: none;
-
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     display: flex;
-
 }
 
 
