@@ -115,14 +115,6 @@
                             {{ c.comment_like_count }}
                         </section>
 
-                        <div class="user-content">
-                            {%if c.report_count >= 3 %} 
-                                <p class="report-message">3회 이상 신고되어 관리자가 확인 중인 댓글입니다.</p>
-                            {% else %} 
-                                <p class="content">{{c.content}}</p>
-                            {% endif %}
-                        </div>
-
                         <!-- comment Delete button -->
                         {% if user == c.writer %}
                             <div class="comment_buttons">
@@ -139,16 +131,7 @@
                                 <input type="submit" name="submit" value="대댓글 작성">
                             </form>
                         </div>
-                        
-                        <!-- 신고버튼 -->
-                        {% if user.is_authenticated %}
-                            <form action="{% url 'qnapage:comment_report' c.id %}" method="post">
-                            {% csrf_token %}
-                            <button type="submit" class="report-button">
-                            <i class="fa-solid fa-ban" style="color:#C60B00;"></i>
-                            </button>
-                            </form>
-                        {% endif %}
+                    
                         
                         <!-- Replies -->
                         <div class="replies">

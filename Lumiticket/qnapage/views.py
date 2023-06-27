@@ -174,31 +174,3 @@ def reply_likes(request, reply_id):
             reply.reply_like_count += 1
             reply.save()
         return redirect('qnapage:qnadetail', reply.comment.qna.id)
-
-def comment_report (request, comment_id):
-    if request.user.is_authenticated:
-        comment = get_object_or_404(QnaComment, id=comment_id)
-
-        if request.method == 'POST':
-            reporter = request.user
-        else:
-            return redirect('qnapage:qnadetail', id=comment.qna.id)
-
-        # 이미 신고한 경우 처리
-            if Report.objects.filter(comment=comment, reporter=request.user).exists():
-                return redirect('qnapage:qnadetail', id=comment.qna.id)
-
-        # 새로운 신고 생성
-            report = Report.objects.create(comment=comment, reporter=reporter)
-
-        # 추가로 신고 처리 로직 구현
-            if comment.report_count >= 3:
-                # 댓글을 보류 상태로 변경
-                comment.status = '보류'
-            else:
-                comment.report_count += 1
-            comment.save()
-
-        return redirect('qnapage:qnadetail', id=comment.qna.id)
-
-    return redirect('qnapage:qnadetail', id=comment.qna.id)
