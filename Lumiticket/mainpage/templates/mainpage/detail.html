@@ -68,7 +68,7 @@
   <!--신고 및 삭제-->
   {% if user.is_authenticated %}
     {% if user != ticket.writer %}
-    <form action="{% url 'mainpage:report' ticket.id %}" method="post">
+    <form action="{% url 'mainpage:report_confirm' ticket.id %}" method="post">
     {% csrf_token %}
     <button type="submit" class="report-button">
 

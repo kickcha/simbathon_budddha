@@ -44,6 +44,10 @@ def report(request, ticket_id):
 
     return redirect('mainpage:detail', id=ticket_id)
 
+def report_confirm(request, id):
+    ticket = get_object_or_404(Ticket, id=id)
+    return render(request, 'mainpage/reportconfirm.html', {'ticket':ticket})
+
 def detail(request, id):
     ticket = get_object_or_404(Ticket, pk=id)
     ticket.pub_date = ticket.pub_date.date()

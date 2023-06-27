@@ -16,4 +16,5 @@ urlpatterns = [
     path('ticketlistnew/', ticketlistnew, name="ticketlistnew"),
     path('ticketlistpop/', ticketlistpop, name="ticketlistpop"),
     path('report/<int:ticket_id>', report, name="report"),
+    path('reportconfirm/<int:id>', report_confirm, name="report_confirm"),
 ]
