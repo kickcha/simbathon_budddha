@@ -31,6 +31,10 @@ def mypage(request):
         }
         return render(request, 'mypage/mypage.html', context)
 
+def go_back(request):
+    # 이전 페이지로 리디렉션
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', reverse('mypage')))
+
 def ticket_detail(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
     return render(request, 'mainpage/detail.html', {'ticket':ticket})
