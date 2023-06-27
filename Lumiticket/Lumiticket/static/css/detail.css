@@ -116,9 +116,10 @@ a{
   background-repeat: no-repeat;
   background-size: contain;
   height: 65%;
-  width: 80%;
-  position: relative;
+  width: 90%;
+  position: absolute;
   display: flex;
+  margin-left: 13.5%;
 }
 
 /* card-body */
@@ -128,18 +129,19 @@ a{
   font-family: 'GowunDodum-Regular';
   list-style-type: none;
   text-decoration: none;
-  height: 495px;
-  width: 310px;
+  height: 100%;
+  width: 93%;
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 /* card 첫번째 줄 */
 
 .card-fline{
   margin-left: 32px;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   position: relative;
   display: flex;
   height: 50px;
@@ -151,7 +153,7 @@ a{
   display: flex;
   justify-content: space-between;
   height: 100%;
-  width: 100%;
+  width: 270px;
 }
 
 .for{
@@ -170,10 +172,9 @@ a{
 }
 
 .lanterncolor {
-  margin-left: 185px;
-  position: fixed;
+  position: relative;
   display: flex;
-  height: 40px;
+  height: 86%;
   font-family: 'GowunDodum-Regular';
   }
 
@@ -205,10 +206,10 @@ a{
   display: flex;
   align-items: center;
   font-size: 11px;
-  width: 230px;
+  width: 240px;
   height: 31px;
-  margin-top: 30px;
-  margin-left: 40px;
+  margin-top: 16%;
+  margin-left: 46px;
   justify-content: space-between;
   font-family: 'GowunDodum-Regular';
   /* border: 3px solid orange; */
@@ -246,11 +247,12 @@ a{
 
 .number{
   color: #F8702C;
-  margin-top: 40px;
-  margin-left: 40px;
+  margin-top: 11%;
+  margin-left: 13%;
   font-weight: 100;
   font-size: 26px;
   font-family: 'GowunDodum-Regular';
+  margin-bottom: 3%;
 }
 
 /* 신고 메시지는 슈퍼유저로 다시 확인할 것! */
@@ -266,13 +268,15 @@ a{
 }
 
 .card-text{
-  margin-top: 10px;
-  margin-left: 40px;
-  margin-right: 40px;
   font-size: 18px;
   font-weight: 100;
-  height: 180px;
+  height: 40%;
   font-family: 'GowunDodum-Regular';
+  overflow-y: scroll;
+  line-height: 23px;
+  width: 73%;
+  /* margin: 8%; */
+  margin-left: 10%;
 }
 
 
@@ -282,8 +286,7 @@ a{
   list-style-type: none;
   text-decoration: none;
   position: absolute;
-  margin-left: 73%;
-  margin-top: 14px;
+  margin-left: 230px;
   background: white;
   width: 60px;
   height: 25px;
@@ -347,7 +350,9 @@ a{
   border: none;
   background-color: transparent;
   font-size: 28px;
-  margin-top: 6px;
+  bottom: 25%;
+  position: relative;
+  margin-left: 5%;
 }
 
 .delete-button i{
