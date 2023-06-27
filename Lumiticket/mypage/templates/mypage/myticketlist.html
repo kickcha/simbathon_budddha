@@ -1,10 +1,10 @@
 {% extends 'base.html' %} 
 {% block content %} 
         <head>
-            <link rel="stylesheet" href="/static/css/ticketlistnew.css">
+            <link rel="stylesheet" href="/static/css/myticketlist.css">
             <script src="https://kit.fontawesome.com/b0377dea63.js" crossorigin="anonymous"></script>
             <script defer src="/static/javaScript/real_login.js"></script>
-            <title>ticketlistnew</title>
+            <title>myticketlist</title>
         </head>
 <body>
 
@@ -32,12 +32,12 @@
                     <div class="for">For.</div>
                     <!-- 이부분이 응원수에 따른 연등색 변화 자리 -->
                     <div class="lanterncolor">
-                    {% if ticket.like_count >= 10 %}
-                    <img src="../static/css/image/light.png" class="light" alt="티켓 이미지">
-                    {% else %}
-                    <img src="../static/css/image/original.png" class= "light" alt="티켓 이미지">
-                    {% endif %}
-                    </div>
+                        {% if ticket.like_count >= 10 %}
+                        <img src="../static/css/image/light.png" class="light" alt="티켓 이미지">
+                        {% else %}
+                        <img src="../static/css/image/original.png" class= "light" alt="티켓 이미지">
+                        {% endif %}
+                        </div>
                 </div>
             </div>
                 <div class="nickname">{{ticket.writer.profile.nickname}}</div>
@@ -74,7 +74,6 @@
             <a href="?page={{tickets.next_page_number}}"><i class="fa-solid fa-angle-right" style="color: #FAFBFD;"></i></a>
             {% endif %} 
         </div>
-
 
     
     

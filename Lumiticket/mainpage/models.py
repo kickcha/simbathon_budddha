@@ -12,7 +12,7 @@ class Ticket(models.Model):
     # def __str__(self):
     #     return self.body[:20]
     def summary(self):
-        return self.body[:40]
+        return self.body[:35]
 
     def get_pub_date_date(self):
         return self.pub_date.date()
