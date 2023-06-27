@@ -4,6 +4,7 @@
 <head>
     <title>ticketnew</title>
     <link rel="stylesheet" href="/static/css/new.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 </head>
 
 <div class="wallpaper">
@@ -35,38 +36,35 @@
         </form>
 
         <!--이미지 저장하기-->
-        <div class="save-button">
-                    {% if request.user == user %}
-                    <button onclick="captureAndSave()" class="img-save">
-                        <i class="fa-solid fa-file-arrow-down" style="color: #ffffff;"></i>
-                    </button>
-                    {% endif %}
-                    <div class="img-store">이미지 저장</div>
-                    </div>
+        <div class="save-button" style="position: absolute; bottom: 20px; right: 20px;">
+            {% if request.user == user %}
+            <button onclick="captureAndSave()" class="img-save">
+            <i class="fa-solid fa-file-arrow-down" style="color: #ffffff;"></i>
+            </button>
+            {% endif %}
+            <div class="img-store">이미지 저장</div>
+        </div>
 
 </div>
 
 <script>
     function captureAndSave() {
-        var element = document.querySelector('.card_container');
+    var element = document.querySelector('.text-wrapper');
 
-      // html2canvas을 사용하여 캡처 및 이미지 생성을 수행합니다.
-        html2canvas(element).then(function (canvas) {
-        // 생성된 캔버스를 이미지로 변환합니다.
-        var image = canvas.toDataURL();
+    // html2canvas을 사용하여 캡처 및 이미지 생성을 수행합니다.
+    html2canvas(element).then(function (canvas) {
+      // 생성된 캔버스를 이미지로 변환합니다.
+            var image = canvas.toDataURL();
 
         // 이미지 다운로드를 위한 가상 링크를 생성합니다.
-        var link = document.createElement("a");
-        link.href = image;
-        link.download = "capture.png";
+            var link = document.createElement("a");
+            link.href = image;
+            link.download = "lumiticket.png";
 
         // 가상 링크를 클릭하여 이미지를 다운로드합니다.
-        link.click();
+            link.click();
         });
     }
 </script>
-
-
-
 
 {% endblock %}
