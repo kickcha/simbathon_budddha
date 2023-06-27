@@ -12,18 +12,19 @@
     <title>My page</title>
   </head>
   <body>
-<div class="wallpaper">
+
+    <div class="wallpaper">
 
       <!--상단 nav바-->
-      <nav class="nav-container">
-        <ul class="logo">
-          <li><a href="{% url 'mainpage:mainpage' %}">이루미 티켓</a></li>
-        </ul>
-        <ul class="icon">
-          <li><a href = "{% url 'accounts:logout' %}"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffff"></i></a>
-          </li>
-        </ul>
-      </nav>
+        <nav class="nav-container">
+            <ul class="logo">
+                <li><a href="{% url 'mainpage:mainpage' %}">이루미 티켓</a></li>
+            </ul>
+            <a href = "{% url 'accounts:logout' %}">
+                <ul class="icon">
+                    <li><a href = "{% url 'accounts:logout' %}"><i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffff"></i></a></li>
+                </ul>
+        </nav>
 
       <!--프로필 닉네임-->
       <div class="profile">
@@ -43,8 +44,9 @@
 
         
       <!--내 티켓 디자인-->
- 
+
         <div class="card_container">
+          {% if tickets %}
             {% for ticket in tickets|slice:":2" %}
                 {% if ticket.writer == request.user %}
                 <div class="card">
@@ -86,38 +88,39 @@
                 {% endif %}
             {% endfor %}
         </div>
-    
+        {% else %}
+          <p class="no-ticket">작성한 티켓이 없습니다</p>
+        {% endif %}
         
 
 
-<!-- 나 탐구 더보기 -->
-<div class="second-more">
-  <div class="soul-searching">나 탐구 모음</div>
-  {% if qnas|length > 2 %}
-  <a class="s-more" href="{% url 'mypage:myqnalist' request.user.id %}">더보기</a>
-  {% endif %}
-</div>
+                      <!-- 나 탐구 더보기 -->
+                      <div class="second-more">
+                      <div class="soul-searching">나 탐구 모음</div>
+                      {% if qnas|length > 2 %}
+                      <a class="s-more" href="{% url 'mypage:myqnalist' request.user.id %}">더보기</a>
+                      {% endif %}
+                      </div>
 
-<!--나 탐구 디자인-->
-<div class="self-exploration">
-    {% if qnas %}
-        {% for qna in qnas|slice:":2" %}
-        <div class="qna-title">
-                <p class="title"><a class="underline" href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a></p>
-                {% for comment in qna.qnacomment_set.all %}
-                    {% if comment.writer == request.user %}
-                        <p class="my-comment"><a class="underline" href="{% url 'qnapage:qnadetail' qna.id %}">{{ comment.content }}</a></p>
+                      <!--나 탐구 디자인-->
+                    <div class="self-exploration">
+                    {% if qnas %}
+                        {% for qna in qnas|slice:":2" %}
+                          <div class="qna-title">
+                            <p class="title"><a class="underline" href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a></p>
+                              {% for comment in qna.qnacomment_set.all %}
+                                {% if comment.writer == request.user %}
+                                  <p class="my-comment"><a class="underline" href="{% url 'qnapage:qnadetail' qna.id %}">{{ comment.content }}</a></p>
+                                {% endif %}
+                              {% endfor %}
+                          </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}  
+                      <p class="nodap">아직 답한 질문이 없어요</p>
                     {% endif %}
-                {% endfor %}
-            </div>
-        {% endfor %}
 
-</div>
-    {% else %}
-        <p class="nodap">아직 답한 질문이 없어요</p>
-    {% endif %}
-
-    <!--하단 nav바-->
+    <!—하단 nav바—>
   <nav class="footer-container">
       <ul class="icons">
           <li><a href="{% url 'mainpage:ticketlistnew' %}"><i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i></a></li>
@@ -126,6 +129,6 @@
       </ul>
   </nav>
     
-</div>
+  </div>
 </body>
 </html>
