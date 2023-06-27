@@ -24,8 +24,8 @@
         {% for qna in qnas %}
             <div class="qna-item">
                 <!-- qna의 제목만 불러온다-->
-                <a class="nana" href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a>
-                <span class="comment-reply-count">댓글 수: {{ qna.comment_and_reply_count }}</span>
+                <div class="nana" href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</div>
+                <div class="comment-reply-count">댓글 수: {{ qna.comment_and_reply_count }}</div>
             </div>
         {% endfor %}
     </div>
