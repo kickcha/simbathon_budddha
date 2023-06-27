@@ -4,6 +4,7 @@ from mainpage.models import Ticket
 from qnapage.models import *
 from django.core.paginator import Paginator
 from django.http import HttpResponse
+from django.core.exceptions import ObjectDoesNotExist
 
 
 def mypage(request):
@@ -12,9 +13,15 @@ def mypage(request):
     else:
         user = request.user
         comments = QnaComment.objects.filter(writer=user)
-        qnas = Qna.objects.filter(qnacomment__writer=request.user).distinct()
+        qnas = Qna.objects.filter(qnacomment__writer=user).distinct()
         tickets = Ticket.objects.filter(writer=user).order_by('-like_count')[:2]
-        latest_comment = QnaComment.objects.filter(writer=user).latest('pub_date')
+        
+        latest_comment = None
+        try:
+            latest_comment = QnaComment.objects.filter(writer=user).latest('pub_date')
+        except ObjectDoesNotExist:
+            pass
+
         context = {
             'user': user,
             'tickets': tickets,
