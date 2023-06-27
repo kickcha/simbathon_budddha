@@ -342,6 +342,7 @@ a{
   margin-top: 6px;
 }
 
+/* 삭제 */
 .delete-button {
   border: none;
   background-color: transparent;
@@ -378,4 +379,5 @@ a{
   color: white;
   margin-top: 5px;
   font-family: 'GowunDodum-Regular';
+
 }
