@@ -100,15 +100,15 @@ a{
     }
 
     .text-wrapper{
-        background-image: url("image/ticket_line.png");
+        background-image: url(image/ticket_line2.png);
         background-repeat: no-repeat;
         background-size: contain;
         position: relative;
         display: flex;
-        height: 100vh;
-        width: 80%;
-        justify-content: center;
-        top: 20%;
+        height: 650px;
+        width: 330px;
+        /* justify-content: center; */
+        top: 16%;
         left: 10%;
         overflow-y: scroll;
     }
@@ -121,10 +121,11 @@ a{
         /* font-size: 16px; */
         color: #000000;
         font-family: 'GowunDodum-Regular';
-        width: 100%;
+        width: 95%;
         font-size: 20px;
         line-height: 170%;
         height: 100%;
+        margin-left: 3%;
     }
 
     .container{
@@ -134,23 +135,25 @@ a{
     }
 
     .submit{
-        top: -10%;
+        top: 6%;
         position: relative;
-        left: 31%;
-        width: 150px;
-        height: 35px;
+        margin-left: 31%;
+        width: 40%;
+        height: 4%;
         border-radius: 20px;
         border: none;
         /* background-color: #FFD700; */
         font-family: 'GowunDodum-Regular';
-        font-size:15px;
+        font-size: 15px;
+        background: #FAFBFD;
     }
 
     .textline{
-        height: 14rem;
-        width: 90%;
-        margin-top: 83%;
-        margin-left: 7%;
+        height: 46%;
+        width: 87%;
+        margin-top: 75%;
+        margin-left: 8%;
+    
     }
 
     .textline textarea::placeholder {
@@ -185,7 +188,6 @@ a{
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 3px solid yellow;
 }
 
 .img-save {
@@ -193,6 +195,7 @@ a{
     background-color: transparent;
     color: white;
     font-size: 30px;
+    margin-top: 10%;
 }
 
 .img-store{
