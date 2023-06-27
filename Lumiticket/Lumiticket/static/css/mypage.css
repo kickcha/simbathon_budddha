@@ -85,11 +85,12 @@ body {
 
 .icon i {
   display: flex;
-  position: relative;
+  position: absolute;
   width: 36px;
   height: 36px;
   font-size: 25px;
-  top: 4px;
+  margin-top: -3%;
+  margin-left: 80%;
 }
 
 .icon a{

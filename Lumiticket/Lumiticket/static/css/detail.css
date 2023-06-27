@@ -112,14 +112,28 @@ a{
 }
 
 .card{
-  background-image: url(image/ticket.png);
+  /* background-image: url(image/ticket.png);
   background-repeat: no-repeat;
   background-size: contain;
   height: 65%;
   width: 90%;
   position: absolute;
   display: flex;
-  margin-left: 13.5%;
+  margin-left: 13.5%; */
+}
+
+.text-wrapper{
+  background-image: url(image/ticket.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  display: flex;
+  height: 650px;
+  width: 330px;
+  /* justify-content: center; */
+  top: 16%;
+  left: 10%;
+  overflow-y: scroll;
 }
 
 /* card-body */
@@ -149,11 +163,12 @@ a{
 
 /* 추후에 닉네임 글자수 적용하기 */
 .user-info{
-  position: relative;
   display: flex;
   justify-content: space-between;
   height: 100%;
   width: 270px;
+  margin-top: -261px;
+  position: absolute;
 }
 
 .for{
@@ -186,15 +201,15 @@ a{
 }
 
 .nickname {
-  position: relative;
   display: flex;
   margin-left: 36px;
-  margin-top: 11px;
-  font-size: 20px;
+  margin-top: -146%;
+  font-size: 28px;
   color: black;
   align-items: center;
   text-overflow: ellipsis;
   font-family: 'GowunDodum-Regular';
+  position: absolute;
 }
 
 
@@ -202,16 +217,17 @@ a{
 /* card 날짜 좋아요 */
 
 .card-sline{
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
   font-size: 11px;
   width: 240px;
   height: 31px;
-  margin-top: 16%;
-  margin-left: 46px;
+  margin-top: -94%;
+  margin-left: 15%;
   justify-content: space-between;
   font-family: 'GowunDodum-Regular';
+  /* border: 3px solid orange;
   /* border: 3px solid orange; */
 }
 
@@ -247,12 +263,13 @@ a{
 
 .number{
   color: #F8702C;
-  margin-top: 11%;
+  margin-top: -54%;
   margin-left: 13%;
   font-weight: 100;
   font-size: 26px;
   font-family: 'GowunDodum-Regular';
   margin-bottom: 3%;
+  position:absolute;
 }
 
 /* 신고 메시지는 슈퍼유저로 다시 확인할 것! */
@@ -270,13 +287,15 @@ a{
 .card-text{
   font-size: 18px;
   font-weight: 100;
-  height: 40%;
+  height: 31%;
   font-family: 'GowunDodum-Regular';
   overflow-y: scroll;
   line-height: 23px;
-  width: 73%;
+  width: 87%;
   /* margin: 8%; */
   margin-left: 10%;
+  position: absolute;
+  margin-top: 24%;
 }
 
 
@@ -285,7 +304,6 @@ a{
 .cheer{
   list-style-type: none;
   text-decoration: none;
-  position: absolute;
   margin-left: 230px;
   background: white;
   width: 60px;
@@ -295,6 +313,8 @@ a{
   align-items: center;
   border-radius: 20px;
   border: 1.5px solid #f8702c;
+  position: absolute;
+  margin-top: 43%;
 }
 
 .cheer-up{
@@ -342,7 +362,8 @@ a{
   background-color: transparent;
   font-size: 28px;
   margin-left: 28px;
-  margin-top: 6px;
+  margin-top: 40%;
+  position: absolute;
 }
 
 /* 삭제 */
@@ -350,9 +371,11 @@ a{
   border: none;
   background-color: transparent;
   font-size: 28px;
-  bottom: 25%;
+  /* bottom: 25%; */
   position: relative;
-  margin-left: 5%;
+  /* margin-left: 5%; */
+  position: absolute;
+  margin-top: 40%;
 }
 
 .delete-button i{

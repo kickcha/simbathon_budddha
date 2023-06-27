@@ -135,8 +135,7 @@ a{
     }
 
     .submit{
-        top: 6%;
-        position: relative;
+        position: fixed;
         margin-left: 31%;
         width: 40%;
         height: 4%;
@@ -146,6 +145,8 @@ a{
         font-family: 'GowunDodum-Regular';
         font-size: 15px;
         background: #FAFBFD;
+        color: black;
+        margin-top: 13%;
     }
 
     .textline{
@@ -187,7 +188,8 @@ a{
 .save-button {
     display: flex;
     flex-direction: column;
-    position: relative;
+    /* position: relative; */
+    margin-top: 9%;
 }
 
 .img-save {
