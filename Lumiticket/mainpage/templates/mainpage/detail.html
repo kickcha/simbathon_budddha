@@ -75,7 +75,7 @@
     </button>
     </form>
     {% else %}
-    <form action="{% url 'mainpage:delete' ticket.id %}" method="post">
+    <form action="{% url 'mainpage:ticket_delete_confirm' ticket.id %}" method="post">
     {% csrf_token %}
     <button type="submit" class="delete-button">
       <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>

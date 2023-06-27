@@ -131,14 +131,6 @@ def comment_likes(request, comment_id):
             qnacomment.save()
         return redirect('qnapage:qnadetail', qnacomment.qna.id)
 
-def comment_delete(request, comment_id):
-    if request.user.is_authenticated:
-        comment = get_object_or_404(QnaComment, id=comment_id)
-        qna_id = comment.qna.id
-        comment.delete()
-        return redirect('qnapage:qnadetail', qna_id)
-    return redirect('accounts:login')
-
 def reply_create(request, comment_id):
     if not request.user.is_authenticated:
         return render(request, 'accounts/login_required.html')
@@ -150,14 +142,6 @@ def reply_create(request, comment_id):
             pub_date = timezone.now()
             QnaReply.objects.create(content=content, writer=writer, pub_date=pub_date, comment=comment)
         return redirect('qnapage:qnadetail', comment.qna.id)
-
-def reply_delete(request, reply_id):
-    if request.user.is_authenticated:
-        reply = get_object_or_404(QnaReply, id=reply_id)
-        qna_id = reply.comment.qna.id
-        reply.delete()
-        return redirect('qnapage:qnadetail', qna_id)
-    return redirect('accounts:login')
 
 def reply_likes(request, reply_id):
     if not request.user.is_authenticated:
@@ -173,3 +157,27 @@ def reply_likes(request, reply_id):
             reply.reply_like_count += 1
             reply.save()
         return redirect('qnapage:qnadetail', reply.comment.qna.id)
+    
+def comment_delete_confirm(request, comment_id):
+    comment = get_object_or_404(QnaComment, id=comment_id)
+    return render(request, 'qnapage/commentdelconfirm.html', {'comment':comment})
+
+def reply_delete_confirm(request, reply_id):
+    reply = get_object_or_404(QnaReply, id=reply_id)
+    return render(request, 'qnapage/replydelconfirm.html', {'reply':reply})
+
+def comment_delete(request, comment_id):
+    if request.user.is_authenticated:
+        comment = get_object_or_404(QnaComment, id=comment_id)
+        qna_id = comment.qna.id
+        comment.delete()
+        return redirect('qnapage:qnadetail', qna_id)
+    return redirect('accounts:login')
+
+def reply_delete(request, reply_id):
+    if request.user.is_authenticated:
+        reply = get_object_or_404(QnaReply, id=reply_id)
+        qna_id = reply.comment.qna.id
+        reply.delete()
+        return redirect('qnapage:qnadetail', qna_id)
+    return redirect('accounts:login')

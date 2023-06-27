@@ -157,6 +157,10 @@ def ticketlistpop(request):
     tickets = paginator.get_page(page)
     return render(request, 'mainpage/ticketlistpop.html', {'tickets':tickets})
 
+def ticket_delete_confirm(request, id):
+    ticket = get_object_or_404(Ticket, id=id)
+    return render(request, 'mainpage/delconfirm.html', {'ticket':ticket})
+
 def delete(request, id):
     if request.user.is_authenticated:
         delete_ticket = get_object_or_404(Ticket, id=id)
