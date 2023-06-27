@@ -26,7 +26,9 @@ class QnaComment(models.Model):
 
     def __str__(self):
         return self.qna.title+ " : " + self.content
-    
+    def summary(self):
+        return self.content[:37]
+
 class QnaReply(models.Model):
     content = models.TextField()
     pub_date = models.DateTimeField()

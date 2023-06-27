@@ -110,7 +110,7 @@
                             <p class="title"><a class="underline" href="{% url 'qnapage:qnadetail' qna.id %}">{{ qna.title }}</a></p>
                             {% with latest_comment=qna.qnacomment_set.last %}
                               {% if latest_comment.writer == request.user %}
-                                <p class="my-comment"><a class="underline" href="{% url 'qnapage:qnadetail' qna.id %}">{{ latest_comment.content }}</a></p>
+                                <p class="my-comment"><a class="underline" href="{% url 'qnapage:qnadetail' qna.id %}">{{ latest_comment.summary }}...</a></p>
                               {% endif %}
                             {% endwith %}
 
