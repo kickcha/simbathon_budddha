@@ -365,6 +365,8 @@ a{
   flex-direction: column;
   position: relative;
   margin-left: 225px;
+  z-index: 100000;
+  top: -17%;
 }
 
 .img-save {
@@ -379,5 +381,6 @@ a{
   color: white;
   margin-top: 5px;
   font-family: 'GowunDodum-Regular';
+  margin-left: 25%;
 
 }

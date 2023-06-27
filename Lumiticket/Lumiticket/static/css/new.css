@@ -118,9 +118,7 @@ a{
         border: none;
         outline: none;
         resize: none;
-        /* position: absolute;
-        transform: translate(-50%, -50%); */
-        font-size: 16px;
+        /* font-size: 16px; */
         color: #000000;
         font-family: 'GowunDodum-Regular';
         width: 100%;
@@ -150,9 +148,9 @@ a{
 
     .textline{
         height: 14rem;
-        width: 80%;
-        margin-top: 75%;
-        margin-left: 10%;
+        width: 90%;
+        margin-top: 83%;
+        margin-left: 7%;
     }
 
     .textline textarea::placeholder {
