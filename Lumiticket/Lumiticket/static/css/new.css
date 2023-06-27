@@ -181,3 +181,22 @@ a{
     left: 87%;
     transform: translate(-50%, -50%);
     }
+
+    /* 이미지 저장 */
+.save-button {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 3px solid yellow;
+}
+
+.img-save {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+}
+
+.img-store{
+    color: white;
+}
