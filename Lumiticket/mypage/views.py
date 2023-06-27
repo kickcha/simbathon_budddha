@@ -89,3 +89,5 @@ def myqnalist(request, id):
         }
         return render(request, 'mypage/myqnalist.html', context)
 
+def logout_confirm(request):
+    return render(request, 'mypage/logoutconfirm.html')
