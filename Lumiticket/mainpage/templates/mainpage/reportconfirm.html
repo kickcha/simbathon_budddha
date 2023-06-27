@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css">
-    <title>comment delete confirm</title>
+    <title>report confirm</title>
 </head>
 <body>
     
@@ -15,12 +15,12 @@
         Swal.fire({
             icon: 'warning',
             showCancelButton: true,
-            title: '정말 댓글을 <br> 삭제하시겠습니까?',
+            title: '정말 해당 게시물을 <br> 신고하시겠습니까?',
             confirmButtonText: '확인',
             cancelButtonText: '취소'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "{% url 'qnapage:comment_delete' comment.id %}"; // 확인시 삭제
+                window.location.href = "{% url 'mainpage:report' ticket.id %}"; // 확인시 신고
             } else {
                 history.back(); // 취소 시 다시 그 qna페이지로 이동
             }
