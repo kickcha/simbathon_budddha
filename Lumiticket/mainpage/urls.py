@@ -11,6 +11,7 @@ urlpatterns = [
     path('qnapage/', include('qnapage.urls', namespace='qnapage')),
     path('<int:id>/', detail, name="detail"),
     path('likes/<int:ticket_id>', likes, name="likes"),
+    path('delconfirm/<int:id>', ticket_delete_confirm, name ="ticket_delete_confirm"),
     path('delete/<int:id>', delete, name="delete"),
     path('ticketlistnew/', ticketlistnew, name="ticketlistnew"),
     path('ticketlistpop/', ticketlistpop, name="ticketlistpop"),
