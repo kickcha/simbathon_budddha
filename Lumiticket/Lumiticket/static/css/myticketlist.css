@@ -46,11 +46,11 @@
     display: flex;
     align-items: center;
     position: fixed;
-    top: 80px;
+    top: 9%;
     list-style-type: none;
     text-decoration: none;
     justify-content: center;
-    width:100%;
+    width: 100%;
 }
 
 .recently{
@@ -136,8 +136,8 @@
     font-family: 'GowunDodum-Regular';
     list-style-type: none;
     text-decoration: none;
-    height: 235px;
-    width: 145px;
+    height: 95%;
+    width: 147px;
 }
 
 /* card 첫번째 줄 */

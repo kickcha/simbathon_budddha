@@ -25,6 +25,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
 }
 
 .post {
@@ -33,6 +34,8 @@
   justify-content: center;
   list-style-type: none;
   text-decoration: none;
+  position: relative;
+
 }
 
 .hot {
@@ -42,8 +45,8 @@
   background-repeat: no-repeat;
   height: 300px;
   width: 155px;
-  top: 60px;
-  margin: 20px;
+  top: 50px;
+  margin: 10px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -119,21 +122,24 @@
 }
 
 .achiving {
-  position: relative;
-  background-image: url("image/achiving.png");
+  position: absolute;
+  background-image: url(image/achiving.png);
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
-  width: 340px;
-  height: 316px; /* 이미지의 높이를 조정하여 비율 유지 */
-  bottom: -5%; /* 상위 요소(.img-wrap)의 하단에 고정될 수 있도록 bottom 값을 0으로 설정 */
+  width: 310px;
+  height: 350px;
+  /* bottom: 1px; */
   left: 50%;
-  transform: translateX(-50%); /* 가로 중앙 정렬 */
+  transform: translateX(-50%);
+  /* margin-bottom: -6px; */
+  top: 370px;
+
 }
 
 button {
-  width: 180px;
-  height: 50px;
+  width: 60%;
+  height: 15%;
   background-color: #ffd700;
   border: none;
   color: #002142;
@@ -141,10 +147,10 @@ button {
   font-size: 18px;
   font-weight: bolder;
   border-radius: 30px;
-  position: absolute;
-  bottom: 30px; /* 이미지의 하단과 버튼 사이의 간격을 조정 */
-  left: 32%;
-  transform: translateX(-50%); /* 가로 중앙 정렬 */
+  position: relative;
+  margin-top: 65%;
+  margin-left: 37%;
+  transform: translateX(-50%);
   transition: 0.3s;
   letter-spacing: 1.2px;
   font-family: 'GowunDodum-Regular';
