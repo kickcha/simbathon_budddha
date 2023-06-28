@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 
 <head>
   <link rel="stylesheet" href="/static/css/mainpage.css" />
@@ -19,7 +20,11 @@
                 {{ticket.like_count}}
               </div>
             </div>
-            <div class="summary">{{ticket.summary}}...</div>
+              {% if ticket.report_count >= 3 %}
+                  <h5 class="report-message">3회 이상 신고되어 관리자가 확인 중인 게시글입니다.</h5>
+              {% else %}
+                  <h4 class="summary">{{ticket.summary}}...</h4>
+              {% endif %}
             <div class="pub-date">{{ ticket.pub_date|date:"Y년 m월 d일" }}</div>
           </div>
         </div>
