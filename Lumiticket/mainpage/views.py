@@ -15,34 +15,23 @@ def mainpage(request):
     return render(request, 'mainpage/mainpage.html', {'tickets': tickets})
 
 def report(request, ticket_id):
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    
+    else:
         ticket = get_object_or_404(Ticket, id=ticket_id)
+        reporter = request.user
 
-        if request.method == 'POST':
-            reporter = request.user
-        else:
-            return redirect('mainpage:detail', id=ticket_id)
-
-        # 이미 신고한 경우 처리
+        #이미 신고한 게시글일 경우
         if Report.objects.filter(ticket=ticket, reporter=request.user).exists():
             return redirect('mainpage:detail', id=ticket_id)
 
-        # 새로운 신고 생성
-        report = Report.objects.create(ticket=ticket, reporter=reporter)
-
-        # 추가로 신고 처리 로직 구현
-        if ticket.report_count >= 3:
-            # 게시글을 보류 상태로 변경
-            ticket.status = '보류'
         else:
+            report = Report.objects.create(ticket=ticket, reporter=reporter)
             ticket.report_count += 1
-        ticket.save()
-            # 또는 게시글을 삭제할 수도 있습니다.
-            # ticket.delete()
-
+            ticket.save()
+                
         return redirect('mainpage:detail', id=ticket_id)
-
-    return redirect('mainpage:detail', id=ticket_id)
 
 def report_confirm(request, id):
     ticket = get_object_or_404(Ticket, id=id)

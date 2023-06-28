@@ -68,7 +68,7 @@
 
 
   
-      <!--신고 및 삭제-->
+      <!--신고 및 삭제 팝업-->
         {% if user.is_authenticated %}
           {% if user != ticket.writer %}
           <form action="{% url 'mainpage:report_confirm' ticket.id %}" method="post">
