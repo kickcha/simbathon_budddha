@@ -14,6 +14,8 @@ class Qna(models.Model):
         return self.title
     def comment_and_reply_count(self):
         return self.qnacomment_set.count() + self.qnacomment_set.aggregate(reply_count=Count('qnareply'))['reply_count']
+    def summary(self):
+        return self.title[:22]
     
 class QnaComment(models.Model):
     content = models.TextField()

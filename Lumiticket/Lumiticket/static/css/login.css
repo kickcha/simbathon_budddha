@@ -82,16 +82,17 @@ span.head_name{
 /* welcome */
 
 span#welcome_announce{
-    margin-top: 10rem;
+    /* margin-top: 10rem; */
     font-size: 40px;
     font-family: 'Tenada';
     position: relative;
     color: #FAFBFD;
-    width: 100vw;
-    transform: translateX(2.4%);
+    width: 100%;
+    /* transform: translateX(2.4%); */
     top: 220px;
-    left: 7%;
     line-height: 1.2;
+    justify-content: center;
+    display: flex;
 }
 
 /* form */
@@ -101,7 +102,7 @@ span#welcome_announce{
     border-radius: 20px;
     position: relative;
     left: 50%;
-    top: 20rem;
+    top: 25rem;
     transform: translate(-50%, 50%);
     font-family: 'GowunDodum-Regular';
     height: 38px;
@@ -113,7 +114,7 @@ span#welcome_announce{
 }
 
 .signup_form{
-    top: 21rem;
+    top: 26rem;
     background-color: #FFD700;
     border: none;
     border-radius: 20px;
