@@ -9,7 +9,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 def mypage(request):
     if not request.user.is_authenticated:
-        return render(request, 'accounts/login_required.html')
+        return render(request, 'accounts/login.html')
     else:
         user = request.user
         comments = QnaComment.objects.filter(writer=user)
@@ -90,4 +90,7 @@ def myqnalist(request, id):
         return render(request, 'mypage/myqnalist.html', context)
 
 def logout_confirm(request):
-    return render(request, 'mypage/logoutconfirm.html')
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    else:
+        return render(request, 'mypage/logoutconfirm.html')
