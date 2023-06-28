@@ -126,8 +126,9 @@ a{
     font-family: 'GowunDodum-Regular';
     font-size: 20px;
     margin-top: 30%;
-    margin-left: 10%;
+    margin-left: 5%;
     width: 90%;
+    position: absolute;
 }
 
 .qna-body{
@@ -142,9 +143,9 @@ a{
 .comment-box{
     font-family: 'GowunDodum-Regular';
     display: flex;
-    position: relative;
-    left: 80%;
-    bottom: 18%;
+    position: absolute;
+    left: 89%;
+    bottom: 22%;
 }
 
 .hr-line{
