@@ -162,12 +162,16 @@ def ticketlistpop(request):
     return render(request, 'mainpage/ticketlistpop.html', {'tickets':tickets})
 
 def ticket_delete_confirm(request, id):
-    ticket = get_object_or_404(Ticket, id=id)
-    return render(request, 'mainpage/delconfirm.html', {'ticket':ticket})
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    else:
+        ticket = get_object_or_404(Ticket, id=id)
+        return render(request, 'mainpage/delconfirm.html', {'ticket':ticket})
 
 def delete(request, id):
-    if request.user.is_authenticated:
+    if not request.user.is_authenticated:
+        return render(request, 'accounts/login_required.html')
+    else:
         delete_ticket = get_object_or_404(Ticket, id=id)
         delete_ticket.delete()
         return redirect('mainpage:mainpage')
-    return redirect('accounts:login')
