@@ -156,7 +156,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 35px;
+  margin-right: 55px;
   top: -1px;
   font-size: 14px;
   font-family: 'GowunDodum-Regular';
@@ -400,7 +400,7 @@ body {
 .qna-title{
   position: relative;
   background-color: rgb(217, 193, 169);
-  width: 320px;
+  width: 355px;
   height: 72px;
   color: black;
   font-family: 'GowunDodum-Regular';
