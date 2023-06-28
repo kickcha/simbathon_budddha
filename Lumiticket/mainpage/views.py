@@ -30,7 +30,7 @@ def report(request, ticket_id):
             report = Report.objects.create(ticket=ticket, reporter=reporter)
             ticket.report_count += 1
             ticket.save()
-                
+        
         return redirect('mainpage:detail', id=ticket_id)
 
 def report_confirm(request, id):
