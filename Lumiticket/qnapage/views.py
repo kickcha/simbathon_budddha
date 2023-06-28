@@ -78,9 +78,8 @@ def qnalistrecent(request):
 def qnalistpop(request):
     qnas = Qna.objects.annotate(
         comment_count=Count('qnacomment'), 
-        reply_count=Count('qnacomment__qnareply'),
-        latest_comment_date=Max('qnacomment__pub_date')
-        ).order_by('-latest_comment_date')
+        reply_count=Count('qnacomment__qnareply')
+    ).order_by('-comment_count', '-reply_count')
     return render(request, 'qnapage/qnalistpop.html', {'qnas': qnas})
 
 def qnadetail(request, id):
