@@ -76,7 +76,7 @@
   
                       <!-- 신고 3회 이상 시-->
                       {% if ticket.report_count >= 3 %}
-                          <h5 class="report-message">3회 이상 신고되어 관리자가 확인 중인 게시글입니다.</h5>
+                          <h4 class="card-text">3회 이상 신고되어 관리자가 확인 중인 게시글입니다.</h5>
                       {% else %}
                           <h4 class="card-text">{{ticket.summary}}... </h4>
                       {% endif %}
